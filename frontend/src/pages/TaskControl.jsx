@@ -75,9 +75,14 @@ const Board = () => {
 
 
   return (
-    <div className="flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full max-xl:overflow-scroll gap-3 pt-12 sm:pt-28">
+    <div className="flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full max-xl:overflow-scroll gap-12 pt-12 sm:pt-28">
       <Column
-        title="Backlog"
+        title={
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-[7px] h-[7px] rounded-full bg-red-300"></span>
+            <span className="text-sm">BACKLOG</span>
+          </div>
+        }
         column="backlog"
         headingColor="text-red-300"
         cards={cards}
@@ -85,7 +90,12 @@ const Board = () => {
         updateCardsOrderInBackend={updateCardsOrderInBackend}
       />
       <Column
-        title="TODO"
+        title={
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-[7px] h-[7px] rounded-full bg-yellow-300"></span>
+            <span className="text-sm">TODO</span>
+          </div>
+        }
         column="todo"
         headingColor="text-yellow-300"
         cards={cards}
@@ -93,7 +103,12 @@ const Board = () => {
         updateCardsOrderInBackend={updateCardsOrderInBackend}
       />
       <Column
-        title="In progress"
+        title={
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-[7px] h-[7px] rounded-full bg-blue-300"></span>
+            <span className="text-sm">IN PROGRESS</span>
+          </div>
+        }
         column="doing"
         headingColor="text-blue-300"
         cards={cards}
@@ -101,7 +116,12 @@ const Board = () => {
         updateCardsOrderInBackend={updateCardsOrderInBackend}
       />
       <Column
-        title="Complete"
+        title={
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-[7px] h-[7px] rounded-full bg-emerald-300"></span>
+            <span className="text-sm">COMPLETE</span>
+          </div>
+        }
         column="done"
         headingColor="text-emerald-300"
         cards={cards}
@@ -277,7 +297,7 @@ const Card = ({ title, id, column, handleDragStart, isDragging }) => {
       onDragStart={(e) => handleDragStart(e, {
         id: id,
         title: title,
-        column: column
+        column: column  
       })}
       className={`cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing ${isDragging ? 'opacity-50' : ''
         }`}
