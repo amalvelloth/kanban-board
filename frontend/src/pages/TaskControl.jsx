@@ -19,6 +19,7 @@ export const TaskControl = () => {
 
 const Board = () => {
   const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -28,7 +29,6 @@ const Board = () => {
           throw new Error('Failed to fetch cards');
         }
         const data = await response.json();
-        // Normalize the data structure
         const normalizedCards = (Array.isArray(data) ? data : data.cards || [])
           .map(card => ({
             id: card._id || card.id, // Normalize ID
@@ -39,11 +39,14 @@ const Board = () => {
       } catch (error) {
         console.error('Error fetching cards:', error);
         setCards([]);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchCards();
   }, []);
+
 
   const updateCardsOrderInBackend = async (card) => {
     console.log("Updated moved card:", card);
@@ -73,6 +76,16 @@ const Board = () => {
   };
 
 
+
+  if (loading) {
+    return (
+      <div className="flex h-64 w-full items-center justify-center">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-neutral-700 border-t-white"></div>
+      </div>
+    )
+  }
+
+  
 
   return (
     <div className="flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full max-xl:overflow-scroll gap-12 pt-12 sm:pt-28">
@@ -297,7 +310,7 @@ const Card = ({ title, id, column, handleDragStart, isDragging }) => {
       onDragStart={(e) => handleDragStart(e, {
         id: id,
         title: title,
-        column: column  
+        column: column
       })}
       className={`cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing ${isDragging ? 'opacity-50' : ''
         }`}
