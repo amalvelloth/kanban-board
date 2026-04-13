@@ -33,6 +33,8 @@ function Login() {
     setLoginInfo(copyLoginInfo);
   };
 
+  const [loading, setLoading] = useState(false);
+
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = loginInfo;
@@ -40,6 +42,7 @@ function Login() {
       return handleError("Email and password are required.");
     }
     try {
+      setLoading(true);
       const url = `https://auth-mern-app-api-silk.vercel.app/auth/login`;
       console.log("Sending login request to:", url);
 
@@ -71,6 +74,8 @@ function Login() {
     } catch (err) {
       console.error("Login error:", err);
       handleError("An unexpected error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -119,7 +124,9 @@ function Login() {
       console.log(result);
     } catch (err) {
       handleError(err);
-      }
+      } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -201,9 +208,14 @@ function Login() {
             />
             <button
               type="submit"
+              disabled={loading}
               className="py-2 text-sm font-semibold bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded"
             >
-              LOGIN
+              {loading ? (
+                <>
+                <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
+                </>
+              ): ("LOGIN")}
             </button>
           </form>
         </Modal>
@@ -253,9 +265,14 @@ function Login() {
             />
             <button
               type="submit"
+              disabled={loading}
               className="py-2 text-sm font-semibold bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded"
             >
-              Sign Up
+              {loading ? (
+                <>
+                <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
+                </>
+              ): ("SIGNUP")}
             </button>
           </form>
         </Modal>
