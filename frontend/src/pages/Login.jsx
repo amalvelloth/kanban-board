@@ -33,7 +33,8 @@ function Login() {
     setLoginInfo(copyLoginInfo);
   };
 
-  const [loading, setLoading] = useState(false);
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [registerLoading, setRegisterLoading] = useState(false);
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +43,7 @@ function Login() {
       return handleError("Email and password are required.");
     }
     try {
-      setLoading(true);
+      setLoginLoading(true);
       const url = `https://auth-mern-app-api-silk.vercel.app/auth/login`;
       console.log("Sending login request to:", url);
 
@@ -55,6 +56,7 @@ function Login() {
       });
 
       const result = await response.json();
+      console.log("Login status:", response.status);
       console.log("Login response:", result);
 
       const { success, message, jwtToken, name, error } = result;
@@ -73,9 +75,9 @@ function Login() {
       }
     } catch (err) {
       console.error("Login error:", err);
-      handleError("An unexpected error occurred. Please try again.");
+      handleError(err.message || "An unexpected error occurred. Please try again.");
     } finally {
-      setLoading(false);
+      setLoginLoading(false);
     }
   };
 
@@ -100,7 +102,9 @@ function Login() {
       return handleError("name, email and password are required");
     }
     try {
+      setRegisterLoading(true);
       const url = `https://auth-mern-app-api-silk.vercel.app/auth/signup`;
+      console.log("Sending signup request to:", url);
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -109,6 +113,8 @@ function Login() {
         body: JSON.stringify(signupInfo),
       });
       const result = await response.json();
+      console.log("Signup status:", response.status);
+      console.log("Signup response:", result);
       const { success, message, error } = result;
       if (success) {
         handleSuccess(message);
@@ -116,16 +122,16 @@ function Login() {
           navigate("/login");
         }, 1000);
       } else if (error) {
-        const details = error?.details[0].message;
-        handleError(details);
+        const details = error?.details?.[0]?.message;
+        handleError(details || message || "Signup failed.");
       } else if (!success) {
-        handleError(message);
+        handleError(message || "Signup failed.");
       }
-      console.log(result);
     } catch (err) {
-      handleError(err);
-      } finally {
-      setLoading(false);
+      console.error("Signup error:", err);
+      handleError(err.message || "An unexpected error occurred. Please try again.");
+    } finally {
+      setRegisterLoading(false);
     }
   };
 
@@ -208,10 +214,10 @@ function Login() {
             />
             <button
               type="submit"
-              disabled={loading}
-              className="py-2 text-sm font-semibold bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded"
+              disabled={loginLoading}
+              className="py-2 text-sm font-semibold bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded flex items-center justify-center"
             >
-              {loading ? (
+              {loginLoading ? (
                 <>
                 <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
                 </>
@@ -265,10 +271,10 @@ function Login() {
             />
             <button
               type="submit"
-              disabled={loading}
-              className="py-2 text-sm font-semibold bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded"
+              disabled={registerLoading}
+              className="py-2 text-sm font-semibold bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded flex items-center justify-center"
             >
-              {loading ? (
+              {registerLoading ? (
                 <>
                 <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
                 </>
