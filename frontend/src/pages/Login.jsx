@@ -187,8 +187,9 @@ function Login() {
               name="email"
               placeholder="Email"
               value={loginInfo.email}
+              onFocus="this.setSelectionRange(0,0)"
               onChange={handleLoginChange}
-              className="p-2 border text-white border-gray-300 rounded"
+              className="p-2 border text-white border-gray-300/10 rounded"
             />
             <input
               type="password"
@@ -196,13 +197,13 @@ function Login() {
               placeholder="Password"
               value={loginInfo.password}
               onChange={handleLoginChange}
-              className="p-2 border text-white border-gray-300 rounded"
+              className="p-2 border text-white border-gray-300/10 rounded"
             />
             <button
               type="submit"
-              className="py-2 bg-[#8c8c8c] text-white rounded"
+              className="py-2 text-sm font-semibold bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded"
             >
-              Login
+              LOGIN
             </button>
           </form>
         </Modal>
@@ -232,7 +233,7 @@ function Login() {
               placeholder="Enter Name"
               value={signupInfo.name}
               onChange={handleRegisterChange}
-              className="p-2 border text-white border-gray-300 rounded"
+              className="p-2 border text-white border-gray-300/10 rounded"
             />
             <input
               type="email"
@@ -240,7 +241,7 @@ function Login() {
               placeholder="Enter Email"
               value={signupInfo.email}
               onChange={handleRegisterChange}
-              className="p-2 border text-white border-gray-300 rounded"
+              className="p-2 border text-white border-gray-300/10 rounded"
             />
             <input
               type="password"
@@ -248,11 +249,11 @@ function Login() {
               placeholder="Enter Password"
               value={signupInfo.password}
               onChange={handleRegisterChange}
-              className="p-2 border text-white border-gray-300 rounded"
+              className="p-2 border text-white border-gray-300/10 rounded"
             />
             <button
               type="submit"
-              className="py-2 bg-[#8C8C8C] text-white rounded"
+              className="py-2 text-sm font-semibold bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded"
             >
               Sign Up
             </button>
