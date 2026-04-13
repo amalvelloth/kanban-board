@@ -27,7 +27,7 @@ function Login() {
 
   const handleLoginChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+    // console.log(name, value);
     const copyLoginInfo = { ...loginInfo };
     copyLoginInfo[name] = value;
     setLoginInfo(copyLoginInfo);
@@ -82,7 +82,7 @@ function Login() {
 
   const handleRegisterChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+    // console.log(name, value);
     const copySignupInfo = { ...signupInfo };
     copySignupInfo[name] = value;
     setSignupInfo(copySignupInfo);
@@ -119,7 +119,7 @@ function Login() {
       console.log(result);
     } catch (err) {
       handleError(err);
-    }
+      }
   };
 
   return (
@@ -169,7 +169,7 @@ function Login() {
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
           className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-white rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
-          overlayClassName="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[1000]"
+          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]"
         >
           <h2 className="font-bold text-xl text-center">Login</h2>
           <button
@@ -213,7 +213,7 @@ function Login() {
   onRequestClose={closeRegisterModal}
   contentLabel="Register Modal"
   className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-white rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
-  overlayClassName="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9998]"
+  overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998]"
 >
           <h2 className="font-bold text-xl text-center">Sign Up</h2>
           <button
