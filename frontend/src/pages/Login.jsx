@@ -168,13 +168,13 @@ function Login() {
           isOpen={isLoginModalOpen}
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
-          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-white rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
+          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-white/10 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]"
         >
-          <h2 className="font-bold text-xl text-center">Login</h2>
+          <h2 className="font-bold text-xl text-center text-white">Login</h2>
           <button
             onClick={closeLoginModal}
-            className="close-button absolute top-0 right-0 m-4 text-red-500 hover:text-gray-800"
+            className="close-button absolute top-0 right-0 m-4 text-red-500"
           >
             Close
           </button>
@@ -188,7 +188,7 @@ function Login() {
               placeholder="Email"
               value={loginInfo.email}
               onChange={handleLoginChange}
-              className="p-2 border border-gray-300 rounded"
+              className="p-2 border text-white border-gray-300 rounded"
             />
             <input
               type="password"
@@ -196,11 +196,11 @@ function Login() {
               placeholder="Password"
               value={loginInfo.password}
               onChange={handleLoginChange}
-              className="p-2 border border-gray-300 rounded"
+              className="p-2 border text-white border-gray-300 rounded"
             />
             <button
               type="submit"
-              className="py-2 bg-[#474747] text-white rounded"
+              className="py-2 bg-[#8c8c8c] text-white rounded"
             >
               Login
             </button>
@@ -212,13 +212,13 @@ function Login() {
   isOpen={isRegisterModalOpen}
   onRequestClose={closeRegisterModal}
   contentLabel="Register Modal"
-  className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-white rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
+  className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-white/10 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
   overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998]"
 >
-          <h2 className="font-bold text-xl text-center">Sign Up</h2>
+          <h2 className="font-bold text-xl text-center text-white">Sign Up</h2>
           <button
             onClick={closeRegisterModal}
-            className="close-button absolute top-0 right-0 m-4 text-red-500 hover:text-gray-800"
+            className="close-button absolute top-0 right-0 m-4 text-red-500"
           >
             Close
           </button>
@@ -232,7 +232,7 @@ function Login() {
               placeholder="Enter Name"
               value={signupInfo.name}
               onChange={handleRegisterChange}
-              className="p-2 border border-gray-300 rounded"
+              className="p-2 border text-white border-gray-300 rounded"
             />
             <input
               type="email"
@@ -240,7 +240,7 @@ function Login() {
               placeholder="Enter Email"
               value={signupInfo.email}
               onChange={handleRegisterChange}
-              className="p-2 border border-gray-300 rounded"
+              className="p-2 border text-white border-gray-300 rounded"
             />
             <input
               type="password"
@@ -248,11 +248,11 @@ function Login() {
               placeholder="Enter Password"
               value={signupInfo.password}
               onChange={handleRegisterChange}
-              className="p-2 border border-gray-300 rounded"
+              className="p-2 border text-white border-gray-300 rounded"
             />
             <button
               type="submit"
-              className="py-2 bg-[#8C8C8C] text-black rounded"
+              className="py-2 bg-[#8C8C8C] text-white rounded"
             >
               Sign Up
             </button>
