@@ -10,8 +10,9 @@ function Navbar({ className }) {
   return (
     <nav className={`h-16 flex items-center justify-center w-full absolute z-10 ${className}`}>
       { !isHomePage && <BurgerMenu/> }
-      <a href="/">
-        {/* <h1 className='text-3xl font-bold max-md:text-2xl z-50'>Fit+</h1> */}
+      <a href="/" class="flex gap-2">
+        <h1 className='!text-xl font-semibold max-md:text-2xl z-50'>KANBAN</h1>
+        <h1 className='!text-xl font-light max-md:text-2xl z-50'>BOARD</h1>
       </a>
     </nav>
   )
