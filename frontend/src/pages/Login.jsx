@@ -61,7 +61,7 @@ function Login() {
         localStorage.setItem("token", jwtToken);
         localStorage.setItem("loggedInUser", name);
         setTimeout(() => {
-          navigate("/dashboard");
+          navigate("/taskcontrol");
         }, 1000);
       } else if (error) {
         handleError(error?.details?.[0]?.message || "Unknown error occurred.");
