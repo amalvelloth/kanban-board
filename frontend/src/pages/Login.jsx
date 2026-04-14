@@ -143,8 +143,8 @@ function Login() {
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
             <h2 className="opacity-80 bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent text-6xl sm:text-7xl font-bold">KANBAN BOARD</h2>
           </div>
-          <img src={Element1} className=" w-[190px] md:w-[250px] grayscale" alt="Jogging" />
-          <img src={Element2} className=" w-[130px] md:w-[190px] grayscale absolute right-0" alt="Jogging" />
+          <img src={Element1} className=" w-[190px] md:w-[250px] aspect-square grayscale" alt="Jogging" />
+          <img src={Element2} className=" w-[130px] md:w-[190px] aspect-square grayscale absolute right-0" alt="Jogging" />
           <div className="text mt-20">
             <h1 className="text-white font-extrabold w-3/4 text-5xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
               Visualize Your Progress

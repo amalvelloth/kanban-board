@@ -52,6 +52,7 @@ function Dashboard() {
               <div className="space-y-2">
                 <h1 className="text-3xl font-semibold leading-tight sm:text-4xl">
                   {greeting}{" "}
+                  <br />
                   <span className="font-extrabold text-white">
                     {capitalizedUserName || "there"}
                   </span>
@@ -62,7 +63,7 @@ function Dashboard() {
               </div>
               <button
                 onClick={handleLogout}
-                className="rounded-xl bg-white cursor-pointer px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-neutral-200"
+                className="rounded-xl bg-red-500 cursor-pointer px-4 py-2 text-sm font-semibold text-white transition"
               >
                 Log out
               </button>
