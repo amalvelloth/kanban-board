@@ -7,6 +7,7 @@ import Element1 from "../assets/element-1.svg";
 import Element2 from "../assets/element-2.svg";
 import SvgBgDesktop from "../assets/svg-bg-desktop.svg";
 import SvgBgMobile from "../assets/svg-bg-mobile.svg";
+import heroVideo from "../assets/gradient_fluid_animation.mp4";
 
 function Login() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -139,12 +140,12 @@ function Login() {
     <>
       <section className="flex w-full h-screen relative overflow-hidden bg-black">
         <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle,_#ffffff30_1px,_transparent_1px)] bg-[size:20px_20px]" />
-        <div className="relative flex-col p-8 w-full h-screen max-md:p-2 z-[1]">
+        <div className="relative flex-col p-8 w-full h-screen max-md:p-2 z-[2]">
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
             <h2 className="opacity-80 bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent text-6xl sm:text-7xl font-bold">KANBAN BOARD</h2>
           </div>
-          <img src={Element1} className=" w-[190px] md:w-[250px] aspect-square grayscale" alt="Jogging" />
-          <img src={Element2} className=" w-[130px] md:w-[190px] aspect-square grayscale absolute right-0" alt="Jogging" />
+          <img src={Element1} className=" w-[190px] md:w-[250px] aspect-square grayscale !z-[100]" alt="Jogging" />
+          <img src={Element2} className=" w-[130px] md:w-[190px] aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
           <div className="text mt-20">
             <h1 className="text-white font-extrabold w-3/4 text-5xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
               Visualize Your Progress
@@ -170,8 +171,20 @@ function Login() {
 
 
 
-        <img src={SvgBgDesktop} className="w-full bottom-0 left-0 right-0 absolute z-0 blur-[50px] scale-110" alt="" />
-        <img src={SvgBgMobile} className="sm:hidden w-full bottom-0 left-0 right-0 absolute z-0 blur-[30px] scale-110" alt="" />
+        <div className="absolute inset-0 z-[0] flex items-center justify-center pointer-events-none">
+          <video
+            className="object-cover h-full w-full opacity-100"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+        </div>
+
+        {/* <img src={SvgBgDesktop} className="w-full bottom-0 left-0 right-0 absolute z-0 blur-[50px] scale-110" alt="" />
+        <img src={SvgBgMobile} className="sm:hidden w-full bottom-0 left-0 right-0 absolute z-0 blur-[30px] scale-110" alt="" /> */}
 
 
 
