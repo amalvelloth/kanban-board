@@ -138,6 +138,7 @@ function Login() {
   return (
     <>
       <section className="flex w-full h-screen relative overflow-hidden bg-black">
+        <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle,_#ffffff30_1px,_transparent_1px)] bg-[size:20px_20px]" />
         <div className="relative flex-col p-8 w-full h-screen max-md:p-2 z-[1]">
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
             <h2 className="opacity-80 bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent text-6xl sm:text-7xl font-bold">KANBAN BOARD</h2>

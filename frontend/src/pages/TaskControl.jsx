@@ -88,6 +88,7 @@ const Board = () => {
   
 
   return (
+    
     <div className="flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full max-xl:overflow-scroll gap-12 pt-12 sm:pt-28">
       <Column
         title={
