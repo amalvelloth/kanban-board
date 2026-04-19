@@ -45,7 +45,7 @@ function Login() {
     }
     try {
       setLoginLoading(true);
-      const url = `https://auth-mern-app-api-silk.vercel.app/auth/login`;
+      const url = `http://localhost:5001/auth/login`;
       console.log("Sending login request to:", url);
 
       const response = await fetch(url, {
@@ -104,7 +104,7 @@ function Login() {
     }
     try {
       setRegisterLoading(true);
-      const url = `https://auth-mern-app-api-silk.vercel.app/auth/signup`;
+      const url = `http://localhost:5001/auth/signup`;
       console.log("Sending signup request to:", url);
       const response = await fetch(url, {
         method: "POST",
@@ -212,7 +212,7 @@ function Login() {
               name="email"
               placeholder="Email"
               value={loginInfo.email}
-              onFocus="this.setSelectionRange(0,0)"
+              onFocus={(e) => e.target.setSelectionRange(0, 0)}
               onChange={handleLoginChange}
               className="p-2 border text-white border-gray-300/10 rounded"
             />
