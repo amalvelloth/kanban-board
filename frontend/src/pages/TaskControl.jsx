@@ -24,7 +24,12 @@ const Board = () => {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await fetch('https://fitplus-api.vercel.app/cards');
+        const token = localStorage.getItem('token');
+        const response = await fetch('http://localhost:5001/cards', {
+          headers: {
+            'Authorization': token
+          }
+        });
         if (!response.ok) {
           throw new Error('Failed to fetch cards');
         }
