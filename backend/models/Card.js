@@ -2,8 +2,12 @@ const mongoose = require("mongoose");
 
 const cardSchema = new mongoose.Schema({
   title: String,
-  column: String,  // Added for drag-and-drop functionality
-  // Add any other fields you need here
+  column: String,
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  }
 });
 
 const Card = mongoose.model("Card", cardSchema);

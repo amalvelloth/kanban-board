@@ -52,10 +52,12 @@ const Board = () => {
     console.log("Updated moved card:", card);
 
     try {
-      const response = await fetch(`https://fitplus-api.vercel.app/cards/${card.id}`, {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`http://localhost:5001/cards/${card.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': token
         },
         body: JSON.stringify({
           _id: card.id,
@@ -405,10 +407,12 @@ const AddCard = ({ column, setCards }) => {
     };
 
     try {
-      const response = await fetch('https://fitplus-api.vercel.app/cards', {
+      const token = localStorage.getItem('token');
+      const response = await fetch('http://localhost:5001/cards', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': token
         },
         body: JSON.stringify(newCard),
       });
@@ -475,8 +479,12 @@ const AddCard = ({ column, setCards }) => {
 
 const deleteCardFromBackend = async (cardId) => {
   try {
-    const response = await fetch(`https://fitplus-api.vercel.app/cards/${cardId}`, {
+    const token = localStorage.getItem('token');
+    const response = await fetch(`http://localhost:5001/cards/${cardId}`, {
       method: 'DELETE',
+      headers: {
+        'Authorization': token
+      }
     });
 
     if (!response.ok) {

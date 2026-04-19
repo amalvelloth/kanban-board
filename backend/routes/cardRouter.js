@@ -6,8 +6,11 @@ const {
   updateCardColumn,
   deleteCard
 } = require("../controllers/cardController");
+const { ensureAuthenticated } = require("../middlewares/authMiddleware");
 
 const router = express.Router();
+
+router.use(ensureAuthenticated);
 
 router.get("/", getAllCards);
 router.get("/:id", getCardById);

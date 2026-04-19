@@ -4,7 +4,7 @@ const Card = require("../models/Card");
 // Get all cards
 const getAllCards = async (req, res) => { 
   try {
-    const cards = await Card.find().sort({ createdAt: -1 });
+    const cards = await Card.find({ userId: req.user._id }).sort({ createdAt: -1 });
     res.json({ cards }); // Wrap in object for consistent response format
   } catch (err) {
     console.error('Error fetching cards:', err);
@@ -15,7 +15,7 @@ const getAllCards = async (req, res) => {
 // Get a card by ID
 const getCardById = async (req, res) => {
   try {
-    const card = await Card.findById(req.params.id);
+    const card = await Card.findOne({ _id: req.params.id, userId: req.user._id });
     if (!card) {
       return res.status(404).json({ message: "Card not found" });
     }
@@ -34,11 +34,12 @@ const addCard = async (req, res) => {
 
     const newCard = await Card.create({
       title: req.body.title,
-      column: req.body.column
+      column: req.body.column,
+      userId: req.user._id
     });
 
     // Fetch all cards after adding new one
-    const cards = await Card.find().sort({ createdAt: -1 });
+    const cards = await Card.find({ userId: req.user._id }).sort({ createdAt: -1 });
     res.status(201).json({ cards }); // Wrap in object for consistent response format
   } catch (error) {
     console.error('Error adding card:', error);
@@ -56,20 +57,20 @@ const updateCardColumn = async (req, res) => {
       return res.status(400).json({ error: "Card ID is required" });
     }
 
-    const updatedCard = await Card.findByIdAndUpdate(
-      _id,
+    const updatedCard = await Card.findOneAndUpdate(
+      { _id, userId: req.user._id },
       { column, title },
       { new: true }
     );
 
     if (!updatedCard) {
-      return res.status(404).json({ error: "Card not found" });
+      return res.status(404).json({ error: "Card not found or unauthorized" });
     }
 
     // console.log("Updated Card:", updatedCard);
 
     // Fetch updated list of cards
-    const allCards = await Card.find().sort({ createdAt: -1 });
+    const allCards = await Card.find({ userId: req.user._id }).sort({ createdAt: -1 });
     res.json({ cards: allCards });
   } catch (error) {
     console.error("Error updating cards:", error);
@@ -84,14 +85,14 @@ const updateCardColumn = async (req, res) => {
 const deleteCard = async (req, res) => {
   try {
     const { id } = req.params;
-    const deletedCard = await Card.findByIdAndDelete(id);
+    const deletedCard = await Card.findOneAndDelete({ _id: id, userId: req.user._id });
     
     if (!deletedCard) {
-      return res.status(404).json({ error: "Card not found" });
+      return res.status(404).json({ error: "Card not found or unauthorized" });
     }
     
     // Fetch all remaining cards after deletion
-    const cards = await Card.find().sort({ createdAt: -1 });
+    const cards = await Card.find({ userId: req.user._id }).sort({ createdAt: -1 });
     res.json({ cards }); // Return remaining cards instead of just a message
   } catch (error) {
     console.error('Error deleting card:', error);
