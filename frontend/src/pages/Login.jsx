@@ -45,7 +45,7 @@ function Login() {
     }
     try {
       setLoginLoading(true);
-      const url = `http://localhost:5001/auth/login`;
+      const url = `https://fitplus-api.vercel.app/auth/login`;
       console.log("Sending login request to:", url);
 
       const response = await fetch(url, {
@@ -104,7 +104,7 @@ function Login() {
     }
     try {
       setRegisterLoading(true);
-      const url = `http://localhost:5001/auth/signup`;
+      const url = `https://fitplus-api.vercel.app/auth/signup`;
       console.log("Sending signup request to:", url);
       const response = await fetch(url, {
         method: "POST",
