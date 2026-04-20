@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 const GRID_SIZE = 20;
 const DOT_RADIUS = 1.2;
-const EFFECT_RADIUS = 110;
+const EFFECT_RADIUS = 150;
 const RETURN_EASE = 0.12;
 const PUSH_STRENGTH = 16;
 
