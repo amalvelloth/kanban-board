@@ -65,7 +65,7 @@ export default function DotGrid() {
       const { innerWidth, innerHeight } = window;
 
       context.clearRect(0, 0, innerWidth, innerHeight);
-      context.fillStyle = "rgba(255, 255, 255, 0.28)";
+      context.fillStyle = "rgba(255, 255, 255, 0.18)";
 
       dots.forEach((dot) => {
         const dx = dot.baseX - mouse.x;
