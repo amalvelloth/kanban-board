@@ -1,2 +1,9 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 
+@font-face {
+  font-family: "RmNeue";
+  src: url("assets/fonts/RMNeueTRIAL-Regular.otf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
