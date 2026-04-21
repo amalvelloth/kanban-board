@@ -145,10 +145,16 @@ function Login() {
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
             <h2 className="opacity-80 bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent text-6xl sm:text-7xl font-bold">KANBAN BOARD</h2>
           </div>
-          <img src={Element1} className=" w-[190px] md:w-[250px] animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
+          <img src={Element1} className=" w-[150px] md:w-[250px] animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
           <img src={Element2} className=" w-[130px] md:w-[190px] animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
           <div className="text-start mt-20">
-            <p className="block text-start text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium md:text-center text-[#bc90e3]">PLAN &nbsp; <span className="text-2xl">.</span> &nbsp; EXECUTE &nbsp; <span className="text-2xl">.</span> &nbsp; REPEAT</p>
+            <p className="flex items-center justify-start md:justify-center gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
+              <span>PLAN</span>
+              <span className="h-1 w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
+              <span>EXECUTE</span>
+              <span className="h-1 w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
+              <span>REPEAT</span>
+            </p>
             <h1 className="text-white font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-6xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
               Visualize Your Progress
             </h1>
