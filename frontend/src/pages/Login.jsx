@@ -148,9 +148,10 @@ function Login() {
           <img src={Element1} className=" w-[190px] md:w-[250px] animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
           <img src={Element2} className=" w-[130px] md:w-[190px] animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
           <div className="text-start mt-20">
-            <h1 className="text-white text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-6xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
+            <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 font-semibold text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-6xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
               Visualize Your Progress
             </h1>
+            <p className="text-white text-start md:text-center mt-2">Organize tasks, track progress, and stay focused with a visual workflow.</p>
           </div>
           <div className="buttons flex justify-start md:justify-center">
             <button
