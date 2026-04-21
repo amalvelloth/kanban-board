@@ -139,7 +139,7 @@ function Login() {
 
   return (
     <>
-      <section className="flex w-full h-screen relative overflow-hidden bg-black">
+      <section className="flex w-full font-carving h-screen relative overflow-hidden bg-black">
         <DotGrid />
         <div className="relative flex-col p-8 w-full h-screen max-md:p-2 z-[2]">
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
@@ -148,15 +148,16 @@ function Login() {
           <img src={Element1} className=" w-[190px] md:w-[250px] animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
           <img src={Element2} className=" w-[130px] md:w-[190px] animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
           <div className="text-start mt-20">
-            <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 font-semibold text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-6xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
+            <p className="block text-start text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium md:text-center text-[#bc90e3]">PLAN &nbsp; <span className="text-2xl">.</span> &nbsp; EXECUTE &nbsp; <span className="text-2xl">.</span> &nbsp; REPEAT</p>
+            <h1 className="text-white font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-6xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
               Visualize Your Progress
             </h1>
-            <p className="text-white text-start md:text-center mt-2">Organize tasks, track progress, and stay focused with a visual workflow.</p>
+            <p className="text-[#b3bdf9] text-start md:text-center mt-2">Organize tasks, track progress, and stay focused with a visual workflow.</p>
           </div>
           <div className="buttons flex justify-start md:justify-center">
             <button
               onClick={openLoginModal}
-              className="rounded-3xl my-5 me-2 border border-white text-white py-2 sm:px-10 max-sm:px-4 font-bold"
+              className="rounded-3xl my-5 me-2 border border-white text-white bg-white/10 py-2 sm:px-10 max-sm:px-4 font-bold"
             >
               Login
             </button>

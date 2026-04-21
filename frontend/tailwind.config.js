@@ -22,6 +22,7 @@ export default {
       },
       fontFamily: {
         rmneue: ['RmNeue', 'sans-serif'],
+        carving: ['Carving', 'sans-serif'],
       },
     },
   },

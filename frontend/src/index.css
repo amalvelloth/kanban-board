@@ -7,6 +7,12 @@
   font-weight: 100;
   font-style: normal;
 }
+@font-face {
+  font-family: "Carving";
+  src: url("assets/fonts/massive-carving-demo.bold.otf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
 
 :root {
   --my-color: red;
