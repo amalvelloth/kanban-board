@@ -1,9 +1,15 @@
 @import "tailwindcss";
-@config "../tailwind.config.js";
+@config "./tailwind.config.js";
 
 @font-face {
   font-family: "RmNeue";
   src: url("assets/fonts/RMNeueTRIAL-Regular.otf") format("truetype");
   font-weight: 100;
   font-style: normal;
+}
+
+:root {
+  --my-color: red;
+  --primary: blue;
+  --blog-text-muted: #6b7280;
 }

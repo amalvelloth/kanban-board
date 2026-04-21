@@ -146,13 +146,13 @@ function Login() {
             <h2 className="opacity-80 bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent text-6xl sm:text-7xl font-bold">KANBAN BOARD</h2>
           </div>
           <img src={Element1} className=" w-[190px] md:w-[250px] animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
-          <img src={Element2} className=" w-[130px] md:w-[190px] aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
-          <div className="text mt-20">
-            <h1 className="text-white font-extrabold w-3/4 text-5xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
+          <img src={Element2} className=" w-[130px] md:w-[190px] animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
+          <div className="text-center mt-20">
+            <h1 className="text-white text-center mx-auto font-rmneue w-3/4 text-6xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
               Visualize Your Progress
             </h1>
           </div>
-          <div className="buttons flex justify-start">
+          <div className="buttons flex justify-center">
             <button
               onClick={openLoginModal}
               className="rounded-3xl my-5 me-2 border border-white text-white py-2 sm:px-10 max-sm:px-4 font-bold"
@@ -194,7 +194,7 @@ function Login() {
           isOpen={isLoginModalOpen}
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
-          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-white/10 border border-gray-500/30 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
+          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-[var(--blog-text-muted)]/50 border border-gray-500/30 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]"
         >
           <h2 className="font-bold text-xl text-center text-white">Login</h2>
