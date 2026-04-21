@@ -6,11 +6,11 @@ import DesktopMenu from "../components/DesktopMenu";
 
 export const TaskControl = () => {
   return (
-    <section className="flex bg-neutral-900">
+    <section className="flex bg-neutral-900 relative">
+      <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle,_#ffffff30_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
       <DesktopMenu />
       <div className="h-full w-full max-lg:pt-16  text-neutral-50">
         <h2 className="opacity-80 bg-gradient-to-b from-black to-[#999999] bg-clip-text text-transparent text-4xl mt-4 text-center font-bold whitespace-nowrap">KANBAN BOARD</h2>
-
         <Board />
       </div>
     </section>
@@ -96,8 +96,7 @@ const Board = () => {
 
   return (
 
-    <div className="relative flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full max-xl:overflow-scroll gap-12 pt-12 sm:pt-28">
-      <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle,_#ffffff30_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
+    <div className="relative flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full gap-12 pt-12 sm:pt-28">
       <Column
         title={
           <div className="flex items-center gap-2">
@@ -271,7 +270,7 @@ const Column = ({ title, headingColor, cards, column, setCards, updateCardsOrder
   const filteredCards = Array.isArray(cards) ? cards.filter((c) => c.column === column) : [];
 
   return (
-    <div className="w-56 shrink-0 z-1">
+    <div className="w-56 h-fit shrink-0 z-1">
       <div className="mb-3 flex items-center justify-between">
         <h3 className={`font-medium ${headingColor}`}>{title}</h3>
         <span className="rounded text-sm text-neutral-400">
@@ -386,7 +385,7 @@ const BurnBarrel = ({ setCards }) => {
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
-      className={`mt-10 z-10 grid h-56 w-56 shrink-0 place-content-center rounded border text-3xl ${active
+      className={`z-10 grid h-56 w-56 shrink-0 place-content-center rounded border text-3xl ${active
         ? "border-red-800 bg-red-800/20 text-red-500"
         : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
         }`}
