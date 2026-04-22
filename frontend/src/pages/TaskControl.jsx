@@ -6,11 +6,11 @@ import DesktopMenu from "../components/DesktopMenu";
 
 export const TaskControl = () => {
   return (
-    <section className="flex bg-neutral-900 relative">
+    <section className="relative h-full bg-neutral-900">
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle,_#ffffff30_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
-      <DesktopMenu />
-      <div className="h-full w-full max-lg:pt-16  text-neutral-50">
-        <h2 className="opacity-80 bg-gradient-to-b from-black to-[#999999] bg-clip-text text-transparent text-4xl mt-4 text-center font-bold whitespace-nowrap">KANBAN BOARD</h2>
+      {/* <DesktopMenu /> */}
+      <div className="relative z-[2] min-h-screen w-full max-lg:pt-16 text-neutral-50">
+        <h2 className="opacity-80 bg-gradient-to-b from-black to-[#999999] bg-clip-text text-transparent text-4xl pt-4 text-center font-bold whitespace-nowrap">KANBAN BOARD</h2>
         <Board />
       </div>
     </section>

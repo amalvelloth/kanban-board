@@ -145,8 +145,8 @@ function Login() {
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
             <h2 className="opacity-80 bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent text-6xl sm:text-7xl font-bold">KANBAN BOARD</h2>
           </div>
-          <img src={Element1} className=" w-[150px] md:w-[250px] animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
-          <img src={Element2} className=" w-[130px] md:w-[190px] animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
+          <img src={Element1} className=" w-[150px] md:w-[250px] mt-10 md:mt-0 animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
+          <img src={Element2} className=" w-[130px] md:w-[190px] mt-10 md:mt-0 animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
           <div className="wrapper pt-20 absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-2">
               <p className="flex items-center justify-center gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
                 <span>PLAN</span>

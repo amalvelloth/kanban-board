@@ -24,7 +24,7 @@ function DesktopMenu() {
 
     return (
         <div
-            className={`max-lg:hidden h-screen min-w-fit flex items-center top-0 -left-0 z-[9999] bg-[#000] transition-transform duration-500 translate-x-0'
+            className={`max-lg:hidden h-screen min-w-fit flex items-center top-0 -left-0 z-[-2] bg-[#000] transition-transform duration-500 translate-x-0'
                     }`}
         >
             <ul className='flex flex-col items-start justify-center h-full'>
