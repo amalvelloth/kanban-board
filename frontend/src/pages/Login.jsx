@@ -155,7 +155,7 @@ function Login() {
               <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
               <span>REPEAT</span>
             </p>
-            <h1 className="bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-6xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
+            <h1 className="bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
               Visualize Your Progress
             </h1>
             <p className="text-[#f8f8f8]/80 font-light font-rmneue text-start md:text-center mt-2">Organize tasks, track progress, and stay focused with a visual workflow.</p>
@@ -202,7 +202,7 @@ function Login() {
           isOpen={isLoginModalOpen}
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
-          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 border border-gray-500/30 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
+          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-white/10 border border-gray-500/30 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]"
         >
           <h2 className="font-bold text-xl text-center text-white">Login</h2>
