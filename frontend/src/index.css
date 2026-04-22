@@ -1,21 +1,24 @@
 @import "tailwindcss";
-@config "./tailwind.config.js";
+@config "../tailwind.config.js";
 
 @font-face {
   font-family: "RmNeue";
-  src: url("assets/fonts/RMNeueTRIAL-Regular.otf") format("opentype");
-  font-weight: 100;
+  src: url("./assets/fonts/RMNeueTRIAL-Regular.otf") format("opentype");
+  font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Carving";
-  src: url("assets/fonts/morhena.italic.otf") format("opentype");
-  font-weight: 100;
+  src: url("./assets/fonts/massive-carving-demo.bold.otf") format("truetype");
+  font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
-:root {
+
+/* :root {
   --my-color: red;
   --primary: blue;
   --blog-text-muted: #6b7280;
-}
+} */

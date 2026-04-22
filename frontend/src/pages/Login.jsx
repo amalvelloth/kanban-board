@@ -139,7 +139,7 @@ function Login() {
 
   return (
     <>
-      <section className="flex w-full font-carving h-screen relative overflow-hidden bg-black">
+      <section className="flex w-full font-rmneue h-screen relative overflow-hidden bg-black">
         <DotGrid />
         <div className="relative flex-col p-8 w-full h-screen max-md:p-2 z-[2]">
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
@@ -158,18 +158,18 @@ function Login() {
             <h1 className="text-white font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-6xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
               Visualize Your Progress
             </h1>
-            <p className="text-[#f8f8f8] font-light font-rmneue text-start md:text-center mt-2">Organize tasks, track progress, and stay focused with a visual workflow.</p>
+            <p className="text-[#f8f8f8]/80 font-light font-rmneue text-start md:text-center mt-2">Organize tasks, track progress, and stay focused with a visual workflow.</p>
           </div>
           <div className="buttons flex justify-start md:justify-center">
             <button
               onClick={openLoginModal}
-              className="rounded-3xl backdrop-blur-[1.5px] my-5 me-2 border border-[#f8f8f8]/20 text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-bold"
+              className="rounded-3xl backdrop-blur-[1.5px] my-5 me-2 border border-[#f8f8f8]/20 text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
             >
               Login
             </button>
             <button
               onClick={openRegisterModal}
-              className="rounded-3xl backdrop-blur-[1.5px] my-5 ms-2 border border-[#f8f8f8]/20 text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-bold"
+              className="rounded-3xl backdrop-blur-[1.5px] my-5 ms-2 border border-[#f8f8f8]/20 text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
             >
               Sign Up
             </button>
@@ -202,7 +202,7 @@ function Login() {
           isOpen={isLoginModalOpen}
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
-          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-[var(--blog-text-muted)]/50 border border-gray-500/30 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
+          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 border border-gray-500/30 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]"
         >
           <h2 className="font-bold text-xl text-center text-white">Login</h2>
