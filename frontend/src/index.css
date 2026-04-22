@@ -11,7 +11,7 @@
 @font-face {
   font-family: "Carving";
   src: url("./assets/fonts/massive-carving-demo.bold.otf") format("truetype");
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
