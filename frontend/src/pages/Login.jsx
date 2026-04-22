@@ -147,7 +147,7 @@ function Login() {
           </div>
           <img src={Element1} className=" w-[150px] md:w-[250px] animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
           <img src={Element2} className=" w-[130px] md:w-[190px] animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
-          <div className="wrapper absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-2">
+          <div className="wrapper pt-20 absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-2">
               <p className="flex items-center justify-center gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
                 <span>PLAN</span>
                 <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />

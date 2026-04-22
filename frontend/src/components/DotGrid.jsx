@@ -4,7 +4,7 @@ const GRID_SIZE = 20;
 const DOT_RADIUS = 1.2;
 const EFFECT_RADIUS = 150;
 const RETURN_EASE = 0.12;
-const PUSH_STRENGTH = 16;
+const PUSH_STRENGTH = 20;
 
 export default function DotGrid() {
   const canvasRef = useRef(null);
