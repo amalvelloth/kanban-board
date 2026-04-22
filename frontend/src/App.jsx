@@ -38,7 +38,7 @@ function App() {
 
 function ConditionalNavbar() {
   const location = useLocation();
-  const navbarClass = location.pathname === '/login' ? 'bg-transparent' : 'bg-[#8C8C8C]';
+  const navbarClass = location.pathname === '/login' ? 'bg-transparent' : 'bg-[#000]';
 
   return <Navbar className={navbarClass} />
 }
