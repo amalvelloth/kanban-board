@@ -147,32 +147,32 @@ function Login() {
           </div>
           <img src={Element1} className=" w-[150px] md:w-[250px] animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
           <img src={Element2} className=" w-[130px] md:w-[190px] animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
-          <div className="text-start mt-20">
-            <p className="flex items-center justify-start md:justify-center gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
-              <span>PLAN</span>
-              <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
-              <span>EXECUTE</span>
-              <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
-              <span>REPEAT</span>
-            </p>
-            <h1 className="bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
-              Visualize Your Progress
-            </h1>
-            <p className="text-[#f8f8f8]/80 font-light font-rmneue text-start md:text-center mt-2">Organize tasks, track progress, and stay focused with a visual workflow.</p>
-          </div>
-          <div className="buttons flex justify-start md:justify-center">
-            <button
-              onClick={openLoginModal}
-              className="rounded-3xl backdrop-blur-[1.5px] my-5 me-2 border border-[#f8f8f8]/20 text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
-            >
-              Login
-            </button>
-            <button
-              onClick={openRegisterModal}
-              className="rounded-3xl backdrop-blur-[1.5px] my-5 ms-2 border border-[#f8f8f8]/20 text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
-            >
-              Sign Up
-            </button>
+          <div className="wrapper absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-2">
+              <p className="flex items-center justify-center gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
+                <span>PLAN</span>
+                <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
+                <span>EXECUTE</span>
+                <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
+                <span>REPEAT</span>
+              </p>
+              <h1 className="bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
+                Visualize Your Progress
+              </h1>
+              <p className="text-[#f8f8f8]/80 font-light font-rmneue text-start md:text-center mt-2">Organize tasks, track progress, and stay focused with a visual workflow.</p>
+            <div className="buttons flex justify-center">
+              <button
+                onClick={openLoginModal}
+                className="rounded-3xl backdrop-blur-[1.5px] my-5 me-2 border border-[#f8f8f8]/20 text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
+              >
+                Login
+              </button>
+              <button
+                onClick={openRegisterModal}
+                className="rounded-3xl backdrop-blur-[1.5px] my-5 ms-2 border border-[#f8f8f8]/20 text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
+              >
+                Sign Up
+              </button>
+            </div>
           </div>
         </div>
 
@@ -202,7 +202,7 @@ function Login() {
           isOpen={isLoginModalOpen}
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
-          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-white/10 border border-gray-500/30 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
+          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 border border-gray-500/30 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]"
         >
           <h2 className="font-bold text-xl text-center text-white">Login</h2>
@@ -240,21 +240,21 @@ function Login() {
             >
               {loginLoading ? (
                 <>
-                <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
+                  <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
                 </>
-              ): ("LOGIN")}
+              ) : ("LOGIN")}
             </button>
           </form>
         </Modal>
 
         {/* Modal for Register */}
         <Modal
-  isOpen={isRegisterModalOpen}
-  onRequestClose={closeRegisterModal}
-  contentLabel="Register Modal"
-  className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 bg-white/10 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
-  overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998]"
->
+          isOpen={isRegisterModalOpen}
+          onRequestClose={closeRegisterModal}
+          contentLabel="Register Modal"
+          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
+          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998]"
+        >
           <h2 className="font-bold text-xl text-center text-white">Sign Up</h2>
           <button
             onClick={closeRegisterModal}
@@ -297,9 +297,9 @@ function Login() {
             >
               {registerLoading ? (
                 <>
-                <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
+                  <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
                 </>
-              ): ("SIGNUP")}
+              ) : ("SIGNUP")}
             </button>
           </form>
         </Modal>
