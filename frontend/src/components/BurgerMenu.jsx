@@ -40,15 +40,15 @@ function BurgerMenu() {
                 <div className="w-12 h-12 cursor-pointer flex flex-col items-center justify-center">
                     <input className="hidden peer" type="checkbox" checked={isOpen} onChange={toggleMenu} />
                     <div
-                        className={`w-[70%] h-[2px] bg-black rounded-sm transition-all duration-300 origin-left translate-y-[0.5rem] ${isOpen ? '-rotate-45' : ''
+                        className={`w-[70%] h-[2px] bg-white rounded-sm transition-all duration-300 origin-left translate-y-[0.5rem] ${isOpen ? '-rotate-45' : ''
                             }`}
                     ></div>
                     <div
-                        className={`w-[70%] h-[2px] bg-black rounded-md transition-all duration-300 origin-center ${isOpen ? 'hidden' : ''
+                        className={`w-[70%] h-[2px] bg-white rounded-md transition-all duration-300 origin-center ${isOpen ? 'hidden' : ''
                             }`}
                     ></div>
                     <div
-                        className={`w-[70%] h-[2px] bg-black rounded-md transition-all duration-300 origin-left -translate-y-[0.5rem] ${isOpen ? 'rotate-45' : ''
+                        className={`w-[70%] h-[2px] bg-white rounded-md transition-all duration-300 origin-left -translate-y-[0.5rem] ${isOpen ? 'rotate-45' : ''
                             }`}
                     ></div>
                 </div>
@@ -57,14 +57,14 @@ function BurgerMenu() {
 
             {/* Menu */}
             <div
-                className={`absolute lg:hidden h-screen flex items-center top-0 -left-0  bg-[#8C8C8C] z-10 transition-transform duration-500 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`absolute lg:hidden h-screen flex items-center top-0 -left-0  bg-[#000] z-10 transition-transform duration-500 ${isOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
                 <ul className='flex flex-col items-start justify-center h-full '>
 
                     <NavLink
                         to="/dashboard"
-                        className="w-full text-lg font-bold text-black"
+                        className="w-full text-lg font-bold text-white"
                         onClick={() => setIsOpen(false)}
                         activeClassName="underline"
                     >
@@ -78,7 +78,7 @@ function BurgerMenu() {
 
                     <NavLink
                         to="/taskcontrol"
-                        className="w-full text-lg font-bold text-black"
+                        className="w-full text-lg font-bold text-white"
                         onClick={() => setIsOpen(false)}
                         activeClassName="underline"
                     >
@@ -90,7 +90,7 @@ function BurgerMenu() {
 
                     <NavLink
                         to="/workoutprograms"
-                        className="w-full text-lg font-bold text-black"
+                        className="w-full text-lg font-bold text-white"
                         onClick={() => setIsOpen(false)}
                         activeClassName="underline"
                     >
@@ -103,7 +103,7 @@ function BurgerMenu() {
 
                     <NavLink
                         to="/settings"
-                        className="w-full text-lg font-bold text-black"
+                        className="w-full text-lg font-bold text-white"
                         onClick={() => setIsOpen(false)}
                         activeClassName="underline"
                     >
@@ -115,7 +115,7 @@ function BurgerMenu() {
 
                     <NavLink
                         to="/login"
-                        className="w-full text-lg font-bold text-black"
+                        className="w-full text-lg font-bold text-white"
                         activeClassName="underline"
                     >
                         <li onClick={(e) => {
