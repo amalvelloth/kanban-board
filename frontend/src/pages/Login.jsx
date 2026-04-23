@@ -148,17 +148,17 @@ function Login() {
           <img src={Element1} className=" w-[150px] md:w-[250px] mt-16 md:mt-0 animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
           <img src={Element2} className=" w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
           <div className="wrapper pt-20 absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-2">
-              <p className="flex items-center justify-center gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
-                <span>PLAN</span>
-                <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
-                <span>EXECUTE</span>
-                <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
-                <span>REPEAT</span>
-              </p>
-              <h1 className="bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
-                Visualize Your Progress
-              </h1>
-              <p className="text-[#f8f8f8]/80 font-light font-rmneue text-start md:text-center mt-2">Organize tasks, track progress, and stay focused with a visual workflow.</p>
+            <p className="flex items-center justify-center gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
+              <span>PLAN</span>
+              <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
+              <span>EXECUTE</span>
+              <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
+              <span>REPEAT</span>
+            </p>
+            <h1 className="bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
+              Visualize Your Progress
+            </h1>
+            <p className="text-[#f8f8f8]/80 font-light font-rmneue text-start md:text-center mt-2">Organize tasks, track progress, and stay focused with a visual workflow.</p>
             <div className="buttons flex justify-center">
               <button
                 onClick={openLoginModal}
@@ -189,11 +189,6 @@ function Login() {
             <source src={heroVideo} type="video/mp4" />
           </video>
         </div>
-
-        {/* <img src={SvgBgDesktop} className="w-full bottom-0 left-0 right-0 absolute z-0 blur-[50px] scale-110" alt="" />
-        <img src={SvgBgMobile} className="sm:hidden w-full bottom-0 left-0 right-0 absolute z-0 blur-[30px] scale-110" alt="" /> */}
-
-
 
 
 
@@ -303,6 +298,9 @@ function Login() {
             </button>
           </form>
         </Modal>
+
+                  <h1 className="text-white/20 text-[12px] md:text-[14px] font-extralight font-rmneue text-center absolute left-0 right-0 bottom-0 p-4">Made with React</h1>
+
       </section>
       <ToastContainer
         position="top-center"
