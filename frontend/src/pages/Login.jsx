@@ -299,7 +299,6 @@ function Login() {
           </form>
         </Modal>
 
-                  <h1 className="text-white/20 text-[12px] md:text-[14px] font-extralight font-rmneue text-center absolute left-0 right-0 bottom-0 p-4">Made with React</h1>
 
       </section>
       <ToastContainer
