@@ -10,6 +10,7 @@ import TaskControl from './pages/TaskControl';
 import WorkoutPrograms from './pages/WorkoutPrograms';
 import Settings from './pages/Settings';
 import SignOut from './pages/SignOut';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
@@ -21,6 +22,15 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer
+      position='top-right'
+      autoClose={2000}
+      hideProgressBar={true}
+      closeOnClick
+      pauseOnHover
+      draggable
+      theme='colored'
+      />
       <ConditionalNavbar />
       <RefrshHandler setIsAuthenticated={setIsAuthenticated} />
       <Routes>

@@ -4,6 +4,7 @@ import BurgerMenu from './BurgerMenu'
 import Logo from '../assets/kanban-board-logo.png'
 import darkmodeIcon from '../assets/icons/dark_mode.svg'
 import ToggleButton from '../../../frontend/src/components/ToggleButton'
+import LogOut from './Logout'
 
 function Navbar({ className }) {
   const location = useLocation();
@@ -20,7 +21,10 @@ function Navbar({ className }) {
       {/* <a href="" className="bg-black! border border-white/50 ml-auto px-4 py-2 rounded-xl bg-white text-sm font-medium text-red-400 hover:text-red-700 transition-colors duration-300">
         Logout
       </a> */}
+      <div className="flex gap-2">
+        <LogOut/>
       <ToggleButton/>
+      </div>
     </nav>
   )
 }

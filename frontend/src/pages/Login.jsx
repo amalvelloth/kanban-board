@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+// import { ToastContainer } from "react-toastify";
 import Modal from "react-modal";
 import { handleError, handleSuccess } from "../utils";
 import DotGrid from "../components/DotGrid";
@@ -301,12 +301,12 @@ function Login() {
 
 
       </section>
-      <ToastContainer
+      {/* <ToastContainer
         position="top-center"
         autoClose={false}
         closeOnClick
         theme="colored"
-      />
+      /> */}
     </>
   );
 }
