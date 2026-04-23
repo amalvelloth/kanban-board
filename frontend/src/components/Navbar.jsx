@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import BurgerMenu from './BurgerMenu'
 import Logo from '../assets/kanban-board-logo.png'
 import darkmodeIcon from '../assets/icons/dark_mode.svg'
+import ToggleButton from '../../../frontend/src/components/ToggleButton'
 
 function Navbar({ className }) {
   const location = useLocation();
@@ -10,7 +11,7 @@ function Navbar({ className }) {
 
 
   return (
-    <nav className={`bg-white/10 mt-4 backdrop-blur-2xl rounded h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 absolute px-4 font-rmneue flex items-center justify-start md:justify-center z-10 ${className}`}>
+    <nav className={`mt-0 border border-white/20 shadow-black/20 rounded-xl md:mt-4 md:backdrop-blur-2xl rounded h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 absolute px-4 font-rmneue flex items-center justify-between z-10 ${className}`}>
       {/* {!isHomePage && <BurgerMenu />} */}
       <a href="/" class="flex items-center gap-3">
         <img src={Logo} className='h-6 w-6 md:w-8 md:h-8 z-50' alt="" />
@@ -19,10 +20,7 @@ function Navbar({ className }) {
       {/* <a href="" className="bg-black! border border-white/50 ml-auto px-4 py-2 rounded-xl bg-white text-sm font-medium text-red-400 hover:text-red-700 transition-colors duration-300">
         Logout
       </a> */}
-      <a href="" className="bg-black! flex gap-2 items-center border border-white/50 ml-auto px-4 py-2 rounded-xl bg-white text-sm font-medium text-white hover:text-white/50 transition-colors duration-300">
-        Light
-        <img src={darkmodeIcon} className='h-5 w-5 md:w-8 md:h-8 z-50' alt="" />
-      </a>
+      <ToggleButton/>
     </nav>
   )
 }
