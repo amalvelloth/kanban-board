@@ -10,7 +10,6 @@ export const TaskControl = () => {
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle,_#ffffff30_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
       {/* <DesktopMenu /> */}
       <div className="relative z-[2] min-h-screen w-full max-lg:pt-16 text-neutral-50">
-        <h2 className="opacity-80 bg-gradient-to-b from-black to-[#999999] bg-clip-text text-transparent text-4xl pt-4 text-center font-bold whitespace-nowrap">KANBAN BOARD</h2>
         <Board />
       </div>
     </section>
@@ -96,7 +95,7 @@ const Board = () => {
 
   return (
 
-    <div className="relative flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full gap-12 pt-12 sm:pt-28">
+    <div className="relative flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full gap-12 pt-16 sm:pt-40">
       <Column
         title={
           <div className="flex items-center gap-2">

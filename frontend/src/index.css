@@ -22,3 +22,7 @@
   --primary: blue;
   --blog-text-muted: #6b7280;
 } */
+
+body {
+  background-color: black;
+}
