@@ -119,5 +119,5 @@ export default function DotGrid() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="pointer-events-none absolute inset-0 z-[1]" />;
+  return <canvas ref={canvasRef} className="pointer-events-none mix-blend-overlay absolute inset-0 z-[1]" />;
 }
