@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 
 const GRID_SIZE = 20;
 const DOT_RADIUS = 1.1;
-const EFFECT_RADIUS = 150;
-const RETURN_EASE = 0.12;
+const EFFECT_RADIUS = 170;
+const RETURN_EASE = 0.11;
 const PUSH_STRENGTH = 20;
 
 export default function DotGrid() {
