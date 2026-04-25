@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 const GRID_SIZE = 20;
-const DOT_RADIUS = 1.2;
+const DOT_RADIUS = 1.1;
 const EFFECT_RADIUS = 150;
 const RETURN_EASE = 0.12;
 const PUSH_STRENGTH = 20;
@@ -65,7 +65,7 @@ export default function DotGrid() {
       const { innerWidth, innerHeight } = window;
 
       context.clearRect(0, 0, innerWidth, innerHeight);
-      context.fillStyle = "rgba(255, 255, 255, 0.18)";
+      context.fillStyle = "rgba(255, 255, 255, 0.38)";
 
       dots.forEach((dot) => {
         const dx = dot.baseX - mouse.x;

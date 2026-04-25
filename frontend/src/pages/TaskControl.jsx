@@ -6,10 +6,10 @@ import DesktopMenu from "../components/DesktopMenu";
 
 export const TaskControl = () => {
   return (
-    <section className="relative h-full bg-neutral-900">
-      <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle,_#ffffff30_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
+    <section className="relative h-full bg-neutral-900 [.light_&]:bg-white">
+      <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle,_#ffffff30_1px,_transparent_1px)] bg-[size:20px_20px] [.light_&]:bg-[radial-gradient(circle,_#00000020_1px,_transparent_1px)]"></div>
       {/* <DesktopMenu /> */}
-      <div className="relative z-[2] min-h-screen w-full max-lg:pt-16 text-neutral-50">
+      <div className="relative z-[2] min-h-screen w-full max-lg:pt-16 text-neutral-50 [.light_&]:text-neutral-950">
         <Board />
       </div>
     </section>
@@ -280,7 +280,7 @@ const Column = ({ title, headingColor, cards, column, setCards, updateCardsOrder
         onDrop={handleDragEnd}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
-        className={`h-full w-full transition-colors ${active ? "bg-neutral-800/50" : "bg-neutral-800/0"
+        className={`h-full w-full transition-colors ${active ? "bg-neutral-800/50 [.light_&]:bg-neutral-200/70" : "bg-neutral-800/0"
           }`}
       >
         {filteredCards.map((card) => (
@@ -319,10 +319,10 @@ const Card = ({ title, id, column, handleDragStart, isDragging }) => {
         title: title,
         column: column
       })}
-      className={`cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing ${isDragging ? 'opacity-50' : ''
+      className={`cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing [.light_&]:border-neutral-300 [.light_&]:bg-white [.light_&]:shadow-sm ${isDragging ? 'opacity-50' : ''
         }`}
     >
-      <p className="text-sm text-neutral-100">{title}</p>
+      <p className="text-sm text-neutral-100 [.light_&]:text-neutral-900">{title}</p>
     </motion.div>
   );
 };
@@ -446,13 +446,13 @@ const AddCard = ({ column, setCards }) => {
             onChange={(e) => setText(e.target.value)}
             autoFocus
             placeholder="Add new task..."
-            className="w-full rounded border border-violet-400 bg-violet-400/20 p-3 text-sm text-neutral-50 placeholder-violet-300 focus:outline-0"
+            className="w-full rounded border border-violet-400 bg-violet-400/20 p-3 text-sm text-neutral-50 placeholder-violet-300 focus:outline-0 [.light_&]:bg-white [.light_&]:text-neutral-900 [.light_&]:placeholder-violet-500"
           />
           <div className="mt-1.5 flex items-center justify-end gap-1.5">
             <button
               type="button"
               onClick={() => setAdding(false)}
-              className="px-3 py-1.5 text-xs text-neutral-400 transition-colors hover:text-neutral-50"
+              className="px-3 py-1.5 text-xs text-neutral-400 transition-colors hover:text-neutral-50 [.light_&]:text-neutral-600 [.light_&]:hover:text-neutral-950"
               disabled={loading}
             >
               Close
@@ -471,7 +471,7 @@ const AddCard = ({ column, setCards }) => {
         <motion.button
           layout
           onClick={() => setAdding(true)}
-          className="flex w-full items-center gap-1.5 px-3 py-1.5 text-xs text-neutral-400 transition-colors hover:text-neutral-50"
+          className="flex w-full items-center gap-1.5 px-3 py-1.5 text-xs text-neutral-400 transition-colors hover:text-neutral-50 [.light_&]:text-neutral-600 [.light_&]:hover:text-neutral-950"
         >
           <span>Add card</span>
           <FiPlus />
