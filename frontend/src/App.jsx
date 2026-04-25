@@ -11,6 +11,7 @@ import WorkoutPrograms from './pages/WorkoutPrograms';
 import Settings from './pages/Settings';
 import SignOut from './pages/SignOut';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -23,13 +24,16 @@ function App() {
   return (
     <div className="App">
       <ToastContainer
-      position='top-right'
-      autoClose={2000}
-      hideProgressBar={true}
-      closeOnClick
-      pauseOnHover
-      draggable
-      theme='colored'
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="dark"
+        toastClassName="rounded-xl bg-zinc-950 text-white border border-white/10 shadow-2xl shadow-black/40 font-rmneue"
+        bodyClassName="text-sm font-medium"
+        progressClassName="bg-lime-400"
       />
       <ConditionalNavbar />
       <RefrshHandler setIsAuthenticated={setIsAuthenticated} />
