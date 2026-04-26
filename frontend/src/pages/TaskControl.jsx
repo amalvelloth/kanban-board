@@ -95,7 +95,7 @@ const Board = () => {
 
   return (
 
-    <div className="relative flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full gap-12 pt-16 pb-16 sm:pt-40">
+    <div className="relative flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full gap-12 pt-16 pb-1 sm:pt-40">
       <Column
         title={
           <div className="flex items-center gap-2">
