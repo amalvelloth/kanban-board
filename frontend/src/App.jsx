@@ -59,7 +59,7 @@ function ConditionalNavbar() {
       ? 'md:bg-white/20'
       : location.pathname === '/controlpanel'
         ? 'md:bg-white/10'
-        : 'md:bg-white/10';
+        : 'md:bg-white/10 [.light_&]:bg-neutral-100';
 
   return <Navbar className={navbarClass} />
 }

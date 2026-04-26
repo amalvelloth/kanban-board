@@ -17,7 +17,7 @@ const Switch = () => {
         <label className="relative  inline-flex items-center cursor-pointer rounded-full">
             <input type="checkbox" className="sr-only peer" onChange={toggleTheme} />
             {/* switch circle */}
-            <div className="group border border-[#62626C] peer ring-0 bg-[#343645] rounded-full outline-none duration-300 after:duration-300 w-14 h-7 shadow-[0_0_10px_rgba(168,85,247,0.6)] peer-checked:shadow-none peer-checked:bg-gray-300 peer-checked:border-white peer-focus:outline-none after:content-[''] after:rounded-full after:absolute after:bg-[#626575] after:outline-none after:h-[22px] after:w-[22px] after:top-[3px] after:left-[3px] after:flex after:justify-center after:items-center peer-checked:after:translate-x-7 peer-checked:after:bg-[#fff] peer-hover:after:scale-95">
+            <div className="group border border-[#62626C] peer ring-0 bg-[#343645] rounded-full outline-none duration-300 after:duration-300 w-14 h-7 shadow-[0_0_10px_rgba(168,85,247,0.6)] peer-checked:shadow-[0_0_10px_rgba(255,255,255,10)] peer-checked:bg-gray-200 peer-checked:border-white peer-focus:outline-none after:content-[''] after:rounded-full after:absolute after:bg-[#626575] after:outline-none after:h-[22px] after:w-[22px] after:top-[3px] after:left-[3px] after:flex after:justify-center after:items-center peer-checked:after:translate-x-7 peer-checked:after:bg-[#fff] peer-hover:after:scale-95">
 
                 {/* Moon icon — visible in dark mode (right side) */}
                 <svg className="absolute text-white/30 top-[3px] right-[3px] w-[22px] h-[22px]"
