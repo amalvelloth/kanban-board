@@ -10,7 +10,7 @@ import TaskControl from './pages/TaskControl';
 import WorkoutPrograms from './pages/WorkoutPrograms';
 import Settings from './pages/Settings';
 import SignOut from './pages/SignOut';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -25,6 +25,7 @@ function App() {
     <div className="App">
       <ToastContainer
         autoClose={2000}
+        transition={Slide}
         hideProgressBar={true}
         closeOnClick
         pauseOnHover={false}
