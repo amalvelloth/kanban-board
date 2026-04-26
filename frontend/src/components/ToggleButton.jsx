@@ -14,13 +14,13 @@ const Switch = () => {
     };
 
     return (
-        <label className="relative  inline-flex items-center cursor-pointer shadow-[0_0_10px_rgba(168,85,247,0.6)] rounded-full">
+        <label className="relative  inline-flex items-center cursor-pointer rounded-full">
             <input type="checkbox" className="sr-only peer" onChange={toggleTheme} />
             {/* switch circle */}
-            <div className="group border border-[#62626C] peer ring-0 bg-[#343645] rounded-full outline-none duration-300 after:duration-300 w-14 h-7 shadow-md peer-checked:bg-gray-300 peer-checked:border-white peer-focus:outline-none after:content-[''] after:rounded-full after:absolute after:bg-[#626575] after:outline-none after:h-[22px] after:w-[22px] after:top-[3px] after:left-[3px] after:flex after:justify-center after:items-center peer-checked:after:translate-x-7 peer-checked:after:bg-[#fff] peer-hover:after:scale-95">
+            <div className="group border border-[#62626C] peer ring-0 bg-[#343645] rounded-full outline-none duration-300 after:duration-300 w-14 h-7 shadow-[0_0_10px_rgba(168,85,247,0.6)] peer-checked:shadow-none peer-checked:bg-gray-300 peer-checked:border-white peer-focus:outline-none after:content-[''] after:rounded-full after:absolute after:bg-[#626575] after:outline-none after:h-[22px] after:w-[22px] after:top-[3px] after:left-[3px] after:flex after:justify-center after:items-center peer-checked:after:translate-x-7 peer-checked:after:bg-[#fff] peer-hover:after:scale-95">
 
                 {/* Moon icon — visible in dark mode (right side) */}
-                <svg className="absolute text-white/50 top-[3px] right-[3px] w-[22px] h-[22px]"
+                <svg className="absolute text-white/30 top-[3px] right-[3px] w-[22px] h-[22px]"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill="currentColor" fillRule="evenodd" clipRule="evenodd"
                         d="M12.5 3a9 9 0 0 0 0 18c2.27 0 4.343-.84 5.927-2.227C14.177 17.827 11 14.035 11 9.5c0-2.487.956-4.75 2.519-6.443A9.107 9.107 0 0 0 12.5 3Zm-11 9c0-6.075 4.925-11 11-11 1.214 0 2.384.197 3.478.561a1 1 0 0 1 .254 1.771A7.5 7.5 0 0 0 20.5 17a1.001 1.001 0 0 1 .8 1.6c-2.005 2.67-5.2 4.4-8.8 4.4-6.075 0-11-4.925-11-11Z" />

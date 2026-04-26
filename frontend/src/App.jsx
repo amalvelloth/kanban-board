@@ -24,16 +24,19 @@ function App() {
   return (
     <div className="App">
       <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
+        autoClose={1000}
+        hideProgressBar={true}
         closeOnClick
-        pauseOnHover
+        pauseOnHover={false}
+        closeButton={false}
         draggable
         theme="dark"
-        toastClassName="rounded-xl bg-zinc-950 text-white border border-white/10 shadow-2xl shadow-black/40 font-rmneue"
-        bodyClassName="text-sm font-medium"
+        toastClassName="!rounded-full !min-h-9 !py-6 !px-3 text-white border border-white/10 shadow-2xl shadow-black/40 font-rmneue"
+        bodyClassName="!m-0 !p-0 text-xs font-medium"
         progressClassName="bg-lime-400"
+        style={{
+          '--toastify-toast-min-height': '40px',
+        }}
       />
       <ConditionalNavbar />
       <RefrshHandler setIsAuthenticated={setIsAuthenticated} />

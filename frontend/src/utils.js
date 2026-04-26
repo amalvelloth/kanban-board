@@ -2,9 +2,9 @@ import { toast } from 'react-toastify';
 
 export const handleSuccess = (msg) => {
   toast.success(msg, {
-    position: 'top-right',
+    position: 'bottom-center',
     className:
-      'rounded-xl bg-emerald-950 text-emerald-100 border border-emerald-500/30 shadow-xl font-rmneue',
+      '!min-h-9 !py-3 !px-6 !rounded-full !bg-purple-950/10 !backdrop-blur-2xl !w-fit !m-auto !mb-10 !text-emerald-100 !border !border-purple-500/30 !shadow-xl !font-rmneue',
     progressClassName: 'bg-emerald-400',
     icon: false,
   });
@@ -12,9 +12,9 @@ export const handleSuccess = (msg) => {
 
 export const handleError = (msg) => {
   toast.error(msg, {
-    position: 'top-right',
+    position: 'bottom-center',
     className:
-      'rounded-xl bg-red-950 text-red-100 border border-red-500/30 shadow-xl font-rmneue',
+      '!min-h-9 !py-1 !px-3 !rounded-full !bg-black/30 !backdrop-blur-2xl !w-fit !m-auto !mb-10 !text-red-100 !border !border-red-500/30 !shadow-xl !font-rmneue',
     progressClassName: 'bg-red-400',
     icon: false,
   });
