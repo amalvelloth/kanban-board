@@ -16,13 +16,17 @@
   font-display: swap;
 }
 
-
-/* :root {
-  --my-color: red;
-  --primary: blue;
-  --blog-text-muted: #6b7280;
-} */
-
 body {
   background-color: black;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3) inset;
+  transition: background-color 9999s ease-in-out 0s;
 }
