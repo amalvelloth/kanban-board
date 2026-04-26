@@ -14,7 +14,7 @@ export const handleError = (msg) => {
   toast.error(msg, {
     position: 'bottom-center',
     className:
-      '!min-h-9 !py-1 !px-3 !rounded-full !bg-black/30 !backdrop-blur-2xl !w-fit !m-auto !mb-10 !text-red-100 !border !border-red-500/30 !shadow-xl !font-rmneue',
+      '!min-h-9 !py-3 !px-6 !rounded-full !bg-black/30 !backdrop-blur-2xl !w-fit !m-auto !mb-10 !text-red-100 !border !border-red-500/30 !shadow-xl !font-rmneue',
     progressClassName: 'bg-red-400',
     icon: false,
   });
