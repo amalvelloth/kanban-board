@@ -6,14 +6,14 @@
   src: url("./assets/fonts/RMNeueTRIAL-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 @font-face {
   font-family: "Carving";
   src: url("./assets/fonts/massive-carving-demo.bold.otf") format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 body {
