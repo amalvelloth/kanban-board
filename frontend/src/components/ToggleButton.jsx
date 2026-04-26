@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { handleSuccess } from '../utils';
+import { handleThemeToast } from '../utils';
 
 const Switch = () => {
     useEffect(() => {
@@ -9,10 +9,10 @@ const Switch = () => {
     const toggleTheme = (e) => {
         if (e.target.checked) {
             document.documentElement.classList.add('light');
-            handleSuccess("Light mode enabled");
+            handleThemeToast("Light mode enabled");
         } else {
             document.documentElement.classList.remove('light');
-            handleSuccess("Dark mode enabled");
+            handleThemeToast("Dark mode enabled");
         }
     };
 

@@ -3,6 +3,7 @@ import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
 import DesktopMenu from "../components/DesktopMenu";
+import DotGrid from "../components/DotGrid";
 
 export const TaskControl = () => {
   return (
