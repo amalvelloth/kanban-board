@@ -8,7 +8,7 @@ export const TaskControl = () => {
   return (
     <section className="relative h-full bg-neutral-900 [.light_&]:bg-white">
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle,_#ffffff30_1px,_transparent_1px)] bg-[size:20px_20px] [.light_&]:bg-[radial-gradient(circle,_#00000020_1px,_transparent_1px)]"></div>
-      {/* <DesktopMenu /> */}
+           {/* <DesktopMenu /> */}
       <div className="relative z-[2] min-h-screen w-full max-lg:pt-16 text-neutral-50 [.light_&]:text-neutral-950">
         <Board />
       </div>

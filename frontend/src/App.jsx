@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <ToastContainer
-        autoClose={1000}
+        autoClose={2000}
         hideProgressBar={true}
         closeOnClick
         pauseOnHover={false}
