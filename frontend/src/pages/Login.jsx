@@ -162,13 +162,13 @@ function Login() {
             <div className="buttons flex justify-center">
               <button
                 onClick={openLoginModal}
-                className="rounded-3xl backdrop-blur-[1.5px] my-5 me-2 border border-[#f8f8f8]/20 text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
+                className="rounded-3xl backdrop-blur-[1.5px] my-5 me-2 border border-[rgba(248,248,248,0.2)] text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
               >
                 Login
               </button>
               <button
                 onClick={openRegisterModal}
-                className="rounded-3xl backdrop-blur-[1.5px] my-5 ms-2 border border-[#f8f8f8]/20 text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
+                className="rounded-3xl backdrop-blur-[1.5px] my-5 ms-2 border border-[rgba(248,248,248,0.2)] text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
               >
                 Sign Up
               </button>
