@@ -292,7 +292,7 @@ const Column = ({ title, headingColor, cards, column, setCards }) => {
       </div>
       <div
         ref={setNodeRef}
-        className="h-full w-full transition-colors bg-neutral-800/0 min-h-[150px]"
+        className="h-full w-full transition-colors bg-neutral-800/0"
       >
         <SortableContext items={cardIds} strategy={verticalListSortingStrategy}>
           {filteredCards.map((card) => (
@@ -302,7 +302,7 @@ const Column = ({ title, headingColor, cards, column, setCards }) => {
         <AddCard column={column} setCards={setCards} />
       </div>
     </div>
-  );
+  ); 
 };
 
 const SortableCard = ({ card }) => {
