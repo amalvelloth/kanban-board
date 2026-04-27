@@ -8,6 +8,7 @@
   font-style: normal;
   font-display: block;
 }
+
 @font-face {
   font-family: "Carving";
   src: url("./assets/fonts/massive-carving-demo.bold.otf") format("truetype");
@@ -31,3 +32,40 @@ textarea:-webkit-autofill:focus {
   transition: background-color 9999s ease-in-out 0s;
 }
 
+
+
+.glass-effect-1,
+.glass-effect-2 {
+  box-shadow: 0 1px 3px #0000000d
+}
+
+.dark .glass-effect-1 {
+  --glass-shadow: var(--background);
+  --glass-border-tl: #ffffffe6;
+  --glass-border-br: #ffffffe6;
+  --glass-inset-dark: #0009;
+  --glass-inset-light: #ffffff1a;
+  --glass-mask-angle: 165deg;
+  isolation: isolate;
+  border-radius: inherit;
+  box-shadow: inset 4px 4px 35px 0 var(--glass-inset-dark), inset -3px -3px 30px 0 var(--glass-inset-light), inset 0 0 0 1px #ffffff0d;
+  -webkit-backdrop-filter: blur(24px)saturate(1.5);
+  backdrop-filter: blur(24px)saturate(1.5);
+  will-change: transform;
+  position: relative
+}
+
+.dark .glass-effect-1:after {
+  content: "";
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: inset .5px .5px .5px 0 var(--glass-border-tl), inset -.5px -.5px .5px 0 var(--glass-border-br);
+  -webkit-mask-image: linear-gradient(var(--glass-mask-angle, 135deg), #fff 0, #e3e3e3e6 4%, #ebebeb99 9%, #ebebeb66 30%, transparent 45%, transparent 55%, #e3e3e366 70%, #ebebeb99 91%, #e3e3e3e6 96%, #fff 100%);
+  mask-image: linear-gradient(var(--glass-mask-angle, 135deg), #fff 0, #e3e3e3e6 4%, #ebebeb99 9%, #ebebeb66 30%, transparent 45%, transparent 55%, #e3e3e366 70%, #ebebeb99 91%, #e3e3e3e6 96%, #fff 100%);
+  -webkit-mask-image: linear-gradient(var(--glass-mask-angle, 135deg), #fff 0, #e3e3e3e6 4%, #ebebeb99 9%, #ebebeb66 30%, transparent 45%, transparent 55%, #ebebeb66 70%, #ebebeb99 91%, #e3e3e3e6 96%, #fff 100%);
+  opacity: .9;
+  transition: opacity .3s;
+  position: absolute;
+  inset: 0
+}
