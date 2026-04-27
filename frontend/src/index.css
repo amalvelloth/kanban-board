@@ -47,7 +47,7 @@ textarea:-webkit-autofill:focus {
   --glass-inset-light: #ffffff1a;
   --glass-mask-angle: 165deg;
   isolation: isolate;
-  border-radius: inherit;
+  /* border-radius: inherit; */
   box-shadow: inset 4px 4px 35px 0 var(--glass-inset-dark), inset -3px -3px 30px 0 var(--glass-inset-light), inset 0 0 0 1px #ffffff0d;
   -webkit-backdrop-filter: blur(24px)saturate(1.5);
   backdrop-filter: blur(24px)saturate(1.5);

@@ -162,13 +162,13 @@ function Login() {
             <div className="buttons flex gap-2 sm:gap-4 justify-center">
               <button
                 onClick={openLoginModal}
-                className="rounded-3xl backdrop-blur-[1.5px] my-5 border border-[rgba(248,248,248,0.2)] text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
+                className="rounded-3xl glass-effect-1 my-5 text-white py-2 sm:px-10 max-sm:px-4 font-normal"
               >
                 Login
               </button>
               <button
                 onClick={openRegisterModal}
-                className="rounded-3xl backdrop-blur-[1.5px] my-5 border border-[rgba(248,248,248,0.2)] text-white bg-white/5 py-2 sm:px-10 max-sm:px-4 font-normal"
+                className="rounded-3xl glass-effect-1 my-5 text-white py-2 sm:px-10 max-sm:px-4 font-normal"
               >
                 Sign Up
               </button>
@@ -197,7 +197,7 @@ function Login() {
           isOpen={isLoginModalOpen}
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
-          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 border border-gray-500/30 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
+          className="glass-effect-1 modal-content z-[9999] max-sm-4/5 sm:w-4/5 md:w-1/4 p-6 backdrop-blur-2xl rounded-2xl w-fit"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]"
         >
           <h2 className="font-bold text-xl text-center text-white">Login</h2>
@@ -247,7 +247,7 @@ function Login() {
           isOpen={isRegisterModalOpen}
           onRequestClose={closeRegisterModal}
           contentLabel="Register Modal"
-          className="modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
+          className="glass-effect-1 modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998]"
         >
           <h2 className="font-bold text-xl text-center text-white">Sign Up</h2>
