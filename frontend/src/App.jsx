@@ -35,10 +35,11 @@ function App() {
         draggable
         theme="dark"
         toastClassName="!rounded-full !min-h-9 !py-6 !px-3 text-white border border-white/10 shadow-2xl shadow-black/40 font-rmneue"
-        bodyClassName="!m-0 !p-0 text-xs font-medium"
+        bodyClassName="!m-0 !p-0 text-xs font-medium !w-full"
         progressClassName="bg-lime-400"
         style={{
-          '--toastify-toast-min-height': '40px'
+          '--toastify-toast-min-height': '40px',
+          '--toastify-toast-width': '100%',
         }}
       />
       <ConditionalNavbar />
