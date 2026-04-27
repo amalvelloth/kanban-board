@@ -24,8 +24,10 @@ function App() {
   return (
     <div className="App">
       <ToastContainer
-        autoClose={2000}
+        stacked
         transition={Slide}
+        className="!bottom-18"
+        autoClose={2000}
         hideProgressBar={true}
         closeOnClick
         pauseOnHover={false}
@@ -36,7 +38,7 @@ function App() {
         bodyClassName="!m-0 !p-0 text-xs font-medium"
         progressClassName="bg-lime-400"
         style={{
-          '--toastify-toast-min-height': '40px',
+          '--toastify-toast-min-height': '40px'
         }}
       />
       <ConditionalNavbar />
@@ -51,16 +53,16 @@ function App() {
         <Route path='/signout' element={<SignOut />} />
       </Routes>
     </div>
-  ); 
+  );
 }
 
 function ConditionalNavbar() {
   const location = useLocation();
   const navbarClass = location.pathname === '/login'
-      ? 'md:bg-white/20'
-      : location.pathname === '/controlpanel'
-        ? 'md:bg-white/10'
-        : 'md:bg-white/10 [.light_&]:bg-neutral-100';
+    ? 'md:bg-white/20'
+    : location.pathname === '/controlpanel'
+      ? 'md:bg-white/10'
+      : 'md:bg-white/10 [.light_&]:bg-neutral-100';
 
   return <Navbar className={navbarClass} />
 }

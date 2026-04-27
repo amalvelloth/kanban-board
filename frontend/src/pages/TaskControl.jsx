@@ -178,11 +178,14 @@ const Board = () => {
     const overId = over.id;
 
     if (overId === "trash") {
+      // Optimistic update: instantly remove the card from the UI
+      setCards((cards) => cards.filter((c) => String(c.id) !== String(activeId)));
+      
       try {
         await deleteCardFromBackend(activeId);
-        setCards((cards) => cards.filter((c) => String(c.id) !== String(activeId)));
       } catch (error) {
         console.error("Failed to delete card:", error);
+        // We could theoretically revert the state here if the API call fails
       }
       return;
     }
@@ -330,7 +333,7 @@ const SortableCard = ({ card }) => {
       <div
         ref={setNodeRef}
         style={style}
-        className="mb-3 rounded border-2 border-dashed border-violet-500 bg-neutral-800/50 p-3 opacity-50 h-[68px] [.light_&]:border-violet-400 [.light_&]:bg-neutral-100"
+        className="mb-3 rounded border-2 border-dashed border-violet-500 bg-neutral-800/50 p-3 opacity-50 h-[46px] [.light_&]:border-violet-400 [.light_&]:bg-neutral-100"
       />
     );
   }
@@ -373,7 +376,7 @@ const BurnBarrel = () => {
   return (
     <div
       ref={setNodeRef}
-      className={`z-10 grid h-56 w-56 shrink-0 place-content-center rounded border text-3xl transition-colors ${
+      className={`z-10 grid h-56 w-56 mb-6 shrink-0 place-content-center rounded border text-3xl transition-colors ${
         isOver
           ? "border-red-800 bg-red-800/20 text-red-500"
           : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
