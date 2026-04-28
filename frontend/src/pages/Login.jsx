@@ -202,7 +202,7 @@ function Login() {
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
           className="glass-effect-1 modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit"
-          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]"
+          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] transition-colors duration-300 ease-in-out"
         >
           <h2 className="font-bold text-xl text-center text-white">Login</h2>
           <button
@@ -261,7 +261,7 @@ function Login() {
           onRequestClose={closeRegisterModal}
           contentLabel="Register Modal"
           className="glass-effect-1 modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0"
-          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998]"
+          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
         >
           <h2 className="font-bold text-xl text-center text-white">Sign Up</h2>
           <button
@@ -280,7 +280,7 @@ function Login() {
               placeholder="Enter Name"
               value={signupInfo.name}
               onChange={handleRegisterChange}
-              className="p-2 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
+              className="p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
             <input
               type="email"
@@ -288,7 +288,7 @@ function Login() {
               placeholder="Enter Email"
               value={signupInfo.email}
               onChange={handleRegisterChange}
-              className="p-2 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
+              className="p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
             <div className="relative flex items-center">
               <input
