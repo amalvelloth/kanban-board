@@ -9,8 +9,12 @@ import Element2 from "../assets/element-2.svg";
 import SvgBgDesktop from "../assets/svg-bg-desktop.svg";
 import SvgBgMobile from "../assets/svg-bg-mobile.svg";
 import heroVideo from "../assets/gradient_fluid_animation.mp4";
+import { Eye, EyeOff } from "lucide-react";
 
 function Login() {
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [showSignupPassword, setShowSignupPassword] = useState(false);
+
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
 
@@ -203,7 +207,7 @@ function Login() {
           <h2 className="font-bold text-xl text-center text-white">Login</h2>
           <button
             onClick={closeLoginModal}
-            className="close-button absolute top-0 right-0 m-4 text-red-500"
+            className="close-button absolute top-0 right-0 p-6 text-red-500"
           >
             Close
           </button>
@@ -218,16 +222,25 @@ function Login() {
               value={loginInfo.email}
               onFocus={(e) => e.target.setSelectionRange(0, 0)}
               onChange={handleLoginChange}
-              className="p-2 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
+              className="p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={loginInfo.password}
-              onChange={handleLoginChange}
-              className="p-2 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
-            />
+            <div className="relative flex items-center">
+              <input
+                type={showLoginPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                value={loginInfo.password}
+                onChange={handleLoginChange}
+                className="w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 bg-transparent rounded"
+              />
+              <button
+                type="button"
+                onClick={() => setShowLoginPassword(!showLoginPassword)}
+                className="absolute right-2 text-gray-400 hover:text-white transition-colors"
+              >
+                {showLoginPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
             <button
               type="submit"
               disabled={loginLoading}
@@ -253,7 +266,7 @@ function Login() {
           <h2 className="font-bold text-xl text-center text-white">Sign Up</h2>
           <button
             onClick={closeRegisterModal}
-            className="close-button absolute top-0 right-0 m-4 text-red-500"
+            className="close-button absolute top-0 right-0 p-6 text-red-500"
           >
             Close
           </button>
@@ -277,14 +290,23 @@ function Login() {
               onChange={handleRegisterChange}
               className="p-2 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter Password"
-              value={signupInfo.password}
-              onChange={handleRegisterChange}
-              className="p-2 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
-            />
+            <div className="relative flex items-center">
+              <input
+                type={showSignupPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter Password"
+                value={signupInfo.password}
+                onChange={handleRegisterChange}
+                className="w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 bg-transparent rounded"
+              />
+              <button
+                type="button"
+                onClick={() => setShowSignupPassword(!showSignupPassword)}
+                className="absolute right-2 text-gray-400 hover:text-white transition-colors"
+              >
+                {showSignupPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
             <button
               type="submit"
               disabled={registerLoading}
