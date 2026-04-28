@@ -13,7 +13,7 @@ function Navbar({ className }) {
 
 
   return (
-    <nav className={`${ isTaskControlPage ? '' : 'glass-effect-1'} mt-0 rounded-xl md:mt-4 h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 !absolute px-4 font-rmneue flex items-center justify-between z-10 ${className}`}>
+    <nav className={`${isTaskControlPage ? '' : 'glass-effect-1'} mt-0 rounded-xl md:mt-4 h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 !absolute px-4 font-rmneue flex items-center justify-between z-10 ${className}`}>
       {/* {!isHomePage && <BurgerMenu />} */}
       <a href="/" class="flex items-center gap-3">
         <img src={Logo} className='h-6 w-6 md:w-8 md:h-8 z-50' alt="" />
@@ -23,10 +23,11 @@ function Navbar({ className }) {
         Logout
       </a> */}
       <div className="flex gap-2">
-        <LogOut/>
-      <ToggleButton/>
+        <LogOut />
+        <ToggleButton />
       </div>
     </nav>
+
   )
 }
 
