@@ -197,7 +197,7 @@ function Login() {
           isOpen={isLoginModalOpen}
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
-          className="glass-effect-1 modal-content z-[9999] max-sm-4/5 sm:w-4/5 md:w-1/4 p-6 backdrop-blur-2xl rounded-2xl w-fit"
+          className="glass-effect-1 modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]"
         >
           <h2 className="font-bold text-xl text-center text-white">Login</h2>
@@ -218,7 +218,7 @@ function Login() {
               value={loginInfo.email}
               onFocus={(e) => e.target.setSelectionRange(0, 0)}
               onChange={handleLoginChange}
-              className="p-2 border text-white border-gray-300/10 rounded"
+              className="p-2 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
             <input
               type="password"
@@ -226,7 +226,7 @@ function Login() {
               placeholder="Password"
               value={loginInfo.password}
               onChange={handleLoginChange}
-              className="p-2 border text-white border-gray-300/10 rounded"
+              className="p-2 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
             <button
               type="submit"
@@ -267,7 +267,7 @@ function Login() {
               placeholder="Enter Name"
               value={signupInfo.name}
               onChange={handleRegisterChange}
-              className="p-2 border text-white border-gray-300/10 rounded"
+              className="p-2 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
             <input
               type="email"
@@ -275,7 +275,7 @@ function Login() {
               placeholder="Enter Email"
               value={signupInfo.email}
               onChange={handleRegisterChange}
-              className="p-2 border text-white border-gray-300/10 rounded"
+              className="p-2 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
             <input
               type="password"
@@ -283,7 +283,7 @@ function Login() {
               placeholder="Enter Password"
               value={signupInfo.password}
               onChange={handleRegisterChange}
-              className="p-2 border text-white border-gray-300/10 rounded"
+              className="p-2 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
             <button
               type="submit"
