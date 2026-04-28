@@ -43,14 +43,14 @@ textarea:-webkit-autofill:focus {
   --glass-shadow: var(--background);
   --glass-border-tl: #ffffffe6;
   --glass-border-br: #ffffffe6;
-  --glass-inset-dark: #0009;
+  --glass-inset-dark: rgba(0, 0, 0, 0.397);
   --glass-inset-light: #ffffff1a;
   --glass-mask-angle: 165deg;
   isolation: isolate;
   /* border-radius: inherit; */
   box-shadow: inset 4px 4px 35px 0 var(--glass-inset-dark), inset -3px -3px 30px 0 var(--glass-inset-light), inset 0 0 0 1px #ffffff0d;
   -webkit-backdrop-filter: blur(24px)saturate(1.5);
-  backdrop-filter: blur(24px)saturate(1.5);
+  backdrop-filter: blur(12px) saturate(1.5);
   will-change: transform;
   position: relative
 }
