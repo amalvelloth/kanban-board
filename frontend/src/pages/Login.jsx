@@ -10,6 +10,7 @@ import SvgBgDesktop from "../assets/svg-bg-desktop.svg";
 import SvgBgMobile from "../assets/svg-bg-mobile.svg";
 import heroVideo from "../assets/gradient_fluid_animation.mp4";
 import { Eye, EyeOff } from "lucide-react";
+import closeIcon from "../assets/icons/cross_icon.png"
 
 function Login() {
   const [showLoginPassword, setShowLoginPassword] = useState(false);
@@ -209,7 +210,7 @@ function Login() {
             onClick={closeLoginModal}
             className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
           >
-            Close
+            <img src={closeIcon} className="w-8 h-8" alt="" />
           </button>
           <form
             onSubmit={handleLoginSubmit}
@@ -238,13 +239,13 @@ function Login() {
                 onClick={() => setShowLoginPassword(!showLoginPassword)}
                 className="absolute right-2 text-white/50 hover:text-white transition-colors"
               >
-                {showLoginPassword ? <Eye size={18} /> : <EyeOff size={18} /> }
+                {showLoginPassword ? <Eye size={18} /> : <EyeOff size={18} />}
               </button>
             </div>
             <button
               type="submit"
               disabled={loginLoading}
-              className="py-2 text-sm font-semibold bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded flex items-center justify-center"
+              className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded flex items-center justify-center"
             >
               {loginLoading ? (
                 <>
@@ -268,7 +269,7 @@ function Login() {
             onClick={closeRegisterModal}
             className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
           >
-            Close
+            <img src={closeIcon} className="w-8 h-8" alt="" />
           </button>
           <form
             onSubmit={handleRegisterSubmit}
@@ -310,7 +311,7 @@ function Login() {
             <button
               type="submit"
               disabled={registerLoading}
-              className="py-2 text-sm font-semibold bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded flex items-center justify-center"
+              className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded flex items-center justify-center"
             >
               {registerLoading ? (
                 <>
