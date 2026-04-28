@@ -204,7 +204,7 @@ function Login() {
           className="glass-effect-1 modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] transition-colors duration-300 ease-in-out"
         >
-          <h2 className="select-none font-bold text-xl text-center text-white">Login</h2>
+          <h2 className="select-none font-semibold text-xl text-center text-white">Login</h2>
           <button
             onClick={closeLoginModal}
             className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
@@ -263,7 +263,7 @@ function Login() {
           className="glass-effect-1 modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
         >
-          <h2 className="select-none font-bold select- text-xl text-center text-white">Sign Up</h2>
+          <h2 className="select-none font-semibold select- text-xl text-center text-white">Sign Up</h2>
           <button
             onClick={closeRegisterModal}
             className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
