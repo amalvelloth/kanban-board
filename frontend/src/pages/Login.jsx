@@ -143,15 +143,15 @@ function Login() {
 
   return (
     <>
-      <section className="flex w-full font-rmneue h-screen relative overflow-hidden bg-black">
+      <section className="flex select-none pointer-events-none w-full font-rmneue h-screen relative overflow-hidden bg-black">
         <DotGrid />
         <div className="relative flex-col p-8 w-full h-screen max-md:p-2 z-[2]">
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
             <h2 className="opacity-80 bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent text-6xl sm:text-7xl font-bold">KANBAN BOARD</h2>
           </div>
-          <img src={Element1} className=" w-[150px] md:w-[250px] mt-16 md:mt-0 animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
-          <img src={Element2} className=" w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
-          <div className="wrapper pt-20 absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-2">
+          <img src={Element1} className="select-none pointer-events-none w-[150px] md:w-[250px] mt-16 md:mt-0 animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
+          <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
+          <div className="wrapper select-none pt-20 absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-2">
             <p className="flex items-center justify-center gap-2 md:gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
               <span>PLAN</span>
               <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
@@ -202,7 +202,7 @@ function Login() {
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
           className="glass-effect-1 modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit"
-          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] transition-colors duration-300 ease-in-out"
+          overlayClassName="modal-overlay select-none fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] transition-colors duration-300 ease-in-out"
         >
           <h2 className="font-bold text-xl text-center text-white">Login</h2>
           <button
@@ -261,7 +261,7 @@ function Login() {
           onRequestClose={closeRegisterModal}
           contentLabel="Register Modal"
           className="glass-effect-1 modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0"
-          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
+          overlayClassName="modal-overlay select-none fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
         >
           <h2 className="font-bold text-xl text-center text-white">Sign Up</h2>
           <button
