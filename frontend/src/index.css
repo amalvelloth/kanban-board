@@ -34,12 +34,11 @@ textarea:-webkit-autofill:focus {
 
 
 
-.glass-effect-1,
 .glass-effect-2 {
   box-shadow: 0 1px 3px #0000000d
 }
 
-.dark .glass-effect-1 {
+html:not(.light) .glass-effect-1 {
   --glass-shadow: var(--background);
   --glass-border-tl: #ffffffe6;
   --glass-border-br: #ffffffe6;
@@ -55,7 +54,7 @@ textarea:-webkit-autofill:focus {
   position: relative
 }
 
-.dark .glass-effect-1:after {
+html:not(.light) .glass-effect-1:after {
   content: "";
   border-radius: inherit;
   pointer-events: none;
