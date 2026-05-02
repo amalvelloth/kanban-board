@@ -344,7 +344,7 @@ const SortableCard = ({ card }) => {
       style={style}
       {...attributes}
       {...listeners}
-      className={`touch-none mb-3 cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing [.light_&]:border-neutral-300 [.light_&]:bg-white [.light_&]:shadow-sm`}
+      className={`glass-effect-1 touch-none mb-3 cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing [.light_&]:border-neutral-300 [.light_&]:bg-white [.light_&]:shadow-sm`}
     >
       <p className="text-sm text-neutral-100 [.light_&]:text-neutral-900">
         {card.title}
@@ -376,7 +376,7 @@ const BurnBarrel = () => {
   return (
     <div
       ref={setNodeRef}
-      className={`z-10 grid h-56 w-56 mb-6 shrink-0 place-content-center rounded border text-3xl transition-colors ${
+      className={`glass-effect-1 z-10 grid h-56 w-56 mb-6 shrink-0 place-content-center rounded border text-3xl transition-colors ${
         isOver
           ? "border-red-800 bg-red-800/20 text-red-500"
           : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
