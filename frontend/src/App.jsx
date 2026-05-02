@@ -34,7 +34,7 @@ function App() {
         closeButton={false}
         draggable
         theme="dark"
-        toastClassName="!rounded-full !min-h-9 !py-6 !px-3 text-white border border-white/10 shadow-2xl shadow-black/40 font-rmneue"
+        toastClassName="!glass-effect-1 !rounded-full !min-h-9 !py-6 !px-3 text-white border border-white/10 shadow-2xl shadow-black/40 font-rmneue"
         bodyClassName="!m-0 !p-0 text-xs font-medium !w-full"
         progressClassName="bg-lime-400"
         style={{
