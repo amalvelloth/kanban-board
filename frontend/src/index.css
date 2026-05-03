@@ -67,14 +67,16 @@ textarea:-webkit-autofill:focus {
   inset: 0
 }
 
-html.light .taskcontrol-page .glass-effect-1 {
+html.light .taskcontrol-page .glass-effect-1,
+html.light nav.glass-effect-1 {
   box-shadow: none;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
   isolation: auto;
 }
 
-html.light .taskcontrol-page .glass-effect-1::after {
+html.light .taskcontrol-page .glass-effect-1::after,
+html.light nav.glass-effect-1::after {
   content: none;
 }
 

@@ -5,7 +5,7 @@ import Moon from '../assets/icons/moon.svg'
 const Switch = () => {
     useEffect(() => {
         document.documentElement.classList.remove('light');
-        document.documentElement.classList.toggle('dark') // <html> tag
+document.documentElement.classList.toggle('dark') // <html> tag
     }, []);
 
     const toggleTheme = (e) => {
