@@ -78,13 +78,3 @@ html.light .taskcontrol-page .glass-effect-1::after {
   content: none;
 }
 
-html.light nav.glass-effect-1 {
-  box-shadow: none;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  isolation: auto;
-}
-
-html.light nav.glass-effect-1::after {
-  content: none;
-}
