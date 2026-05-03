@@ -58,16 +58,15 @@ function App() {
 }
 
 function ConditionalNavbar() {
-  const location = useLocation();
+  const { pathname } = useLocation();
 
-  const navbarClass = location.pathname === '/login'
-    ? 'md:bg-white/20'
-    : location.pathname === '/taskcontrol'
-      ? 'taskcontrol-navbar md:bg-white/10 [.light_&]:bg-neutral-100'
-      : 'md:bg-white/10 [.light_&]:bg-neutral-100';
+  const navbarClasses = {
+    '/login': 'md:bg-white/20 glass-effect-1',
+    '/taskcontrol': 'glass-effect-1 taskcontrol-navbar md:bg-white/10 [.light_&]:bg-white/20',
+  };
 
-  return <Navbar className={navbarClass} />
+  const navbarClass = navbarClasses[pathname] ?? 'md:bg-white/10 [.light_&]:bg-black ';
+
+  return <Navbar className={navbarClass} />;
 }
-
-
 export default App;

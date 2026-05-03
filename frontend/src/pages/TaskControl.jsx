@@ -376,9 +376,9 @@ const BurnBarrel = () => {
   return (
     <div
       ref={setNodeRef}
-      className={`glass-effect-1 z-10 grid h-56 w-56 mb-6 shrink-0 place-content-center rounded border text-3xl transition-colors ${
+      className={`glass-effect-1 z-10 grid h-56 w-56 mb-6 shrink-0 place-content-center border rounded text-3xl transition-colors ${
         isOver
-          ? "border-red-800 bg-red-800/20 text-red-500"
+          ? " border-red-800 bg-red-800/20 text-red-500"
           : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
       }`}
     >
