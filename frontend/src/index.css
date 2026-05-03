@@ -68,16 +68,17 @@ textarea:-webkit-autofill:focus {
 }
 
 html.light .taskcontrol-page .glass-effect-1,
-html.light nav.glass-effect-1 {
-  box-shadow: none;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  isolation: auto;
+html.light nav.taskcontrol-navbar {
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  isolation: auto !important;
 }
 
 html.light .taskcontrol-page .glass-effect-1::after,
-html.light nav.glass-effect-1::after {
-  content: none;
+html.light nav.taskcontrol-navbar::after {
+  content: none !important;
+  display: none !important;
 }
 
 .glass-effect-2 {
