@@ -442,6 +442,12 @@ const AddCard = ({ column, setCards }) => {
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSubmit(e);
+              }
+            }}
             autoFocus
             placeholder="Add new task..."
             className="w-full rounded border border-violet-400 bg-violet-400/20 p-3 text-sm text-neutral-50 placeholder-violet-300 focus:outline-0 [.light_&]:bg-white [.light_&]:text-neutral-900 [.light_&]:placeholder-violet-500"
