@@ -32,13 +32,11 @@ textarea:-webkit-autofill:focus {
   transition: background-color 9999s ease-in-out 0s;
 }
 
-
-
 .glass-effect-2 {
   box-shadow: 0 1px 3px #0000000d
 }
 
-html:not(.light) .glass-effect-1 {
+.glass-effect-1 {
   --glass-shadow: var(--background);
   --glass-border-tl: #ffffffe6;
   --glass-border-br: #ffffffe6;
@@ -54,7 +52,7 @@ html:not(.light) .glass-effect-1 {
   position: relative
 }
 
-html:not(.light) .glass-effect-1:after {
+.glass-effect-1:after {
   content: "";
   border-radius: inherit;
   pointer-events: none;
@@ -67,4 +65,26 @@ html:not(.light) .glass-effect-1:after {
   transition: opacity .3s;
   position: absolute;
   inset: 0
+}
+
+html.light .taskcontrol-page .glass-effect-1 {
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  isolation: auto;
+}
+
+html.light .taskcontrol-page .glass-effect-1::after {
+  content: none;
+}
+
+html.light nav.glass-effect-1 {
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  isolation: auto;
+}
+
+html.light nav.glass-effect-1::after {
+  content: none;
 }
