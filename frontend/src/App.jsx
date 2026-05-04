@@ -62,10 +62,10 @@ function ConditionalNavbar() {
 
   const navbarClasses = {
     '/login': 'md:bg-white/20 glass-effect-1',
-    '/taskcontrol': 'glass-effect-1 taskcontrol-navbar md:bg-white/10 [.light_&]:bg-white/20',
+    '/taskcontrol': 'glass-effect-1 taskcontrol-navbar md:bg-white/10 ![.light_&]:bg-white [.light_&]:border [.light_&]:border-neutral-300',
   };
 
-  const navbarClass = navbarClasses[pathname] ?? 'md:bg-white/10 [.light_&]:bg-black ';
+  const navbarClass = navbarClasses[pathname] ?? 'bg-white/10  ';
 
   return <Navbar className={navbarClass} />;
 }

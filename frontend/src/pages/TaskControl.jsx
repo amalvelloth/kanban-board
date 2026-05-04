@@ -344,7 +344,7 @@ const SortableCard = ({ card }) => {
       style={style}
       {...attributes}
       {...listeners}
-      className={`glass-effect-1 touch-none mb-3 cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing [.light_&]:border-neutral-300 [.light_&]:bg-white [.light_&]:shadow-sm`}
+      className={`glass-effect-1 touch-none mb-3 cursor-grab rounded bg-neutral-800 p-3 active:cursor-grabbing [.light_&]:border [.light_&]:border-neutral-300 [.light_&]:bg-white`}
     >
       <p className="text-sm text-neutral-100 [.light_&]:text-neutral-900">
         {card.title}
