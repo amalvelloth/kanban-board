@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { handleError, handleSuccess } from "../utils";
@@ -13,6 +13,26 @@ import closeIcon from "../assets/icons/cross_icon.png"
 function Login() {
   const [showLoginPassword, setShowLoginPassword] = useState(false);
   const [showSignupPassword, setShowSignupPassword] = useState(false);
+
+  const [isLightMode, setIsLightMode] = useState(false);
+
+  useEffect(() => {
+    // Set initial state
+    setIsLightMode(document.documentElement.classList.contains("light"));
+
+    // Observe changes to the HTML class attribute to sync with ToggleButton
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          setIsLightMode(document.documentElement.classList.contains("light"));
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
@@ -146,7 +166,7 @@ function Login() {
         <DotGrid />
         <div className="relative flex-col p-8 w-full h-screen max-md:p-2 z-[2]">
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
-            <h2 className="select-none opacity-80 bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent text-6xl sm:text-7xl font-bold">KANBAN BOARD</h2>
+            <h2 className="select-none opacity-80 [.light_&]:text-black [.light_&]:bg-gradient-to-r [.light_&]:from-[#3C3489] [.light_&]:to-[#999999] bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent text-6xl sm:text-7xl font-bold">KANBAN BOARD</h2>
           </div>
           <img src={Element1} className="select-none pointer-events-none w-[150px] md:w-[250px] mt-16 md:mt-0 animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
           <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
@@ -158,20 +178,20 @@ function Login() {
               <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
               <span>REPEAT</span>
             </p>
-            <h1 className="bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
-              <span className="select-none bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent [.light_&]:text-[#000000]">Visualize</span> <span className="select-none bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent [.light_&]:text-[#000000]">Your</span> <span className="select-none bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent [.light_&]:text-[#000000]">Progress</span>
+            <h1 className={`font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)] ${!isLightMode ? 'bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent' : 'text-[#7B6CD0]'}`}>
+              <span className="select-none">Visualize</span> <span className="select-none">Your</span> <span className="select-none">Progress</span>
             </h1>
-            <p className="text-[#f8f8f8] select-none opacity-80 font-light font-rmneue text-start md:text-center mt-2 [.light_&]:text-[#000000]">Organize tasks, track progress, and stay focused with a visual workflow.</p>
+            <p className="text-[#f8f8f8] select-none opacity-80 font-light font-rmneue text-start md:text-center mt-2 [.light_&]:text-[#4A4560]">Organize tasks, track progress, and stay focused with a visual workflow.</p>
             <div className="buttons flex gap-2 sm:gap-4 justify-center">
               <button
                 onClick={openLoginModal}
-                className="select-none rounded-3xl glass-effect-1 my-5 text-white py-2 sm:px-10 max-sm:px-4 font-normal"
+                className={`select-none rounded-3xl my-5 text-white py-2 sm:px-10 max-sm:px-4 font-normal ${!isLightMode ? 'glass-effect-1' : 'bg-[#7B6CD0] [.light_&]:text-white'}`}
               >
                 Login
               </button>
               <button
                 onClick={openRegisterModal}
-                className="select-none rounded-3xl glass-effect-1 my-5 text-white py-2 sm:px-10 max-sm:px-4 font-normal"
+                className={`select-none rounded-3xl my-5 py-2 sm:px-10 max-sm:px-4 font-normal ${!isLightMode ? 'glass-effect-1 text-white' : 'bg-white [.light_&]:text-[#7B6CD0]'}`}
               >
                 Sign Up
               </button>
