@@ -39,7 +39,7 @@ function Logout({ setIsOpen }) {
     }}>
         Logout
     </button> */}
-    <button className='text-red-500 px-4 border border-red-500 bg-red-300/20 rounded-full'
+    <button className='glass-effect-1 bg-[#473a3a] !shadow-[0_0_10px_rgba(239,68,68,0.6)] [.light_&]:!shadow-none [.light_&]:bg-red-300/20 [.light_&]:border [.light_&]:border-red-500 font-rmneue text-red-500 px-4 rounded-full'
      onClick={handleLogout}>
         Logout
     </button>

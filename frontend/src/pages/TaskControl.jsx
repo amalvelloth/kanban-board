@@ -344,7 +344,7 @@ const SortableCard = ({ card }) => {
       style={style}
       {...attributes}
       {...listeners}
-      className={`glass-effect-1 touch-none mb-3 cursor-grab rounded bg-neutral-800 p-3 active:cursor-grabbing [.light_&]:border [.light_&]:border-neutral-300 [.light_&]:bg-white`}
+      className={`glass-effect-1 font-rmneue touch-none mb-3 cursor-grab rounded bg-neutral-800 p-3 active:cursor-grabbing [.light_&]:border [.light_&]:border-neutral-300 [.light_&]:bg-white`}
     >
       <p className="text-sm text-neutral-100 [.light_&]:text-neutral-900">
         {card.title}
@@ -356,7 +356,7 @@ const SortableCard = ({ card }) => {
 const Card = ({ title }) => {
   return (
     <div
-      className={`mb-3 cursor-grabbing rounded border border-violet-500 bg-neutral-800 p-3 shadow-2xl opacity-90 [.light_&]:border-violet-500 [.light_&]:bg-white`}
+      className={`mb-3 cursor-grabbing rounded font-rmneue border border-violet-500 bg-neutral-800 p-3 shadow-2xl opacity-90 [.light_&]:border-violet-500 [.light_&]:bg-white`}
     >
       <p className="text-sm text-neutral-100 [.light_&]:text-neutral-900">
         {title}

@@ -210,7 +210,7 @@ function Login() {
             onClick={closeLoginModal}
             className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
           >
-            <img src={closeIcon} className="w-8 h-8" alt="" />
+            <img src={closeIcon} className="w-8 h-8 pointer-events-none" alt="" />
           </button>
           <form
             onSubmit={handleLoginSubmit}
@@ -269,7 +269,7 @@ function Login() {
             onClick={closeRegisterModal}
             className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
           >
-            <img src={closeIcon} className="w-8 h-8" alt="" />
+            <img src={closeIcon} className="w-8 h-8 hidden" alt="" />
           </button>
           <form
             onSubmit={handleRegisterSubmit}
