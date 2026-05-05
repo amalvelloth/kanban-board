@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { ToastContainer } from "react-toastify";
 import Modal from "react-modal";
 import { handleError, handleSuccess } from "../utils";
 import DotGrid from "../components/DotGrid";
 import Element1 from "../assets/element-1.svg";
 import Element2 from "../assets/element-2.svg";
-import SvgBgDesktop from "../assets/svg-bg-desktop.svg";
-import SvgBgMobile from "../assets/svg-bg-mobile.svg";
-import heroVideo from "../assets/gradient_fluid_animation.mp4";
+import darkModeHeroClip from "../assets/dark_hero_video.mp4";
+import lightModeHeroClip from "../assets/white_hero_video.mp4";
 import { Eye, EyeOff } from "lucide-react";
 import closeIcon from "../assets/icons/cross_icon.png"
 
@@ -184,14 +182,37 @@ function Login() {
 
 
         <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-          <video
-            className="object-cover h-full w-full opacity-100"
+          {/* Dark mode video */}
+          {/* Dark Mode Video - Hidden in light mode */}
+          <video className="object-cover h-full w-full opacity-100 [.light_&]:hidden"
             autoPlay
             muted
             loop
             playsInline
           >
-            <source src={heroVideo} type="video/mp4" />
+      
+
+          {/* Light mode video */}
+          <video 
+            className="object-cover h-full w-full opacity-100 hidden [.light_&]:block"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src={lightModeHeroClip} type="video/mp4" />
+          </video>      <source src={darkModeHeroClip} type="video/mp4" />
+          </video>
+
+          {/* Light Mode Video - Hidden by default, block in light mode */}
+          <video
+            className="object-cover h-full w-full opacity-100 hidden [.light_&]:block"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src={lightModeHeroClip} type="video/mp4" />
           </video>
         </div>
 
