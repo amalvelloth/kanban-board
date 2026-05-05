@@ -161,7 +161,7 @@ function Login() {
             <h1 className="bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]">
               <span className="select-none bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent [.light_&]:text-[#000000]">Visualize</span> <span className="select-none bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent [.light_&]:text-[#000000]">Your</span> <span className="select-none bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent [.light_&]:text-[#000000]">Progress</span>
             </h1>
-            <p className="!text-[#f8f8f8] select-none opacity-80 font-light font-rmneue text-start md:text-center mt-2">Organize tasks, track progress, and stay focused with a visual workflow.</p>
+            <p className="text-[#f8f8f8] select-none opacity-80 font-light font-rmneue text-start md:text-center mt-2 [.light_&]:text-[#000000]">Organize tasks, track progress, and stay focused with a visual workflow.</p>
             <div className="buttons flex gap-2 sm:gap-4 justify-center">
               <button
                 onClick={openLoginModal}
