@@ -206,7 +206,7 @@ function Login() {
 
           {/* Light Mode Video - Hidden by default, block in light mode */}
           <video
-            className="object-cover h-full w-full opacity-100 hidden [.light_&]:block"
+            className="object-cover h-full w-full opacity-100 hidden [.light_&]:block blur-sm scale-[120%]"
             autoPlay
             muted
             loop
