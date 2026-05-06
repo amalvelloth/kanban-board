@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { handleError, handleSuccess } from "../utils";
@@ -15,6 +15,30 @@ function Login() {
   const [showSignupPassword, setShowSignupPassword] = useState(false);
 
   const [isLightMode, setIsLightMode] = useState(false);
+  
+  // Refs for controlling the background videos
+  const darkVideoRef = useRef(null);
+  const lightVideoRef = useRef(null);
+  const lightVideoBlurRef = useRef(null);
+
+  // Play video from the start when theme changes
+  useEffect(() => {
+    if (isLightMode) {
+      if (lightVideoRef.current) {
+        lightVideoRef.current.currentTime = 0;
+        lightVideoRef.current.play().catch(e => console.error(e));
+      }
+      if (lightVideoBlurRef.current) {
+        lightVideoBlurRef.current.currentTime = 0;
+        lightVideoBlurRef.current.play().catch(e => console.error(e));
+      }
+    } else {
+      if (darkVideoRef.current) {
+        darkVideoRef.current.currentTime = 0;
+        darkVideoRef.current.play().catch(e => console.error(e));
+      }
+    }
+  }, [isLightMode]);
 
   useEffect(() => {
     // Set initial state
@@ -199,33 +223,23 @@ function Login() {
           </div>
         </div>
 
-
-
+        {/* Video Background Layer */}
         <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-          {/* Dark mode video */}
           {/* Dark Mode Video - Hidden in light mode */}
-          <video className="object-cover h-full w-full opacity-100 [.light_&]:hidden"
+          <video
+            ref={darkVideoRef}
+            className="object-cover h-full w-full opacity-100 [.light_&]:hidden"
             autoPlay
             muted
             loop
             playsInline
           >
-
-
-            {/* Light mode video */}
-            <video
-              className="object-cover h-full w-full opacity-100 hidden [.light_&]:block"
-              autoPlay
-              muted
-              loop
-              playsInline
-            >
-              <source src={lightModeHeroClip} type="video/mp4" />
-            </video>      <source src={darkModeHeroClip} type="video/mp4" />
+            <source src={darkModeHeroClip} type="video/mp4" />
           </video>
 
-          {/* Light Mode Video - Hidden by default, block in light mode */}
+          {/* Light mode video */}
           <video
+            ref={lightVideoRef}
             className="object-cover h-full w-full opacity-100 hidden [.light_&]:block blur-sm scale-[120%]"
             autoPlay
             muted
@@ -234,9 +248,9 @@ function Login() {
           >
             <source src={lightModeHeroClip} type="video/mp4" />
           </video>
+
+          
         </div>
-
-
 
         {/* Modal for Login */}
         <Modal
