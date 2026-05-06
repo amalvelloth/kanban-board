@@ -6,15 +6,17 @@ import Sun from '../assets/icons/sun.svg'
 const Switch = () => {
     useEffect(() => {
         document.documentElement.classList.remove('light');
-document.documentElement.classList.toggle('dark') // <html> tag
+        document.documentElement.classList.add('dark');
     }, []);
 
     const toggleTheme = (e) => {
         if (e.target.checked) {
             document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
             handleThemeToast("Light mode enabled");
         } else {
             document.documentElement.classList.remove('light');
+            document.documentElement.classList.add('dark');
             handleThemeToast("Dark mode enabled");
         }
     };

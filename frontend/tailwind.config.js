@@ -27,4 +27,17 @@ export default {
       },
     },
   },
+  plugins: [
+  function ({ addUtilities }) {
+    addUtilities({
+      '.text-stroke-thin': {
+        '-webkit-text-stroke': '0.5px #C7BFF0', // thinner outline
+      },
+      '.text-stroke': {
+        '-webkit-text-stroke': '1px #C7BFF0', // default
+      },
+    })
+  },
+]
+
 }

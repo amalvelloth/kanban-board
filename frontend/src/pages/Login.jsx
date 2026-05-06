@@ -166,10 +166,7 @@ function Login() {
         <DotGrid />
         <div className="relative flex-col p-8 w-full h-screen max-md:p-2 z-[2]">
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
-            <h2 className="select-none opacity-80 text-6xl sm:text-7xl font-bold bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent [.light_&]:from-[#3C3489] [.light_&]:to-[#7B6CD0]">
-  KANBAN BOARD
-</h2>
-
+            <h2 className="[.light_&]:![background-image:none] [.light_&]:[-webkit-text-stroke:1px_#bc90e3] select-none opacity-80 text-6xl sm:text-7xl font-light bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent [.light_&]:text-white/10">KANBAN BOARD</h2>
           </div>
           <img src={Element1} className="select-none pointer-events-none w-[150px] md:w-[250px] mt-16 md:mt-0 animate-float aspect-square grayscale !z-[100]" alt="Jogging" />
           <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square grayscale !z-[100] absolute right-0" alt="Jogging" />
@@ -184,7 +181,7 @@ function Login() {
             <h1 className={`font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)] ${!isLightMode ? 'bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent' : 'text-[#7B6CD0]'}`}>
               <span className="select-none">Visualize</span> <span className="select-none">Your</span> <span className="select-none">Progress</span>
             </h1>
-            <p className="text-[#f8f8f8] select-none opacity-80 font-light font-rmneue text-start md:text-center mt-2 [.light_&]:text-[#4A4560]">Organize tasks, track progress, and stay focused with a visual workflow.</p>
+            <p className="text-[#f8f8f8] w-3/4 select-none opacity-80 font-light font-rmneue text-start md:text-center mt-2 [.light_&]:text-[#4A4560]">Organize tasks, track progress, and stay focused with a visual workflow.</p>
             <div className="buttons flex gap-2 sm:gap-4 justify-center">
               <button
                 onClick={openLoginModal}
@@ -246,7 +243,7 @@ function Login() {
           isOpen={isLoginModalOpen}
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
-          className="glass-effect-1 modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit"
+          className="glass-effect-1 select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] transition-colors duration-300 ease-in-out"
         >
           <h2 className="select-none font-semibold text-xl text-center text-white">Login</h2>
@@ -305,7 +302,7 @@ function Login() {
           isOpen={isRegisterModalOpen}
           onRequestClose={closeRegisterModal}
           contentLabel="Register Modal"
-          className="glass-effect-1 modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0"
+          className="glass-effect-1 select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0"
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
         >
           <h2 className="select-none font-semibold select- text-xl text-center text-white">Sign Up</h2>
@@ -325,7 +322,7 @@ function Login() {
               placeholder="Enter Name"
               value={signupInfo.name}
               onChange={handleRegisterChange}
-              className="p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
+              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
             <input
               type="email"
@@ -333,7 +330,7 @@ function Login() {
               placeholder="Enter Email"
               value={signupInfo.email}
               onChange={handleRegisterChange}
-              className="p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
+              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
             <div className="relative flex items-center">
               <input
@@ -342,7 +339,7 @@ function Login() {
                 placeholder="Enter Password"
                 value={signupInfo.password}
                 onChange={handleRegisterChange}
-                className="w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 bg-transparent rounded"
+                className="select-none w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 bg-transparent rounded"
               />
               <button
                 type="button"
