@@ -96,3 +96,14 @@ html.dark .glass-effect-1 {
   will-change: transform;
   position: relative
 }
+
+/* Hide the default password reveal icon */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-password-toggle {
+  display: none;
+}

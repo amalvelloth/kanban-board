@@ -257,7 +257,7 @@ function Login() {
           isOpen={isLoginModalOpen}
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
-          className={` ${!isLightMode ? 'glass-effect-1' : 'bg-[#E8DDF7]' } select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit`}
+          className={` ${!isLightMode ? 'glass-effect-1' : 'bg-[#f5eeff]' } select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit`}
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] transition-colors duration-300 ease-in-out"
         >
           <h2 className="select-none font-semibold text-xl text-center text-white [.light_&]:text-black">Login</h2>
@@ -292,7 +292,7 @@ function Login() {
               <button
                 type="button"
                 onClick={() => setShowLoginPassword(!showLoginPassword)}
-                className="absolute right-2 text-white/50 hover:text-white transition-colors"
+                className="absolute right-2 text-white/50 hover:text-white [.light_&]:text-[#B2A5F4] hover:[.light_&]:text-[#927ff3] transition-colors"
               >
                 {showLoginPassword ? <Eye size={18} /> : <EyeOff size={18} />}
               </button>
@@ -300,7 +300,7 @@ function Login() {
             <button
               type="submit"
               disabled={loginLoading}
-              className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded flex items-center justify-center"
+              className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] [.light_&]:from-[#9B8BF0] [.light_&]:to-[#B2A5F4] text-[#144a97] [.light_&]:text-white rounded flex items-center justify-center"
             >
               {loginLoading ? (
                 <>
