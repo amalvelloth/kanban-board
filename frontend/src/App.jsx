@@ -27,7 +27,7 @@ function App() {
         stacked
         transition={Slide}
         className="!bottom-18"
-        autoClose={2000}
+        autoClose={2500}
         hideProgressBar={true}
         closeOnClick
         pauseOnHover={false}
