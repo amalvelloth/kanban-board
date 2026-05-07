@@ -291,7 +291,7 @@ function Login() {
                   loginPasswordRef.current?.focus();
                 }
               }}
-              className="placeholder-gray-400 p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:focus:border-b-[#7B6CD0] border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 rounded"
+              className="placeholder-gray-400 [.light_&]:placeholder-violet-300 p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:focus:border-b-[#7B6CD0] border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black [.light_&]:text-black border-gray-300/10 rounded"
             />
             <div className="relative flex items-center">
               <input
@@ -301,7 +301,7 @@ function Login() {
                 placeholder="Password"
                 value={loginInfo.password}
                 onChange={handleLoginChange}
-                className="placeholder-gray-400 w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:focus:border-b-[#7B6CD0] border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 bg-transparent rounded"
+                className="placeholder-gray-400 [.light_&]:placeholder-violet-300 w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:focus:border-b-[#7B6CD0] border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 bg-transparent rounded"
               />
               <button
                 type="button"
@@ -333,7 +333,7 @@ function Login() {
           className={`${!isLightMode ? 'glass-effect-1' : 'bg-[#E8DDF7]'} select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0`}
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
         >
-          <h2 className="select-none font-semibold select- text-xl text-center text-white">Sign Up</h2>
+          <h2 className="select-none font-semibold select- text-xl text-center text-white [.light_&]:text-black">Sign Up</h2>
           <button
             onClick={closeRegisterModal}
             className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
@@ -356,7 +356,7 @@ function Login() {
                   registerEmailRef.current?.focus();
                 }
               }}
-              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
+              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white [.light_&]:text-black border-gray-300/10 rounded"
             />
             <input
               ref={registerEmailRef}
@@ -371,7 +371,7 @@ function Login() {
                   registerPasswordRef.current?.focus();
                 }
               }}
-              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
+              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white [.light_&]:text-black border-gray-300/10 rounded"
             />
             <div className="relative flex items-center">
               <input
