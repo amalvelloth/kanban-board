@@ -9,6 +9,7 @@ import darkModeHeroClip from "../assets/dark_hero_video.mp4";
 import lightModeHeroClip from "../assets/white_hero_video.mp4";
 import { Eye, EyeOff } from "lucide-react";
 import closeIcon from "../assets/icons/cross_icon.png"
+import closeIconLight from "../assets/icons/cross_icon_light.svg"
 
 function Login() {
   const [showLoginPassword, setShowLoginPassword] = useState(false);
@@ -270,7 +271,8 @@ function Login() {
             onClick={closeLoginModal}
             className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
           >
-            <img src={closeIcon} className="w-8 h-8 pointer-events-none" alt="" />
+            <img src={closeIcon} className="w-8 h-8 pointer-events-none [.light_&]:hidden" alt="" />
+            <img src={closeIconLight} className="w-8 h-8 pointer-events-none hidden [.light_&]:block" alt="" />
           </button>
           <form
             onSubmit={handleLoginSubmit}
