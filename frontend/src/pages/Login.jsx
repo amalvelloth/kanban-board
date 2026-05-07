@@ -330,7 +330,7 @@ function Login() {
           isOpen={isRegisterModalOpen}
           onRequestClose={closeRegisterModal}
           contentLabel="Register Modal"
-          className={`${!isLightMode ? 'glass-effect-1' : 'bg-[#E8DDF7]'} select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0`}
+          className={`${!isLightMode ? 'glass-effect-1' : 'bg-[#F5EEFF]'} select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0`}
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
         >
           <h2 className="select-none font-semibold select- text-xl text-center text-white [.light_&]:text-black">Sign Up</h2>
@@ -356,7 +356,7 @@ function Login() {
                   registerEmailRef.current?.focus();
                 }
               }}
-              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white [.light_&]:text-black border-gray-300/10 rounded"
+              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:placeholder-violet-300 border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 rounded"
             />
             <input
               ref={registerEmailRef}
@@ -371,7 +371,7 @@ function Login() {
                   registerPasswordRef.current?.focus();
                 }
               }}
-              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white [.light_&]:text-black border-gray-300/10 rounded"
+              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:placeholder-violet-300 border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 rounded"
             />
             <div className="relative flex items-center">
               <input
@@ -381,7 +381,7 @@ function Login() {
                 placeholder="Enter Password"
                 value={signupInfo.password}
                 onChange={handleRegisterChange}
-                className="select-none w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 bg-transparent rounded"
+                className="select-none w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:placeholder-violet-300 border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 bg-transparent rounded"
               />
               <button
                 type="button"
@@ -394,7 +394,7 @@ function Login() {
             <button
               type="submit"
               disabled={registerLoading}
-              className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] text-[#144a97] rounded flex items-center justify-center"
+              className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] [.light_&]:from-[#9B8BF0] [.light_&]:to-[#B2A5F4] text-[#144a97] [.light_&]:text-white rounded flex items-center justify-center"
             >
               {registerLoading ? (
                 <>
