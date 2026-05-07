@@ -21,6 +21,11 @@ function Login() {
   const lightVideoRef = useRef(null);
   const lightVideoBlurRef = useRef(null);
 
+  // Refs for moving focus between inputs
+  const loginPasswordRef = useRef(null);
+  const registerEmailRef = useRef(null);
+  const registerPasswordRef = useRef(null);
+
   // Play video from the start when theme changes
   useEffect(() => {
     if (isLightMode) {
@@ -278,10 +283,17 @@ function Login() {
               value={loginInfo.email}
               onFocus={(e) => e.target.setSelectionRange(0, 0)}
               onChange={handleLoginChange}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  loginPasswordRef.current?.focus();
+                }
+              }}
               className="placeholder-gray-400 p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:focus:border-b-[#7B6CD0] border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 rounded"
             />
             <div className="relative flex items-center">
               <input
+                ref={loginPasswordRef}
                 type={showLoginPassword ? "text" : "password"}
                 name="password"
                 placeholder="Password"
@@ -336,18 +348,32 @@ function Login() {
               placeholder="Enter Name"
               value={signupInfo.name}
               onChange={handleRegisterChange}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  registerEmailRef.current?.focus();
+                }
+              }}
               className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
             <input
+              ref={registerEmailRef}
               type="email"
               name="email"
               placeholder="Enter Email"
               value={signupInfo.email}
               onChange={handleRegisterChange}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  registerPasswordRef.current?.focus();
+                }
+              }}
               className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 border-0 border-b text-white border-gray-300/10 rounded"
             />
             <div className="relative flex items-center">
               <input
+                ref={registerPasswordRef}
                 type={showSignupPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter Password"
