@@ -234,7 +234,7 @@ function Login() {
           {/* Dark Mode Video - Hidden in light mode */}
           <video
             ref={darkVideoRef}
-            className="object-cover h-full w-full opacity-100 [.light_&]:hidden"
+            className="absolute inset-0 object-cover h-full w-full opacity-100 transition-opacity duration-500 delay-300 [.light_&]:opacity-0"
             autoPlay
             muted
             loop
@@ -246,7 +246,7 @@ function Login() {
           {/* Light mode video */}
           <video
             ref={lightVideoRef}
-            className="object-cover h-full w-full opacity-100 hidden [.light_&]:block blur-sm scale-[120%]"
+            className="absolute inset-0 object-cover h-full w-full opacity-0 duration-500 delay-300 [.light_&]:opacity-100 blur-sm scale-[120%]"
             autoPlay
             muted
             loop
