@@ -14,7 +14,7 @@ function Navbar({ className }) {
   return (
     <nav
       className={`login-navbar mt-0 rounded-xl md:mt-4 [.light_&]:!bg-white [.light_&]:rounded-none h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 !fixed px-4 flex items-center justify-between z-50 ${className}`}
-      style={{ transition: 'all 0s linear 350ms' }}
+      style={isHomePage ? { transition: 'all 0s linear 300ms' } : {}}
     >
       {/* {<BurgerMenu />} */}
       <a href="/" class="flex items-center gap-3">
