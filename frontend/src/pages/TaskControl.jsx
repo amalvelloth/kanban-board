@@ -406,7 +406,7 @@ const SortableCard = ({ card, handleTitleEdit }) => {
           }}
           className="w-full resize-none rounded bg-neutral-900/50 p-1 text-sm text-white focus:outline-none [.light_&]:bg-neutral-100 [.light_&]:text-neutral-900"
         />
-      ) : (<p className="text-sm flex items-center text-neutral-100 [.light_&]:text-neutral-900">
+      ) : (<p className="text-sm break-words flex-1 min-w-0 pr-2 text-neutral-100 [.light_&]:text-neutral-900">
         {card.title}
       </p>
       )}
