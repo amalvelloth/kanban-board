@@ -3,6 +3,7 @@ import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
 import doubleTap from "../assets/icons/double_tap.svg"
+import finger from "../assets/icons/finger.svg"
 import {
   DndContext,
   DragOverlay,
@@ -392,6 +393,10 @@ const SortableCard = ({ card, handleTitleEdit }) => {
           autoFocus
           value={editTitle}
           onChange={(e) => setEditTitle(e.target.value)}
+          onFocus={(e) => {
+            const length = e.target.value.length;
+            e.target.setSelectionRange(length, length);
+          }}
           onBlur={handleSave} // Saves when you click outside the box
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey) {
@@ -405,13 +410,28 @@ const SortableCard = ({ card, handleTitleEdit }) => {
         {card.title}
       </p>
       )}
-            <span 
-        className={`transition-opacity duration-500 ease-in-out ${
-          isSelected ? "opacity-100 animate-double-tap" : "opacity-0 sm:group-hover:opacity-100 sm:group-hover:animate-double-tap"
-        }`}
-      >
-        <img src={doubleTap} alt="double tap to edit" className="w-6" />
-      </span>
+      {!isEditing && (
+        <span 
+          // 1. Removed animate-double-tap from here:
+          className={`relative transition-opacity duration-500 ease-in-out ${
+            isSelected ? "opacity-100" : "opacity-0 sm:group-hover:opacity-100"
+          }`}
+        >
+          {/* 2. Added it directly to this image instead: */}
+          <img 
+            src={doubleTap} 
+            alt="double tap to edit" 
+            className={`w-6 ${isSelected ? "animate-double-tap" : "sm:group-hover:animate-double-tap"}`} 
+          />
+          
+          {/* 3. The finger has no animation, so it stays perfectly still! */}
+          <img 
+            src={finger} 
+            alt="double tap to edit" 
+            className="w-4 absolute right-0 top-3" 
+          />
+        </span>
+      )}
 
     </div>
   );
