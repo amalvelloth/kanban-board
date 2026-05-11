@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
+import doubleTap from "../assets/icons/double_tap.svg"
 import {
   DndContext,
   DragOverlay,
@@ -327,7 +328,15 @@ const SortableCard = ({ card, handleTitleEdit }) => {
 
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState(card.title);
-  
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleSelect = () => {
+    if (window.innerWidth < 640) {
+      setIsSelected(true);
+      setTimeout(() => setIsSelected(false), 1000);
+    }
+  };
+
   const {
     attributes,
     listeners,
@@ -368,14 +377,15 @@ const SortableCard = ({ card, handleTitleEdit }) => {
   }
 
   return (
-    <div
+    <div title="double tap to edit"
       ref={setNodeRef}
       style={style}
       {...attributes}
       // ONLY apply drag listeners if we are NOT editing
       {...(isEditing ? {} : listeners)}
       onDoubleClick={() => setIsEditing(true)} // Enter edit mode on double-click
-      className={`glass-effect-1 font-rmneue touch-none mb-3 cursor-grab rounded bg-neutral-800 p-3 active:cursor-grabbing [.light_&]:border [.light_&]:border-neutral-300 [.light_&]:bg-white`}
+      onClick={handleSelect}
+      className={`group transition-all glass-effect-1 flex justify-between font-rmneue touch-none mb-3 cursor-grab rounded bg-neutral-800 p-3 active:cursor-grabbing [.light_&]:border [.light_&]:border-neutral-300 [.light_&]:bg-white`}
     >
       {isEditing ? (
         <textarea
@@ -391,10 +401,18 @@ const SortableCard = ({ card, handleTitleEdit }) => {
           }}
           className="w-full resize-none rounded bg-neutral-900/50 p-1 text-sm text-white focus:outline-none [.light_&]:bg-neutral-100 [.light_&]:text-neutral-900"
         />
-      ) : (<p className="text-sm text-neutral-100 [.light_&]:text-neutral-900">
+      ) : (<p className="text-sm flex items-center text-neutral-100 [.light_&]:text-neutral-900">
         {card.title}
-      </p>)}
-      
+      </p>
+      )}
+            <span 
+        className={`transition-opacity duration-500 ease-in-out ${
+          isSelected ? "opacity-100 animate-double-tap" : "opacity-0 sm:group-hover:opacity-100 sm:group-hover:animate-double-tap"
+        }`}
+      >
+        <img src={doubleTap} alt="double tap to edit" className="w-6" />
+      </span>
+
     </div>
   );
 };
