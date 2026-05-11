@@ -101,6 +101,17 @@ const Board = () => {
     }
   };
 
+  const handleTitleEdit = (cardId, newTitle) => {
+    // 1. Instantly update the UI1
+    setCards((prev) => prev.map((c) => (c.id === cardId ? { ...c, title: newTitle } : c)));
+
+    // 2. Find the card and use your existing backend function to save it
+    const cardToSave = cards.find((c) => c.id === cardId);
+    if (cardToSave) {
+      updateCardsOrderInBackend({ ...cardToSave, title: newTitle });
+    }
+  }
+
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: {
@@ -180,7 +191,7 @@ const Board = () => {
     if (overId === "trash") {
       // Optimistic update: instantly remove the card from the UI
       setCards((cards) => cards.filter((c) => String(c.id) !== String(activeId)));
-      
+
       try {
         await deleteCardFromBackend(activeId);
       } catch (error) {
@@ -226,6 +237,7 @@ const Board = () => {
           headingColor="text-red-300"
           cards={cards}
           setCards={setCards}
+          handleTitleEdit={handleTitleEdit}
         />
         <Column
           title={
@@ -238,6 +250,7 @@ const Board = () => {
           headingColor="text-yellow-300"
           cards={cards}
           setCards={setCards}
+          handleTitleEdit={handleTitleEdit}
         />
         <Column
           title={
@@ -250,6 +263,7 @@ const Board = () => {
           headingColor="text-blue-300"
           cards={cards}
           setCards={setCards}
+          handleTitleEdit={handleTitleEdit}
         />
         <Column
           title={
@@ -262,6 +276,7 @@ const Board = () => {
           headingColor="text-emerald-300"
           cards={cards}
           setCards={setCards}
+          handleTitleEdit={handleTitleEdit}
         />
         <BurnBarrel />
       </div>
@@ -272,7 +287,7 @@ const Board = () => {
   );
 };
 
-const Column = ({ title, headingColor, cards, column, setCards }) => {
+const Column = ({ title, headingColor, cards, column, setCards, handleTitleEdit }) => {
   const filteredCards = Array.isArray(cards)
     ? cards.filter((c) => c.column === column)
     : [];
@@ -299,16 +314,20 @@ const Column = ({ title, headingColor, cards, column, setCards }) => {
       >
         <SortableContext items={cardIds} strategy={verticalListSortingStrategy}>
           {filteredCards.map((card) => (
-            <SortableCard key={card.id} card={card} />
+            <SortableCard key={card.id} card={card} handleTitleEdit={handleTitleEdit} />
           ))}
         </SortableContext>
         <AddCard column={column} setCards={setCards} />
       </div>
     </div>
-  ); 
+  );
 };
 
-const SortableCard = ({ card }) => {
+const SortableCard = ({ card, handleTitleEdit }) => {
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [editTitle, setEditTitle] = useState(card.title);
+  
   const {
     attributes,
     listeners,
@@ -328,6 +347,16 @@ const SortableCard = ({ card }) => {
     transition,
   };
 
+  //function to save and exit edit mode
+  const handleSave = () => {
+    if (editTitle.trim() !== "" && editTitle !== card.title) {
+      handleTitleEdit(card.id, editTitle);
+    } else {
+      setEditTitle(card.title);
+    }
+    setIsEditing(false);
+  }
+
   if (isDragging) {
     return (
       <div
@@ -343,12 +372,29 @@ const SortableCard = ({ card }) => {
       ref={setNodeRef}
       style={style}
       {...attributes}
-      {...listeners}
+      // ONLY apply drag listeners if we are NOT editing
+      {...(isEditing ? {} : listeners)}
+      onDoubleClick={() => setIsEditing(true)} // Enter edit mode on double-click
       className={`glass-effect-1 font-rmneue touch-none mb-3 cursor-grab rounded bg-neutral-800 p-3 active:cursor-grabbing [.light_&]:border [.light_&]:border-neutral-300 [.light_&]:bg-white`}
     >
-      <p className="text-sm text-neutral-100 [.light_&]:text-neutral-900">
+      {isEditing ? (
+        <textarea
+          autoFocus
+          value={editTitle}
+          onChange={(e) => setEditTitle(e.target.value)}
+          onBlur={handleSave} // Saves when you click outside the box
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              handleSave(); // Saves when you press Enter
+            }
+          }}
+          className="w-full resize-none rounded bg-neutral-900/50 p-1 text-sm text-white focus:outline-none [.light_&]:bg-neutral-100 [.light_&]:text-neutral-900"
+        />
+      ) : (<p className="text-sm text-neutral-100 [.light_&]:text-neutral-900">
         {card.title}
-      </p>
+      </p>)}
+      
     </div>
   );
 };
@@ -376,11 +422,10 @@ const BurnBarrel = () => {
   return (
     <div
       ref={setNodeRef}
-      className={`glass-effect-1 z-10 grid h-56 w-56 mb-6 shrink-0 place-content-center border rounded text-3xl transition-colors ${
-        isOver
-          ? " border-red-800 bg-red-800/20 text-red-500"
-          : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
-      }`}
+      className={`glass-effect-1 z-10 grid h-56 w-56 mb-6 shrink-0 place-content-center border rounded text-3xl transition-colors ${isOver
+        ? " border-red-800 bg-red-800/20 text-red-500"
+        : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
+        }`}
     >
       {isOver ? <FaFire className="animate-bounce" /> : <FiTrash />}
     </div>
