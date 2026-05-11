@@ -1,8 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import BurgerMenu from './BurgerMenu'
 import Logo from '../assets/kanban-board-logo.png'
-import darkmodeIcon from '../assets/icons/dark_mode.svg'
 import ToggleButton from '../../../frontend/src/components/ToggleButton'
 import LogOut from './Logout'
 

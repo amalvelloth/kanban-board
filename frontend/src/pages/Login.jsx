@@ -196,10 +196,17 @@ function Login() {
         <DotGrid />
         <div className="relative flex-col p-8 w-full h-screen max-md:p-2 z-[2]">
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
-            <h2 className="[.light_&]:![background-image:none] [.light_&]:[-webkit-text-stroke:1px_#bc90e3] select-none opacity-80 text-6xl sm:text-7xl font-light bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent [.light_&]:text-white/10">KANBAN BOARD</h2>
+            <div className="relative select-none opacity-80 text-6xl sm:text-7xl font-light">
+              <h2 className="bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent transition-opacity duration-0 ease-linear delay-300 [.light_&]:opacity-0">
+                KANBAN BOARD
+              </h2>
+              <h2 className="absolute top-0 left-0 w-full h-full [-webkit-text-stroke:1px_#bc90e3] text-white/10 opacity-0 transition-opacity duration-0 ease-linear delay-300 [.light_&]:opacity-100">
+                KANBAN BOARD
+              </h2>
+            </div>
           </div>
-          <img src={Element1} className="select-none pointer-events-none w-[150px] md:w-[250px] mt-16 md:mt-0 animate-float aspect-square grayscale !z-[100] [.light_&]:invert" alt="Jogging" />
-          <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square grayscale !z-[100] absolute right-0 [.light_&]:invert" alt="Jogging" />
+          <img src={Element1} className="select-none pointer-events-none w-[150px] md:w-[250px] mt-16 md:mt-0 animate-float aspect-square grayscale !z-[100] [.light_&]:invert transition-all duration-0 ease-linear delay-300" alt="Jogging" />
+          <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square grayscale !z-[100] absolute right-0 [.light_&]:invert transition-all duration-0 ease-linear delay-300" alt="Jogging" />
           <div className="wrapper pt-20 absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-2">
             <p className="flex select-none items-center justify-center gap-2 md:gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
               <span>PLAN</span>
@@ -215,13 +222,13 @@ function Login() {
             <div className="buttons flex gap-2 sm:gap-4 justify-center">
               <button
                 onClick={openLoginModal}
-                className={`select-none rounded-3xl my-5 text-white py-2 sm:px-10 max-sm:px-4 font-normal ${!isLightMode ? 'glass-effect-1' : 'bg-[#7B6CD0] [.light_&]:text-white'}`}
+                className={`select-none rounded-3xl my-5 text-white py-2 sm:px-10 max-sm:px-4 font-normal ${!isLightMode ? 'glass-effect-1' : 'bg-[#7B6CD0] [.light_&]:text-white transition-all duration-0 ease-linear delay-300'}`}
               >
                 Login
               </button>
               <button
                 onClick={openRegisterModal}
-                className={`select-none rounded-3xl my-5 py-2 sm:px-10 max-sm:px-4 font-normal ${!isLightMode ? 'glass-effect-1 text-white' : 'bg-white [.light_&]:text-[#7B6CD0]'}`}
+                className={`select-none rounded-3xl my-5 py-2 sm:px-10 max-sm:px-4 font-normal ${!isLightMode ? 'glass-effect-1 text-white' : 'bg-white [.light_&]:text-[#7B6CD0] transition-all duration-0 ease-linear delay-300'}`}
               >
                 Sign Up
               </button>
