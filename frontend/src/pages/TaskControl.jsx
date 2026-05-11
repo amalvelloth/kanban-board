@@ -421,14 +421,14 @@ const SortableCard = ({ card, handleTitleEdit }) => {
           <img 
             src={doubleTap} 
             alt="double tap to edit" 
-            className={`w-6 ${isSelected ? "animate-double-tap" : "sm:group-hover:animate-double-tap"}`} 
+            className={`w-5 ${isSelected ? "animate-double-tap" : "sm:group-hover:animate-double-tap sm:group-hover:[animation-duration:1s]"}`} 
           />
           
           {/* 3. The finger has no animation, so it stays perfectly still! */}
           <img 
             src={finger} 
             alt="double tap to edit" 
-            className="w-4 absolute right-0 top-3" 
+            className="w-4 absolute right-0 top-2" 
           />
         </span>
       )}
