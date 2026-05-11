@@ -215,10 +215,10 @@ function Login() {
               <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
               <span>REPEAT</span>
             </p>
-            <h1 className={`font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)] ${!isLightMode ? 'bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent' : 'text-[#7B6CD0]'}`}>
+            <h1 className={`font-medium text-start md:text-center mx-0 md:mx-auto font-rmneue w-3/4 text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]  ${!isLightMode ? 'bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent transition-all duration-0 ease-linear delay-300' : 'text-[#7B6CD0] transition-all duration-0 ease-linear delay-300'}`}>
               <span className="select-none">Visualize</span> <span className="select-none">Your</span> <span className="select-none">Progress</span>
             </h1>
-            <p className="text-[#f8f8f8] w-3/4 select-none opacity-80 font-light font-rmneue text-start md:text-center mt-2 [.light_&]:text-[#4A4560]">Organize tasks, track progress, and stay focused with a visual workflow.</p>
+            <p className="text-[#f8f8f8] w-3/4 select-none opacity-80 font-light font-rmneue text-start md:text-center mt-2 [.light_&]:text-[#4A4560] transition-all duration-0 ease-linear delay-300">Organize tasks, track progress, and stay focused with a visual workflow.</p>
             <div className="buttons flex gap-2 sm:gap-4 justify-center">
               <button
                 onClick={openLoginModal}
