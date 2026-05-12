@@ -192,7 +192,7 @@ function Login() {
 
   return (
     <>
-      <section className="flex w-full font-rmneue h-screen relative overflow-hidden bg-black">
+      <section className="login-page flex w-full font-rmneue h-screen relative overflow-hidden bg-black">
         <DotGrid />
         <div className="relative flex-col p-8 w-full h-screen max-md:p-2 z-[2]">
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
@@ -227,13 +227,13 @@ function Login() {
             <div className="buttons flex gap-2 sm:gap-4 justify-center">
               <button
                 onClick={openLoginModal}
-                className={`select-none rounded-3xl my-5 text-white py-2 sm:px-10 max-sm:px-4 font-normal ${!isLightMode ? 'glass-effect-1' : 'bg-[#7B6CD0] [.light_&]:text-white transition-all duration-0 ease-linear delay-300'}`}
+                className="select-none rounded-3xl my-5 py-2 sm:px-10 max-sm:px-4 font-normal transition-all duration-0 ease-linear delay-300 text-white glass-effect-1 [.light_&]:bg-[#7B6CD0]"
               >
                 Login
               </button>
               <button
                 onClick={openRegisterModal}
-                className={`select-none rounded-3xl my-5 py-2 sm:px-10 max-sm:px-4 font-normal ${!isLightMode ? 'glass-effect-1 text-white' : 'bg-white [.light_&]:text-[#7B6CD0] transition-all duration-0 ease-linear delay-300'}`}
+                className="select-none rounded-3xl my-5 py-2 sm:px-10 max-sm:px-4 font-normal transition-all duration-0 ease-linear delay-300 text-white glass-effect-1 [.light_&]:bg-white [.light_&]:text-[#7B6CD0]"
               >
                 Sign Up
               </button>

@@ -66,6 +66,7 @@ textarea:-webkit-autofill:focus {
 }
 
 html.light .taskcontrol-page .glass-effect-1,
+html.light .login-page .glass-effect-1,
 html.light nav.taskcontrol-navbar,
 html.light nav.login-navbar {
   box-shadow: none !important;
@@ -75,6 +76,7 @@ html.light nav.login-navbar {
 }
 
 html.light .taskcontrol-page .glass-effect-1::after,
+html.light .login-page .glass-effect-1::after,
 html.light nav.taskcontrol-navbar::after,
 html.light nav.login-navbar::after {
   content: none !important;
