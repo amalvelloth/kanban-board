@@ -413,7 +413,7 @@ const SortableCard = ({ card, handleTitleEdit }) => {
       {!isEditing && (
         <span
           // 1. Removed animate-double-tap from here:
-          className={`self-center relative transition-opacity duration-500 ease-in-out ${isSelected ? "opacity-100" : "opacity-0 sm:group-hover:opacity-100 sm:group-hover:delay-[1000ms]"
+          className={`absolute right-4 top-3 transition-opacity duration-500 ease-in-out ${isSelected ? "opacity-100" : "opacity-0 sm:group-hover:opacity-100 sm:group-hover:delay-[1000ms]"
             }`}
         >
           {/* 2. Added it directly to this image instead: */}
