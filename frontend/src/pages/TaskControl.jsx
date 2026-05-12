@@ -411,24 +411,23 @@ const SortableCard = ({ card, handleTitleEdit }) => {
       </p>
       )}
       {!isEditing && (
-        <span 
+        <span
           // 1. Removed animate-double-tap from here:
-          className={`relative transition-opacity duration-500 ease-in-out ${
-            isSelected ? "opacity-100" : "opacity-0 sm:group-hover:opacity-100 sm:group-hover:delay-[1000ms]"
-          }`}
+          className={`relative transition-opacity duration-500 ease-in-out ${isSelected ? "opacity-100" : "opacity-0 sm:group-hover:opacity-100 sm:group-hover:delay-[1000ms]"
+            }`}
         >
           {/* 2. Added it directly to this image instead: */}
-          <img 
-            src={doubleTap} 
-            alt="double tap to edit" 
-            className={`w-5 ${isSelected ? "animate-double-tap" : "sm:group-hover:animate-double-tap sm:group-hover:[animation-duration:1s] sm:group-hover:[animation-delay:1000ms]"}`} 
+          <img
+            src={doubleTap}
+            alt="double tap to edit"
+            className={`w-5 ${isSelected ? "animate-double-tap" : "sm:group-hover:animate-double-tap sm:group-hover:[animation-duration:1s] sm:group-hover:[animation-delay:1000ms]"}`}
           />
-          
+
           {/* 3. The finger has no animation, so it stays perfectly still! */}
-          <img 
-            src={finger} 
-            alt="double tap to edit" 
-            className="w-4 absolute right-0 top-2" 
+          <img
+            src={finger}
+            alt="double tap to edit"
+            className="w-4 absolute right-0 top-2"
           />
         </span>
       )}
@@ -440,9 +439,9 @@ const SortableCard = ({ card, handleTitleEdit }) => {
 const Card = ({ title }) => {
   return (
     <div
-      className={`mb-3 cursor-grabbing rounded font-rmneue border border-violet-500 bg-neutral-800 p-3 shadow-2xl opacity-90 [.light_&]:border-violet-500 [.light_&]:bg-white`}
+      className={`w-56 mb-3 cursor-grabbing rounded font-rmneue border border-violet-500 bg-neutral-800 p-3 shadow-2xl opacity-90 [.light_&]:border-violet-500 [.light_&]:bg-white`}
     >
-      <p className="text-sm text-neutral-100 [.light_&]:text-neutral-900">
+      <p className="text-sm break-all text-neutral-100 [.light_&]:text-neutral-900">
         {title}
       </p>
     </div>
