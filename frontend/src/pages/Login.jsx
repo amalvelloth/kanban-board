@@ -216,11 +216,11 @@ function Login() {
               <span>REPEAT</span>
             </p>
             <div className="relative mx-0 md:mx-auto w-3/4">
-              <h1 className="font-medium text-start md:text-center font-rmneue text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)] bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent transition-opacity duration-0 ease-linear delay-300 [.light_&]:opacity-0">
-                <span className="select-none">Visualize</span> <span className="select-none">Your</span> <span className="select-none">Progress</span>
+              <h1 className="font-medium text-start md:text-center font-rmneue text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)] ">
+                <span className="select-none bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent transition-opacity duration-0 ease-linear delay-300 [.light_&]:opacity-0">Visualize</span> <span className="select-none bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent transition-opacity duration-0 ease-linear delay-300 [.light_&]:opacity-0">Your</span> <span className="select-none bg-gradient-to-b from-white to-[#c084fc] bg-clip-text text-transparent transition-opacity duration-0 ease-linear delay-300 [.light_&]:opacity-0">Progress</span>
               </h1>
               <h1 className="absolute top-0 left-0 w-full h-full font-medium text-start md:text-center font-rmneue text-7xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)] text-[#7B6CD0] opacity-0 transition-opacity duration-0 ease-linear delay-300 [.light_&]:opacity-100 pointer-events-none">
-                <span className="select-none">Visualize</span> <span className="select-none">Your</span> <span className="select-none">Progress</span>
+                <span className="select-none">Visualize</span> <span className="select-none ">Your</span> <span className="select-none">Progress</span>
               </h1>
             </div>
             <p className="text-[#f8f8f8] w-3/4 select-none opacity-80 font-light font-rmneue text-start md:text-center mt-2 [.light_&]:text-[#4A4560] transition-all duration-0 ease-linear delay-300">Organize tasks, track progress, and stay focused with a visual workflow.</p>
