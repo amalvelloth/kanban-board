@@ -414,14 +414,14 @@ const SortableCard = ({ card, handleTitleEdit }) => {
         <span 
           // 1. Removed animate-double-tap from here:
           className={`relative transition-opacity duration-500 ease-in-out ${
-            isSelected ? "opacity-100" : "opacity-0 sm:group-hover:opacity-100"
+            isSelected ? "opacity-100" : "opacity-0 sm:group-hover:opacity-100 sm:group-hover:delay-[1000ms]"
           }`}
         >
           {/* 2. Added it directly to this image instead: */}
           <img 
             src={doubleTap} 
             alt="double tap to edit" 
-            className={`w-5 ${isSelected ? "animate-double-tap" : "sm:group-hover:animate-double-tap sm:group-hover:[animation-duration:1s]"}`} 
+            className={`w-5 ${isSelected ? "animate-double-tap" : "sm:group-hover:animate-double-tap sm:group-hover:[animation-duration:1s] sm:group-hover:[animation-delay:1000ms]"}`} 
           />
           
           {/* 3. The finger has no animation, so it stays perfectly still! */}
