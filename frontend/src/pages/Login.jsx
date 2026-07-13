@@ -275,7 +275,7 @@ function Login() {
           isOpen={isLoginModalOpen}
           onRequestClose={closeLoginModal}
           contentLabel="Login Modal"
-          className={` ${!isLightMode ? 'glass-effect-1' : 'bg-[#f5eeff]' } select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit`}
+          className={` ${!isLightMode ? 'glass-effect-1' : 'bg-[#f5eeff]'} select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit`}
           overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] transition-colors duration-300 ease-in-out"
         >
           <h2 className="select-none font-semibold text-xl text-center text-white [.light_&]:text-black">Login</h2>
@@ -335,6 +335,8 @@ function Login() {
               ) : ("LOGIN")}
             </button>
           </form>
+          <button className="text-[#C4B5FD] block mx-auto mt-4 hover:text-white transition duration-300">Forgot Password</button>
+
         </Modal>
 
         {/* Modal for Register */}
