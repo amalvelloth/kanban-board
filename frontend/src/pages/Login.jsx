@@ -309,11 +309,59 @@ function Login() {
       </section>
 
       {/* 100% Height Black Section Below Hero */}
-      <section className="w-full h-screen bg-black text-white p-8 md:p-16 flex flex-col justify-start items-start relative z-10 font-rmneue border-t border-white/10">
+      <section className="w-full min-h-screen bg-black text-white p-8 md:p-16 flex flex-col justify-start items-start relative z-10 font-rmneue border-t border-white/10">
         <h2 className="text-4xl sm:text-5xl md:text-5xl font-normal text-white text-left tracking-tight">
           Get started with Kanban Board
         </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-10">
+          {/* Card 1 */}
+          <div className="glass-effect-1 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Visual Task Management</h3>
+              <p className="text-neutral-400 text-sm leading-relaxed">
+                Organize your projects with flexible Kanban boards. Move tasks seamlessly between columns.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="glass-effect-1 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Real-time Tracking</h3>
+              <p className="text-neutral-400 text-sm leading-relaxed">
+                Track task progress live, eliminate bottlenecks, and keep your workflow synchronized.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="glass-effect-1 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Sleek & Fast UI</h3>
+              <p className="text-neutral-400 text-sm leading-relaxed">
+                Designed with dark mode glassmorphic UI, responsive layouts, and smooth animations.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
+
 
 
       {/* Modal for Login */}
