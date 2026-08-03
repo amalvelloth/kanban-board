@@ -89,7 +89,7 @@ function Login() {
     }
     try {
       setForgotLoading(true);
-      const url = "http://localhost:8080/auth/forgot-password";
+      const url = "https://fitplus-api.vercel.app/auth/forgot-password";
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

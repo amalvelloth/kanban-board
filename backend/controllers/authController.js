@@ -78,20 +78,6 @@ const forgotPassword = async (req, res) => {
     //create reset URL 
     const resetUrl = `http://localhost:5173/reset-password?token=${token}&email=${user.email}`;
 
-    //setup transporter
-    const transporter = nodemailer.createTransport({
-      service: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    });
-
-    //configure mail options
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: user.email,
-      subject: "Password Reset Request",
-      text: `You requested a password reset. Please click on the link below to reset your password: \n\n${resetUrl}\n\nThis link will expire in 1 hour.`,
-    };
-
     //If credentials are not setup, log URL to console for easy local development testing
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
       console.log("\n--- PASSWORD RESET LINK ---");
@@ -103,8 +89,26 @@ const forgotPassword = async (req, res) => {
       });
     }
 
+    //setup transporter
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      }
+    });
+
+    //configure mail options
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: user.email,
+      subject: "Password Reset Request",
+      text: `You requested a password reset. Please click on the link below to reset your password: \n\n${resetUrl}\n\nThis link will expire in 1 hour.`,
+    };
+
     await transporter.sendMail(mailOptions);
     res.status(200).json({ success: true, message: "Reset link sent to your email." });
+
 
   } catch (err) {
     console.error(err);
