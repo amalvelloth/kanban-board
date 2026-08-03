@@ -335,7 +335,7 @@ function Login() {
               ) : ("LOGIN")}
             </button>
           </form>
-          <button className="text-[#C4B5FD] block mx-auto mt-4 hover:text-white transition duration-300">Forgot Password</button>
+          <button className="text-[#C4B5FD] text-sm block mx-auto mt-4 hover:text-white transition duration-300">Forgot Password</button>
 
         </Modal>
 
