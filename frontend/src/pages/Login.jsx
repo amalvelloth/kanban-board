@@ -10,6 +10,9 @@ import lightModeHeroClip from "../assets/white_hero_video.mp4";
 import { Eye, EyeOff } from "lucide-react";
 import closeIcon from "../assets/icons/cross_icon.png"
 import closeIconLight from "../assets/icons/cross_icon_light.svg"
+import kb_features_1 from "../assets/kb_features_1.png"
+import kb_features_2 from "../assets/kb_features_2.png"
+import kb_features_3 from "../assets/kb_features_3.png"
 
 function Login() {
   const [showLoginPassword, setShowLoginPassword] = useState(false);
@@ -316,52 +319,45 @@ function Login() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-10">
           {/* Card 1 */}
-          <div className="glass-effect-1 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between group">
-            <div>
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Visual Task Management</h3>
+          <div className="glass-effect-1 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden">
+            <div className="w-full overflow-hidden border-b border-white/10 bg-black/40">
+              <img src={kb_features_1} alt="Visual Task Management" className="w-full h-auto block group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-white mb-2">Drag & Drop Tasks</h3>
               <p className="text-neutral-400 text-sm leading-relaxed">
-                Organize your projects with flexible Kanban boards. Move tasks seamlessly between columns.
+                Seamlessly move tasks between columns with intuitive drag-and-drop interactions.
               </p>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="glass-effect-1 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between group">
-            <div>
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Real-time Tracking</h3>
+          <div className="glass-effect-1 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden">
+            <div className="w-full overflow-hidden border-b border-white/10 bg-black/40">
+              <img src={kb_features_2} alt="Real-time Tracking" className="w-full h-auto block group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-white mb-2">Light & Dark Mode</h3>
               <p className="text-neutral-400 text-sm leading-relaxed">
-                Track task progress live, eliminate bottlenecks, and keep your workflow synchronized.
+                Instantly switch between light and dark themes for a personalized experience.
               </p>
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className="glass-effect-1 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group">
-            <div>
-              <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Sleek & Fast UI</h3>
+          <div className="glass-effect-1 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden">
+            <div className="w-full overflow-hidden border-b border-white/10 bg-black/40">
+              <img src={kb_features_3} alt="Sleek & Fast UI" className="w-full h-auto block group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-white mb-2">Drag to Delete</h3>
               <p className="text-neutral-400 text-sm leading-relaxed">
-                Designed with dark mode glassmorphic UI, responsive layouts, and smooth animations.
+                Remove completed or unwanted tasks by dragging them to the delete zone.
               </p>
             </div>
           </div>
         </div>
       </section>
-
 
 
       {/* Modal for Login */}
