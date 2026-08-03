@@ -7,7 +7,7 @@ import Element1 from "../assets/element-1.svg";
 import Element2 from "../assets/element-2.svg";
 import darkModeHeroClip from "../assets/dark_hero_video.mp4";
 import lightModeHeroClip from "../assets/white_hero_video.mp4";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, ChevronLeft, ChevronRight } from "lucide-react";
 import closeIcon from "../assets/icons/cross_icon.png"
 import closeIconLight from "../assets/icons/cross_icon_light.svg"
 import kb_features_1 from "../assets/kb_features_1.png"
@@ -19,11 +19,29 @@ function Login() {
   const [showSignupPassword, setShowSignupPassword] = useState(false);
 
   const [isLightMode, setIsLightMode] = useState(false);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
-  // Refs for controlling the background videos
+  const featureCards = [
+    { id: 1, tag: "Action", title: "Drag & Drop Tasks", image: kb_features_1, tagColor: "text-purple-300/80" },
+    { id: 2, tag: "Theme", title: "Light & Dark Mode", image: kb_features_2, tagColor: "text-blue-300/80" },
+    { id: 3, tag: "Actions", title: "Drag to Delete", image: kb_features_3, tagColor: "text-indigo-300/80" }
+  ];
+
+  // Refs for controlling the background videos & carousel
   const darkVideoRef = useRef(null);
   const lightVideoRef = useRef(null);
   const lightVideoBlurRef = useRef(null);
+  const carouselRef = useRef(null);
+
+  const scrollCarousel = (direction) => {
+    if (carouselRef.current) {
+      const scrollAmount = carouselRef.current.offsetWidth;
+      carouselRef.current.scrollBy({
+        left: direction === "next" ? scrollAmount : -scrollAmount,
+        behavior: "smooth"
+      });
+    }
+  };
 
   // Refs for moving focus between inputs
   const loginPasswordRef = useRef(null);
@@ -317,12 +335,13 @@ function Login() {
           Get started with Kanban Board
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-10">
+        {/* Desktop 3-Grid View */}
+        <div className="hidden md:grid grid-cols-3 gap-8 w-full mt-10">
           {/* Card 1 */}
-          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden group transition-all duration-500 hover:border-purple-500/50 flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
+          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
             {/* Full Card Blurred Background Image Layer */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 transition-all duration-700 group-hover:scale-135 group-hover:opacity-85 pointer-events-none"
+            <div
+              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 pointer-events-none"
               style={{ backgroundImage: `url(${kb_features_1})` }}
             />
             {/* Subtle Dark Vignette & Gradient for crisp text at bottom */}
@@ -330,28 +349,28 @@ function Login() {
 
             {/* Floating Smaller Uncropped Image Preview */}
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30 transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.02]">
+              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30">
                 <img src={kb_features_1} alt="Drag & Drop Tasks" className="w-full h-auto block" />
               </div>
             </div>
 
             {/* Bottom Text Content */}
             <div className="relative z-10 text-left mt-auto">
-              <p className="text-xs uppercase tracking-wider text-purple-300/80 font-medium mb-1">Feature</p>
+              <p className="text-xs uppercase tracking-wider text-purple-300/80 font-medium mb-1">Action</p>
               <h3 className="text-2xl font-semibold text-white tracking-tight">Drag & Drop Tasks</h3>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden group transition-all duration-500 hover:border-blue-500/50 flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
-            <div 
-              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 transition-all duration-700 group-hover:scale-135 group-hover:opacity-85 pointer-events-none"
+          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
+            <div
+              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 pointer-events-none"
               style={{ backgroundImage: `url(${kb_features_2})` }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-0 pointer-events-none" />
 
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30 transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.02]">
+              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30">
                 <img src={kb_features_2} alt="Light & Dark Mode" className="w-full h-auto block" />
               </div>
             </div>
@@ -363,15 +382,15 @@ function Login() {
           </div>
 
           {/* Card 3 */}
-          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden group transition-all duration-500 hover:border-indigo-500/50 flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
-            <div 
-              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 transition-all duration-700 group-hover:scale-135 group-hover:opacity-85 pointer-events-none"
+          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
+            <div
+              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 pointer-events-none"
               style={{ backgroundImage: `url(${kb_features_3})` }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-0 pointer-events-none" />
 
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30 transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.02]">
+              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30">
                 <img src={kb_features_3} alt="Drag to Delete" className="w-full h-auto block" />
               </div>
             </div>
@@ -380,6 +399,64 @@ function Login() {
               <p className="text-xs uppercase tracking-wider text-indigo-300/80 font-medium mb-1">Actions</p>
               <h3 className="text-2xl font-semibold text-white tracking-tight">Drag to Delete</h3>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile Carousel View (Smooth sliding + Touch Swipe support) */}
+        <div className="flex md:hidden flex-col items-center w-full mt-8">
+          {/* Scrollable Container with Snap points */}
+          <div
+            ref={carouselRef}
+            className="flex w-full overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
+            {featureCards.map((card) => (
+              <div
+                key={card.id}
+                className="snap-center shrink-0 w-full glass-effect-1 relative min-h-[380px] rounded-[32px] border border-white/15 overflow-hidden flex flex-col justify-between p-6 bg-white/5 backdrop-blur-xl"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 pointer-events-none"
+                  style={{ backgroundImage: `url(${card.image})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-0 pointer-events-none" />
+
+                <div className="relative z-10 w-full flex justify-center items-center pt-2 pb-4">
+                  <div className="w-[95%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30">
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className="w-full h-auto block"
+                    />
+                  </div>
+                </div>
+
+                <div className="relative z-10 text-left mt-auto">
+                  <p className={`text-xs uppercase tracking-wider ${card.tagColor} font-medium mb-1`}>
+                    {card.tag}
+                  </p>
+                  <h3 className="text-xl font-semibold text-white tracking-tight">
+                    {card.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Carousel Navigation Buttons */}
+          <div className="flex items-center gap-4 mt-6">
+            <button
+              onClick={() => scrollCarousel("prev")}
+              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white bg-black/50 hover:bg-white/10 active:scale-95 transition-all"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            <button
+              onClick={() => scrollCarousel("next")}
+              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white bg-black/50 hover:bg-white/10 active:scale-95 transition-all"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
         </div>
       </section>
