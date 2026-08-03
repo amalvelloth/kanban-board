@@ -306,205 +306,211 @@ function Login() {
 
 
         </div>
-
-        {/* Modal for Login */}
-        <Modal
-          isOpen={isLoginModalOpen}
-          onRequestClose={closeLoginModal}
-          contentLabel="Login Modal"
-          className={` ${!isLightMode ? 'glass-effect-1' : 'bg-[#f5eeff]'} select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit`}
-          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] transition-colors duration-300 ease-in-out"
-        >
-          <h2 className="select-none font-semibold text-xl text-center text-white [.light_&]:text-black">Login</h2>
-          <button
-            onClick={closeLoginModal}
-            className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
-          >
-            <img src={closeIcon} className="w-8 h-8 pointer-events-none [.light_&]:hidden" alt="" />
-            <img src={closeIconLight} className="w-8 h-8 pointer-events-none hidden [.light_&]:block" alt="" />
-          </button>
-          <form
-            onSubmit={handleLoginSubmit}
-            className="flex flex-col gap-4 mt-4"
-          >
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={loginInfo.email}
-              onFocus={(e) => e.target.setSelectionRange(0, 0)}
-              onChange={handleLoginChange}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.preventDefault();
-                  loginPasswordRef.current?.focus();
-                }
-              }}
-              className="placeholder-gray-400 [.light_&]:placeholder-violet-300 p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:focus:border-b-[#7B6CD0] border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black [.light_&]:text-black border-gray-300/10 rounded"
-            />
-            <div className="relative flex items-center">
-              <input
-                ref={loginPasswordRef}
-                type={showLoginPassword ? "text" : "password"}
-                name="password"
-                placeholder="Password"
-                value={loginInfo.password}
-                onChange={handleLoginChange}
-                className="placeholder-gray-400 [.light_&]:placeholder-violet-300 w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:focus:border-b-[#7B6CD0] border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 bg-transparent rounded"
-              />
-              <button
-                type="button"
-                onClick={() => setShowLoginPassword(!showLoginPassword)}
-                className="absolute right-2 text-white/50 hover:text-white [.light_&]:text-[#B2A5F4] hover:[.light_&]:text-[#927ff3] transition-colors"
-              >
-                {showLoginPassword ? <Eye size={18} /> : <EyeOff size={18} />}
-              </button>
-            </div>
-            <button
-              type="submit"
-              disabled={loginLoading}
-              className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] [.light_&]:from-[#9B8BF0] [.light_&]:to-[#B2A5F4] text-[#144a97] [.light_&]:text-white rounded flex items-center justify-center"
-            >
-              {loginLoading ? (
-                <>
-                  <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
-                </>
-              ) : ("LOGIN")}
-            </button>
-          </form>
-          <button
-            type="button"
-            onClick={openForgotModal}
-            className="text-[#C4B5FD] text-sm block mx-auto mt-4 hover:text-white transition duration-300"
-          >
-            Forgot Password
-          </button>
-
-        </Modal>
-
-        {/* Modal for Forgot Password */}
-        <Modal
-          isOpen={isForgotModalOpen}
-          onRequestClose={closeForgotModal}
-          contentLabel="Forgot Password Modal"
-          className={`${!isLightMode ? 'glass-effect-1' : 'bg-[#F5EEFF]'} select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0`}
-          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
-        >
-          <h2 className="select-none font-semibold text-xl text-center text-white [.light_&]:text-black">Forgot Password</h2>
-          <p className="text-xs text-center text-neutral-400 mt-1 mb-4">Enter your email address to receive a password reset link.</p>
-          <button
-            onClick={closeForgotModal}
-            className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
-          >
-            <img src={closeIcon} className="w-8 h-8 pointer-events-none [.light_&]:hidden" alt="" />
-            <img src={closeIconLight} className="w-8 h-8 pointer-events-none hidden [.light_&]:block" alt="" />
-          </button>
-
-          <form onSubmit={handleForgotSubmit} className="flex flex-col gap-4">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={forgotEmail}
-              onChange={(e) => setForgotEmail(e.target.value)}
-              className="p-2 text-sm bg-black/10 [.light_&]:bg-white border border-white/20 [.light_&]:border-purple-300 rounded text-white [.light_&]:text-black focus:outline-none"
-              required
-            />
-            <button
-              type="submit"
-              disabled={forgotLoading}
-              className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] [.light_&]:from-[#9B8BF0] [.light_&]:to-[#B2A5F4] text-[#144a97] [.light_&]:text-white rounded flex items-center justify-center"
-            >
-              {forgotLoading ? (
-                <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
-              ) : ("SEND RESET LINK")}
-            </button>
-          </form>
-        </Modal>
-
-
-        {/* Modal for Register */}
-        <Modal
-          isOpen={isRegisterModalOpen}
-          onRequestClose={closeRegisterModal}
-          contentLabel="Register Modal"
-          className={`${!isLightMode ? 'glass-effect-1' : 'bg-[#F5EEFF]'} select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0`}
-          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
-        >
-          <h2 className="select-none font-semibold select- text-xl text-center text-white [.light_&]:text-black">Create Account</h2>
-          <button
-            onClick={closeRegisterModal}
-            className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
-          >
-            <img src={closeIcon} className="w-8 h-8 pointer-events-none [.light_&]:hidden" alt="" />
-            <img src={closeIconLight} className="w-8 h-8 pointer-events-none hidden [.light_&]:block" alt="" />
-          </button>
-          <form
-            onSubmit={handleRegisterSubmit}
-            className="flex flex-col gap-4 mt-4"
-          >
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter Name"
-              value={signupInfo.name}
-              onChange={handleRegisterChange}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.preventDefault();
-                  registerEmailRef.current?.focus();
-                }
-              }}
-              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:placeholder-violet-300 border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 rounded"
-            />
-            <input
-              ref={registerEmailRef}
-              type="email"
-              name="email"
-              placeholder="Enter Email"
-              value={signupInfo.email}
-              onChange={handleRegisterChange}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.preventDefault();
-                  registerPasswordRef.current?.focus();
-                }
-              }}
-              className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:placeholder-violet-300 border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 rounded"
-            />
-            <div className="relative flex items-center">
-              <input
-                ref={registerPasswordRef}
-                type={showSignupPassword ? "text" : "password"}
-                name="password"
-                placeholder="Enter Password"
-                value={signupInfo.password}
-                onChange={handleRegisterChange}
-                className="select-none w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:placeholder-violet-300 border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 bg-transparent rounded"
-              />
-              <button
-                type="button"
-                onClick={() => setShowSignupPassword(!showSignupPassword)}
-                className="absolute right-2 text-white/50 hover:text-white transition-colors"
-              >
-                {showSignupPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-              </button>
-            </div>
-            <button
-              type="submit"
-              disabled={registerLoading}
-              className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] [.light_&]:from-[#9B8BF0] [.light_&]:to-[#B2A5F4] text-[#144a97] [.light_&]:text-white rounded flex items-center justify-center"
-            >
-              {registerLoading ? (
-                <>
-                  <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
-                </>
-              ) : ("SIGNUP")}
-            </button>
-          </form>
-        </Modal>
-
-
       </section>
+
+      {/* 100% Height Black Section Below Hero */}
+      <section className="w-full h-screen bg-black text-white p-8 md:p-16 flex flex-col justify-start items-start relative z-10 font-rmneue border-t border-white/10">
+        <h2 className="text-4xl sm:text-5xl md:text-5xl font-normal text-white text-left tracking-tight">
+          Get started with Kanban Board
+        </h2>
+      </section>
+
+
+      {/* Modal for Login */}
+      <Modal
+        isOpen={isLoginModalOpen}
+        onRequestClose={closeLoginModal}
+        contentLabel="Login Modal"
+        className={` ${!isLightMode ? 'glass-effect-1' : 'bg-[#f5eeff]'} select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl w-fit`}
+        overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[1000] transition-colors duration-300 ease-in-out"
+      >
+        <h2 className="select-none font-semibold text-xl text-center text-white [.light_&]:text-black">Login</h2>
+        <button
+          onClick={closeLoginModal}
+          className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
+        >
+          <img src={closeIcon} className="w-8 h-8 pointer-events-none [.light_&]:hidden" alt="" />
+          <img src={closeIconLight} className="w-8 h-8 pointer-events-none hidden [.light_&]:block" alt="" />
+        </button>
+        <form
+          onSubmit={handleLoginSubmit}
+          className="flex flex-col gap-4 mt-4"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={loginInfo.email}
+            onFocus={(e) => e.target.setSelectionRange(0, 0)}
+            onChange={handleLoginChange}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                loginPasswordRef.current?.focus();
+              }
+            }}
+            className="placeholder-gray-400 [.light_&]:placeholder-violet-300 p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:focus:border-b-[#7B6CD0] border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black [.light_&]:text-black border-gray-300/10 rounded"
+          />
+          <div className="relative flex items-center">
+            <input
+              ref={loginPasswordRef}
+              type={showLoginPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              value={loginInfo.password}
+              onChange={handleLoginChange}
+              className="placeholder-gray-400 [.light_&]:placeholder-violet-300 w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:focus:border-b-[#7B6CD0] border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 bg-transparent rounded"
+            />
+            <button
+              type="button"
+              onClick={() => setShowLoginPassword(!showLoginPassword)}
+              className="absolute right-2 text-white/50 hover:text-white [.light_&]:text-[#B2A5F4] hover:[.light_&]:text-[#927ff3] transition-colors"
+            >
+              {showLoginPassword ? <Eye size={18} /> : <EyeOff size={18} />}
+            </button>
+          </div>
+          <button
+            type="submit"
+            disabled={loginLoading}
+            className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] [.light_&]:from-[#9B8BF0] [.light_&]:to-[#B2A5F4] text-[#144a97] [.light_&]:text-white rounded flex items-center justify-center"
+          >
+            {loginLoading ? (
+              <>
+                <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
+              </>
+            ) : ("LOGIN")}
+          </button>
+        </form>
+        <button
+          type="button"
+          onClick={openForgotModal}
+          className="text-[#C4B5FD] text-sm block mx-auto mt-4 hover:text-white transition duration-300"
+        >
+          Forgot Password
+        </button>
+
+      </Modal>
+
+      {/* Modal for Forgot Password */}
+      <Modal
+        isOpen={isForgotModalOpen}
+        onRequestClose={closeForgotModal}
+        contentLabel="Forgot Password Modal"
+        className={`${!isLightMode ? 'glass-effect-1' : 'bg-[#F5EEFF]'} select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0`}
+        overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
+      >
+        <h2 className="select-none font-semibold text-xl text-center text-white [.light_&]:text-black">Forgot Password</h2>
+        <p className="text-xs text-center text-neutral-400 mt-1 mb-4">Enter your email address to receive a password reset link.</p>
+        <button
+          onClick={closeForgotModal}
+          className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
+        >
+          <img src={closeIcon} className="w-8 h-8 pointer-events-none [.light_&]:hidden" alt="" />
+          <img src={closeIconLight} className="w-8 h-8 pointer-events-none hidden [.light_&]:block" alt="" />
+        </button>
+
+        <form onSubmit={handleForgotSubmit} className="flex flex-col gap-4">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={forgotEmail}
+            onChange={(e) => setForgotEmail(e.target.value)}
+            className="p-2 text-sm bg-black/10 [.light_&]:bg-white border border-white/20 [.light_&]:border-purple-300 rounded text-white [.light_&]:text-black focus:outline-none"
+            required
+          />
+          <button
+            type="submit"
+            disabled={forgotLoading}
+            className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] [.light_&]:from-[#9B8BF0] [.light_&]:to-[#B2A5F4] text-[#144a97] [.light_&]:text-white rounded flex items-center justify-center"
+          >
+            {forgotLoading ? (
+              <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
+            ) : ("SEND RESET LINK")}
+          </button>
+        </form>
+      </Modal>
+
+
+      {/* Modal for Register */}
+      <Modal
+        isOpen={isRegisterModalOpen}
+        onRequestClose={closeRegisterModal}
+        contentLabel="Register Modal"
+        className={`${!isLightMode ? 'glass-effect-1' : 'bg-[#F5EEFF]'} select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0`}
+        overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
+      >
+        <h2 className="select-none font-semibold select- text-xl text-center text-white [.light_&]:text-black">Create Account</h2>
+        <button
+          onClick={closeRegisterModal}
+          className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
+        >
+          <img src={closeIcon} className="w-8 h-8 pointer-events-none [.light_&]:hidden" alt="" />
+          <img src={closeIconLight} className="w-8 h-8 pointer-events-none hidden [.light_&]:block" alt="" />
+        </button>
+        <form
+          onSubmit={handleRegisterSubmit}
+          className="flex flex-col gap-4 mt-4"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter Name"
+            value={signupInfo.name}
+            onChange={handleRegisterChange}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                registerEmailRef.current?.focus();
+              }
+            }}
+            className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:placeholder-violet-300 border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 rounded"
+          />
+          <input
+            ref={registerEmailRef}
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            value={signupInfo.email}
+            onChange={handleRegisterChange}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                registerPasswordRef.current?.focus();
+              }
+            }}
+            className="select-none p-2 px-4 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:placeholder-violet-300 border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 rounded"
+          />
+          <div className="relative flex items-center">
+            <input
+              ref={registerPasswordRef}
+              type={showSignupPassword ? "text" : "password"}
+              name="password"
+              placeholder="Enter Password"
+              value={signupInfo.password}
+              onChange={handleRegisterChange}
+              className="select-none w-full p-2 px-4 pr-10 focus:outline-none focus:border-b-[#fff]/50 [.light_&]:placeholder-violet-300 border-0 border-b [.light_&]:border-[#c7a9f0] text-white [.light_&]:text-black border-gray-300/10 bg-transparent rounded"
+            />
+            <button
+              type="button"
+              onClick={() => setShowSignupPassword(!showSignupPassword)}
+              className="absolute right-2 text-white/50 hover:text-white transition-colors"
+            >
+              {showSignupPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+            </button>
+          </div>
+          <button
+            type="submit"
+            disabled={registerLoading}
+            className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] [.light_&]:from-[#9B8BF0] [.light_&]:to-[#B2A5F4] text-[#144a97] [.light_&]:text-white rounded flex items-center justify-center"
+          >
+            {registerLoading ? (
+              <>
+                <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
+              </>
+            ) : ("SIGNUP")}
+          </button>
+        </form>
+      </Modal>
       {/* <ToastContainer
         position="top-center"
         autoClose={false}
