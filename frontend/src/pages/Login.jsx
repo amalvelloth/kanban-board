@@ -317,43 +317,68 @@ function Login() {
           Get started with Kanban Board
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-10">
           {/* Card 1 */}
-          <div className="glass-effect-1 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden">
-            <div className="w-full overflow-hidden border-b border-white/10 bg-black/40">
-              <img src={kb_features_1} alt="Visual Task Management" className="w-full h-auto block group-hover:scale-105 transition-transform duration-300" />
+          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden group transition-all duration-500 hover:border-purple-500/50 flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
+            {/* Full Card Blurred Background Image Layer */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 transition-all duration-700 group-hover:scale-135 group-hover:opacity-85 pointer-events-none"
+              style={{ backgroundImage: `url(${kb_features_1})` }}
+            />
+            {/* Subtle Dark Vignette & Gradient for crisp text at bottom */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-0 pointer-events-none" />
+
+            {/* Floating Smaller Uncropped Image Preview */}
+            <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
+              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30 transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.02]">
+                <img src={kb_features_1} alt="Drag & Drop Tasks" className="w-full h-auto block" />
+              </div>
             </div>
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-white mb-2">Drag & Drop Tasks</h3>
-              <p className="text-neutral-400 text-sm leading-relaxed">
-                Seamlessly move tasks between columns with intuitive drag-and-drop interactions.
-              </p>
+
+            {/* Bottom Text Content */}
+            <div className="relative z-10 text-left mt-auto">
+              <p className="text-xs uppercase tracking-wider text-purple-300/80 font-medium mb-1">Feature</p>
+              <h3 className="text-2xl font-semibold text-white tracking-tight">Drag & Drop Tasks</h3>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="glass-effect-1 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden">
-            <div className="w-full overflow-hidden border-b border-white/10 bg-black/40">
-              <img src={kb_features_2} alt="Real-time Tracking" className="w-full h-auto block group-hover:scale-105 transition-transform duration-300" />
+          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden group transition-all duration-500 hover:border-blue-500/50 flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
+            <div 
+              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 transition-all duration-700 group-hover:scale-135 group-hover:opacity-85 pointer-events-none"
+              style={{ backgroundImage: `url(${kb_features_2})` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-0 pointer-events-none" />
+
+            <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
+              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30 transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.02]">
+                <img src={kb_features_2} alt="Light & Dark Mode" className="w-full h-auto block" />
+              </div>
             </div>
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-white mb-2">Light & Dark Mode</h3>
-              <p className="text-neutral-400 text-sm leading-relaxed">
-                Instantly switch between light and dark themes for a personalized experience.
-              </p>
+
+            <div className="relative z-10 text-left mt-auto">
+              <p className="text-xs uppercase tracking-wider text-blue-300/80 font-medium mb-1">Theme</p>
+              <h3 className="text-2xl font-semibold text-white tracking-tight">Light & Dark Mode</h3>
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className="glass-effect-1 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden">
-            <div className="w-full overflow-hidden border-b border-white/10 bg-black/40">
-              <img src={kb_features_3} alt="Sleek & Fast UI" className="w-full h-auto block group-hover:scale-105 transition-transform duration-300" />
+          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden group transition-all duration-500 hover:border-indigo-500/50 flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
+            <div 
+              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 transition-all duration-700 group-hover:scale-135 group-hover:opacity-85 pointer-events-none"
+              style={{ backgroundImage: `url(${kb_features_3})` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-0 pointer-events-none" />
+
+            <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
+              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30 transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.02]">
+                <img src={kb_features_3} alt="Drag to Delete" className="w-full h-auto block" />
+              </div>
             </div>
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-white mb-2">Drag to Delete</h3>
-              <p className="text-neutral-400 text-sm leading-relaxed">
-                Remove completed or unwanted tasks by dragging them to the delete zone.
-              </p>
+
+            <div className="relative z-10 text-left mt-auto">
+              <p className="text-xs uppercase tracking-wider text-indigo-300/80 font-medium mb-1">Actions</p>
+              <h3 className="text-2xl font-semibold text-white tracking-tight">Drag to Delete</h3>
             </div>
           </div>
         </div>
