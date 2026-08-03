@@ -14,6 +14,8 @@ import { ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+import ResetPassword from './pages/ResetPassword';
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -47,6 +49,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Navigate to="/login" />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/taskcontrol' element={<TaskControl />} />
         <Route path='/workoutprograms' element={<WorkoutPrograms />} />
@@ -56,6 +59,7 @@ function App() {
     </div>
   );
 }
+
 
 function ConditionalNavbar() {
   const { pathname } = useLocation();

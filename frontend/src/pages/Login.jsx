@@ -66,12 +66,49 @@ function Login() {
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [isForgotModalOpen, setIsForgotModalOpen] = useState(false);
+  const [forgotEmail, setForgotEmail] = useState("");
+  const [forgotLoading, setForgotLoading] = useState(false);
 
   const openLoginModal = () => setIsLoginModalOpen(true);
   const closeLoginModal = () => setIsLoginModalOpen(false);
 
   const openRegisterModal = () => setIsRegisterModalOpen(true);
   const closeRegisterModal = () => setIsRegisterModalOpen(false);
+
+  const openForgotModal = () => {
+    closeLoginModal();
+    setIsForgotModalOpen(true);
+  };
+  const closeForgotModal = () => setIsForgotModalOpen(false);
+
+  const handleForgotSubmit = async (e) => {
+    e.preventDefault();
+    if (!forgotEmail) {
+      return handleError("Email is required");
+    }
+    try {
+      setForgotLoading(true);
+      const url = "http://localhost:8080/auth/forgot-password";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: forgotEmail }),
+      });
+      const result = await response.json();
+      setForgotLoading(false);
+      if (result.success) {
+        handleSuccess(result.message || "Reset link generated!");
+        closeForgotModal();
+      } else {
+        handleError(result.message || "Failed to process request");
+      }
+    } catch (err) {
+      setForgotLoading(false);
+      handleError("Server connection error");
+    }
+  };
+
 
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -335,9 +372,55 @@ function Login() {
               ) : ("LOGIN")}
             </button>
           </form>
-          <button className="text-[#C4B5FD] text-sm block mx-auto mt-4 hover:text-white transition duration-300">Forgot Password</button>
+          <button
+            type="button"
+            onClick={openForgotModal}
+            className="text-[#C4B5FD] text-sm block mx-auto mt-4 hover:text-white transition duration-300"
+          >
+            Forgot Password
+          </button>
 
         </Modal>
+
+        {/* Modal for Forgot Password */}
+        <Modal
+          isOpen={isForgotModalOpen}
+          onRequestClose={closeForgotModal}
+          contentLabel="Forgot Password Modal"
+          className={`${!isLightMode ? 'glass-effect-1' : 'bg-[#F5EEFF]'} select-none modal-content z-[9999] w-full max-sm:w-4/5 max-w-md p-6 backdrop-blur-2xl rounded-2xl top-0 right-0`}
+          overlayClassName="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] transition-colors duration-300 ease-in-out"
+        >
+          <h2 className="select-none font-semibold text-xl text-center text-white [.light_&]:text-black">Forgot Password</h2>
+          <p className="text-xs text-center text-neutral-400 mt-1 mb-4">Enter your email address to receive a password reset link.</p>
+          <button
+            onClick={closeForgotModal}
+            className="select-none close-button absolute top-0 right-0 p-6 text-red-500"
+          >
+            <img src={closeIcon} className="w-8 h-8 pointer-events-none [.light_&]:hidden" alt="" />
+            <img src={closeIconLight} className="w-8 h-8 pointer-events-none hidden [.light_&]:block" alt="" />
+          </button>
+
+          <form onSubmit={handleForgotSubmit} className="flex flex-col gap-4">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={forgotEmail}
+              onChange={(e) => setForgotEmail(e.target.value)}
+              className="p-2 text-sm bg-black/10 [.light_&]:bg-white border border-white/20 [.light_&]:border-purple-300 rounded text-white [.light_&]:text-black focus:outline-none"
+              required
+            />
+            <button
+              type="submit"
+              disabled={forgotLoading}
+              className="py-2 text-sm font-semibold select-none bg-gradient-to-r from-[#A7C1EA] to-[#3A7BD5] [.light_&]:from-[#9B8BF0] [.light_&]:to-[#B2A5F4] text-[#144a97] [.light_&]:text-white rounded flex items-center justify-center"
+            >
+              {forgotLoading ? (
+                <span className="inline-block m-auto w-4 h-4 border-2 border-[#144a97] border-t-transparent rounded-full animate-spin" />
+              ) : ("SEND RESET LINK")}
+            </button>
+          </form>
+        </Modal>
+
 
         {/* Modal for Register */}
         <Modal
