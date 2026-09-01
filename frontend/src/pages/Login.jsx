@@ -350,7 +350,7 @@ function Login() {
             {/* Floating Smaller Uncropped Image Preview */}
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
               <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30">
-                <img src={kb_features_1} alt="Drag & Drop Tasks" className="w-full h-auto block" />
+                <img src={kb_features_2} alt="Drag & Drop Tasks" className="w-full h-auto block" />
               </div>
             </div>
 
@@ -371,7 +371,7 @@ function Login() {
 
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
               <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30">
-                <img src={kb_features_2} alt="Light & Dark Mode" className="w-full h-auto block" />
+                <img src={kb_features_1} alt="Light & Dark Mode" className="w-full h-auto block" />
               </div>
             </div>
 
