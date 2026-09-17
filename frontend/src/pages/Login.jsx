@@ -329,75 +329,127 @@ function Login() {
         </div>
       </section>
 
-      {/* 100% Height Black Section Below Hero */}
-      <section className="w-full min-h-screen bg-black text-white p-8 md:p-16 flex flex-col justify-start items-start relative z-10 font-rmneue border-t border-white/10">
-        <h2 className="text-4xl sm:text-5xl md:text-5xl font-normal text-white text-left tracking-tight">
+      {/* Feature Showcase Section */}
+      <section className={`w-full min-h-screen p-8 md:p-16 flex flex-col justify-start items-start relative z-10 font-rmneue border-t transition-colors duration-300 ${
+        isLightMode ? "bg-[#f8f9fc] text-gray-900 border-black/10" : "bg-black text-white border-white/10"
+      }`}>
+        <h2 className={`text-4xl sm:text-5xl md:text-5xl font-normal text-left tracking-tight transition-colors duration-300 ${
+          isLightMode ? "text-gray-900" : "text-white"
+        }`}>
           Get started with Kanban Board
         </h2>
 
         {/* Desktop 3-Grid View */}
         <div className="hidden md:grid grid-cols-3 gap-8 w-full mt-10">
           {/* Card 1 */}
-          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
+          <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 ${
+            isLightMode
+              ? "bg-white/80 border border-black/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+              : "glass-effect-1 bg-white/5 border border-white/15"
+          }`}>
             {/* Full Card Blurred Background Image Layer */}
             <div
-              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 pointer-events-none"
+              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-300 ${
+                isLightMode ? "opacity-30" : "opacity-70"
+              }`}
               style={{ backgroundImage: `url(${kb_features_1})` }}
             />
-            {/* Subtle Dark Vignette & Gradient for crisp text at bottom */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-0 pointer-events-none" />
+            {/* Vignette & Gradient for crisp text at bottom */}
+            <div className={`absolute inset-0 z-0 pointer-events-none transition-all duration-300 ${
+              isLightMode
+                ? "bg-gradient-to-t from-white/95 via-white/50 to-transparent"
+                : "bg-gradient-to-t from-black/90 via-black/30 to-black/20"
+            }`} />
 
             {/* Floating Smaller Uncropped Image Preview */}
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30">
+              <div className={`w-[90%] rounded-2xl overflow-hidden shadow-2xl transition-colors duration-300 ${
+                isLightMode ? "border border-black/10 bg-white/70 shadow-black/10" : "border border-white/20 bg-black/30"
+              }`}>
                 <img src={kb_features_2} alt="Drag & Drop Tasks" className="w-full h-auto block" />
               </div>
             </div>
 
             {/* Bottom Text Content */}
             <div className="relative z-10 text-left mt-auto">
-              <p className="text-xs uppercase tracking-wider text-purple-300/80 font-medium mb-1">Action</p>
-              <h3 className="text-2xl font-semibold text-white tracking-tight">Drag & Drop Tasks</h3>
+              <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-300 ${
+                isLightMode ? "text-purple-600" : "text-purple-300/80"
+              }`}>Action</p>
+              <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-300 ${
+                isLightMode ? "text-gray-900" : "text-white"
+              }`}>Drag & Drop Tasks</h3>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
+          <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 ${
+            isLightMode
+              ? "bg-white/80 border border-black/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+              : "glass-effect-1 bg-white/5 border border-white/15"
+          }`}>
             <div
-              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 pointer-events-none"
+              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-300 ${
+                isLightMode ? "opacity-30" : "opacity-70"
+              }`}
               style={{ backgroundImage: `url(${kb_features_2})` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-0 pointer-events-none" />
+            <div className={`absolute inset-0 z-0 pointer-events-none transition-all duration-300 ${
+              isLightMode
+                ? "bg-gradient-to-t from-white/95 via-white/50 to-transparent"
+                : "bg-gradient-to-t from-black/90 via-black/30 to-black/20"
+            }`} />
 
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30">
+              <div className={`w-[90%] rounded-2xl overflow-hidden shadow-2xl transition-colors duration-300 ${
+                isLightMode ? "border border-black/10 bg-white/70 shadow-black/10" : "border border-white/20 bg-black/30"
+              }`}>
                 <img src={kb_features_1} alt="Light & Dark Mode" className="w-full h-auto block" />
               </div>
             </div>
 
             <div className="relative z-10 text-left mt-auto">
-              <p className="text-xs uppercase tracking-wider text-blue-300/80 font-medium mb-1">Theme</p>
-              <h3 className="text-2xl font-semibold text-white tracking-tight">Light & Dark Mode</h3>
+              <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-300 ${
+                isLightMode ? "text-blue-600" : "text-blue-300/80"
+              }`}>Theme</p>
+              <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-300 ${
+                isLightMode ? "text-gray-900" : "text-white"
+              }`}>Light & Dark Mode</h3>
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className="glass-effect-1 relative min-h-[420px] rounded-[32px] border border-white/15 overflow-hidden flex flex-col justify-between p-6 sm:p-8 bg-white/5 backdrop-blur-xl">
+          <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 ${
+            isLightMode
+              ? "bg-white/80 border border-black/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+              : "glass-effect-1 bg-white/5 border border-white/15"
+          }`}>
             <div
-              className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 pointer-events-none"
+              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-300 ${
+                isLightMode ? "opacity-30" : "opacity-70"
+              }`}
               style={{ backgroundImage: `url(${kb_features_3})` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-0 pointer-events-none" />
+            <div className={`absolute inset-0 z-0 pointer-events-none transition-all duration-300 ${
+              isLightMode
+                ? "bg-gradient-to-t from-white/95 via-white/50 to-transparent"
+                : "bg-gradient-to-t from-black/90 via-black/30 to-black/20"
+            }`} />
 
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className="w-[90%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30">
+              <div className={`w-[90%] rounded-2xl overflow-hidden shadow-2xl transition-colors duration-300 ${
+                isLightMode ? "border border-black/10 bg-white/70 shadow-black/10" : "border border-white/20 bg-black/30"
+              }`}>
                 <img src={kb_features_3} alt="Drag to Delete" className="w-full h-auto block" />
               </div>
             </div>
 
             <div className="relative z-10 text-left mt-auto">
-              <p className="text-xs uppercase tracking-wider text-indigo-300/80 font-medium mb-1">Actions</p>
-              <h3 className="text-2xl font-semibold text-white tracking-tight">Drag to Delete</h3>
+              <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-300 ${
+                isLightMode ? "text-indigo-600" : "text-indigo-300/80"
+              }`}>Actions</p>
+              <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-300 ${
+                isLightMode ? "text-gray-900" : "text-white"
+              }`}>Drag to Delete</h3>
             </div>
           </div>
         </div>
@@ -412,16 +464,28 @@ function Login() {
             {featureCards.map((card) => (
               <div
                 key={card.id}
-                className="snap-center shrink-0 w-full glass-effect-1 relative min-h-[380px] rounded-[32px] border border-white/15 overflow-hidden flex flex-col justify-between p-6 bg-white/5 backdrop-blur-xl"
+                className={`snap-center shrink-0 w-full relative min-h-[380px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 backdrop-blur-xl transition-all duration-300 ${
+                  isLightMode
+                    ? "bg-white/80 border border-black/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+                    : "glass-effect-1 bg-white/5 border border-white/15"
+                }`}
               >
                 <div
-                  className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 opacity-70 pointer-events-none"
+                  className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-300 ${
+                    isLightMode ? "opacity-30" : "opacity-70"
+                  }`}
                   style={{ backgroundImage: `url(${card.image})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-0 pointer-events-none" />
+                <div className={`absolute inset-0 z-0 pointer-events-none transition-all duration-300 ${
+                  isLightMode
+                    ? "bg-gradient-to-t from-white/95 via-white/50 to-transparent"
+                    : "bg-gradient-to-t from-black/90 via-black/30 to-black/20"
+                }`} />
 
                 <div className="relative z-10 w-full flex justify-center items-center pt-2 pb-4">
-                  <div className="w-[95%] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/30">
+                  <div className={`w-[95%] rounded-2xl overflow-hidden shadow-2xl transition-colors duration-300 ${
+                    isLightMode ? "border border-black/10 bg-white/70 shadow-black/10" : "border border-white/20 bg-black/30"
+                  }`}>
                     <img
                       src={card.image}
                       alt={card.title}
@@ -431,10 +495,16 @@ function Login() {
                 </div>
 
                 <div className="relative z-10 text-left mt-auto">
-                  <p className={`text-xs uppercase tracking-wider ${card.tagColor} font-medium mb-1`}>
+                  <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-300 ${
+                    isLightMode
+                      ? card.tag === "Action" ? "text-purple-600" : card.tag === "Theme" ? "text-blue-600" : "text-indigo-600"
+                      : card.tagColor
+                  }`}>
                     {card.tag}
                   </p>
-                  <h3 className="text-xl font-semibold text-white tracking-tight">
+                  <h3 className={`text-xl font-semibold tracking-tight transition-colors duration-300 ${
+                    isLightMode ? "text-gray-900" : "text-white"
+                  }`}>
                     {card.title}
                   </h3>
                 </div>
@@ -446,14 +516,22 @@ function Login() {
           <div className="flex items-center gap-4 mt-6">
             <button
               onClick={() => scrollCarousel("prev")}
-              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white bg-black/50 hover:bg-white/10 active:scale-95 transition-all"
+              className={`w-12 h-12 rounded-full border flex items-center justify-center active:scale-95 transition-all duration-300 ${
+                isLightMode
+                  ? "border-black/10 text-gray-800 bg-white/80 hover:bg-black/5 shadow-md"
+                  : "border-white/20 text-white bg-black/50 hover:bg-white/10"
+              }`}
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
 
             <button
               onClick={() => scrollCarousel("next")}
-              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white bg-black/50 hover:bg-white/10 active:scale-95 transition-all"
+              className={`w-12 h-12 rounded-full border flex items-center justify-center active:scale-95 transition-all duration-300 ${
+                isLightMode
+                  ? "border-black/10 text-gray-800 bg-white/80 hover:bg-black/5 shadow-md"
+                  : "border-white/20 text-white bg-black/50 hover:bg-white/10"
+              }`}
             >
               <ChevronRight className="w-6 h-6" />
             </button>
