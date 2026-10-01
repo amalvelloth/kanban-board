@@ -344,27 +344,25 @@ function Login() {
           {/* Card 1 */}
           <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 ${
             isLightMode
-              ? "bg-white/80 border border-black/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+              ? "bg-white border border-black/10"
               : "glass-effect-1 bg-white/5 border border-white/15"
           }`}>
-            {/* Full Card Blurred Background Image Layer */}
-            <div
-              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-300 ${
-                isLightMode ? "opacity-30" : "opacity-70"
-              }`}
-              style={{ backgroundImage: `url(${kb_features_1})` }}
-            />
+            {/* Full Card Blurred Background Image Layer (Dark mode only) */}
+            {!isLightMode && (
+              <div
+                className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none opacity-70 transition-opacity duration-300"
+                style={{ backgroundImage: `url(${kb_features_1})` }}
+              />
+            )}
             {/* Vignette & Gradient for crisp text at bottom */}
-            <div className={`absolute inset-0 z-0 pointer-events-none transition-all duration-300 ${
-              isLightMode
-                ? "bg-gradient-to-t from-white/95 via-white/50 to-transparent"
-                : "bg-gradient-to-t from-black/90 via-black/30 to-black/20"
-            }`} />
+            {!isLightMode && (
+              <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20" />
+            )}
 
             {/* Floating Smaller Uncropped Image Preview */}
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className={`w-[90%] rounded-2xl overflow-hidden shadow-2xl transition-colors duration-300 ${
-                isLightMode ? "border border-black/10 bg-white/70 shadow-black/10" : "border border-white/20 bg-black/30"
+              <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-300 ${
+                isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
               }`}>
                 <img src={kb_features_2} alt="Drag & Drop Tasks" className="w-full h-auto block" />
               </div>
@@ -384,24 +382,22 @@ function Login() {
           {/* Card 2 */}
           <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 ${
             isLightMode
-              ? "bg-white/80 border border-black/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+              ? "bg-white border border-black/10"
               : "glass-effect-1 bg-white/5 border border-white/15"
           }`}>
-            <div
-              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-300 ${
-                isLightMode ? "opacity-30" : "opacity-70"
-              }`}
-              style={{ backgroundImage: `url(${kb_features_2})` }}
-            />
-            <div className={`absolute inset-0 z-0 pointer-events-none transition-all duration-300 ${
-              isLightMode
-                ? "bg-gradient-to-t from-white/95 via-white/50 to-transparent"
-                : "bg-gradient-to-t from-black/90 via-black/30 to-black/20"
-            }`} />
+            {!isLightMode && (
+              <div
+                className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none opacity-70 transition-opacity duration-300"
+                style={{ backgroundImage: `url(${kb_features_2})` }}
+              />
+            )}
+            {!isLightMode && (
+              <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20" />
+            )}
 
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className={`w-[90%] rounded-2xl overflow-hidden shadow-2xl transition-colors duration-300 ${
-                isLightMode ? "border border-black/10 bg-white/70 shadow-black/10" : "border border-white/20 bg-black/30"
+              <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-300 ${
+                isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
               }`}>
                 <img src={kb_features_1} alt="Light & Dark Mode" className="w-full h-auto block" />
               </div>
@@ -420,24 +416,22 @@ function Login() {
           {/* Card 3 */}
           <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 ${
             isLightMode
-              ? "bg-white/80 border border-black/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+              ? "bg-white border border-black/10"
               : "glass-effect-1 bg-white/5 border border-white/15"
           }`}>
-            <div
-              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-300 ${
-                isLightMode ? "opacity-30" : "opacity-70"
-              }`}
-              style={{ backgroundImage: `url(${kb_features_3})` }}
-            />
-            <div className={`absolute inset-0 z-0 pointer-events-none transition-all duration-300 ${
-              isLightMode
-                ? "bg-gradient-to-t from-white/95 via-white/50 to-transparent"
-                : "bg-gradient-to-t from-black/90 via-black/30 to-black/20"
-            }`} />
+            {!isLightMode && (
+              <div
+                className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none opacity-70 transition-opacity duration-300"
+                style={{ backgroundImage: `url(${kb_features_3})` }}
+              />
+            )}
+            {!isLightMode && (
+              <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20" />
+            )}
 
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className={`w-[90%] rounded-2xl overflow-hidden shadow-2xl transition-colors duration-300 ${
-                isLightMode ? "border border-black/10 bg-white/70 shadow-black/10" : "border border-white/20 bg-black/30"
+              <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-300 ${
+                isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
               }`}>
                 <img src={kb_features_3} alt="Drag to Delete" className="w-full h-auto block" />
               </div>
@@ -466,25 +460,23 @@ function Login() {
                 key={card.id}
                 className={`snap-center shrink-0 w-full relative min-h-[380px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 backdrop-blur-xl transition-all duration-300 ${
                   isLightMode
-                    ? "bg-white/80 border border-black/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+                    ? "bg-white border border-black/10"
                     : "glass-effect-1 bg-white/5 border border-white/15"
                 }`}
               >
-                <div
-                  className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-300 ${
-                    isLightMode ? "opacity-30" : "opacity-70"
-                  }`}
-                  style={{ backgroundImage: `url(${card.image})` }}
-                />
-                <div className={`absolute inset-0 z-0 pointer-events-none transition-all duration-300 ${
-                  isLightMode
-                    ? "bg-gradient-to-t from-white/95 via-white/50 to-transparent"
-                    : "bg-gradient-to-t from-black/90 via-black/30 to-black/20"
-                }`} />
+                {!isLightMode && (
+                  <div
+                    className="absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none opacity-70 transition-opacity duration-300"
+                    style={{ backgroundImage: `url(${card.image})` }}
+                  />
+                )}
+                {!isLightMode && (
+                  <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20" />
+                )}
 
                 <div className="relative z-10 w-full flex justify-center items-center pt-2 pb-4">
-                  <div className={`w-[95%] rounded-2xl overflow-hidden shadow-2xl transition-colors duration-300 ${
-                    isLightMode ? "border border-black/10 bg-white/70 shadow-black/10" : "border border-white/20 bg-black/30"
+                  <div className={`w-[95%] rounded-2xl overflow-hidden transition-colors duration-300 ${
+                    isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
                   }`}>
                     <img
                       src={card.image}
@@ -516,24 +508,18 @@ function Login() {
           <div className="flex items-center gap-4 mt-6">
             <button
               onClick={() => scrollCarousel("prev")}
-              className={`w-12 h-12 rounded-full border flex items-center justify-center active:scale-95 transition-all duration-300 ${
-                isLightMode
-                  ? "border-black/10 text-gray-800 bg-white/80 hover:bg-black/5 shadow-md"
-                  : "border-white/20 text-white bg-black/50 hover:bg-white/10"
-              }`}
+              aria-label="Previous slide"
+              className="glass-effect-1 w-12 h-12 rounded-full flex items-center justify-center text-white active:scale-95 hover:scale-105 transition-all duration-300 select-none [.light_&]:bg-white/80 [.light_&]:border [.light_&]:border-black/10 [.light_&]:text-gray-800"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-6 h-6 relative z-20" />
             </button>
 
             <button
               onClick={() => scrollCarousel("next")}
-              className={`w-12 h-12 rounded-full border flex items-center justify-center active:scale-95 transition-all duration-300 ${
-                isLightMode
-                  ? "border-black/10 text-gray-800 bg-white/80 hover:bg-black/5 shadow-md"
-                  : "border-white/20 text-white bg-black/50 hover:bg-white/10"
-              }`}
+              aria-label="Next slide"
+              className="glass-effect-1 w-12 h-12 rounded-full flex items-center justify-center text-white active:scale-95 hover:scale-105 transition-all duration-300 select-none [.light_&]:bg-white/80 [.light_&]:border [.light_&]:border-black/10 [.light_&]:text-gray-800"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-6 h-6 relative z-20" />
             </button>
           </div>
         </div>
