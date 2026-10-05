@@ -265,7 +265,7 @@ function Login() {
           </div>
           <img
             src={Clipboard3D}
-            className="select-none pointer-events-none w-[130px] sm:w-[170px] md:w-[220px] mt-12 md:mt-2 animate-float aspect-auto !z-[100] drop-shadow-[0_20px_40px_rgba(168,85,247,0.35)] -rotate-6 transition-all duration-300 [.light_&]:brightness-115 [.light_&]:contrast-90 [.light_&]:saturate-125 [.light_&]:opacity-90 [.light_&]:drop-shadow-[0_15px_30px_rgba(168,85,247,0.25)]"
+            className="absolute top-16 left-6 md:top-20 md:left-14 select-none pointer-events-none w-[130px] sm:w-[170px] md:w-[220px] animate-float aspect-auto !z-[100] drop-shadow-[0_20px_40px_rgba(168,85,247,0.35)] -rotate-6 transition-all duration-300 [.light_&]:brightness-115 [.light_&]:contrast-90 [.light_&]:saturate-125 [.light_&]:opacity-90 [.light_&]:drop-shadow-[0_15px_30px_rgba(168,85,247,0.25)]"
             alt="3D Clipboard"
           />
           <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square !z-[100] absolute right-0 [.light_&]:invert [.light_&]:grayscale transition-all duration-0 ease-linear delay-300" alt="Jogging" />
