@@ -22,9 +22,9 @@ function Login() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
   const featureCards = [
-    { id: 1, tag: "Action", title: "Drag & Drop Tasks", image: kb_features_1, tagColor: "text-purple-300/80" },
-    { id: 2, tag: "Theme", title: "Light & Dark Mode", image: kb_features_2, tagColor: "text-blue-300/80" },
-    { id: 3, tag: "Actions", title: "Drag to Delete", image: kb_features_3, tagColor: "text-indigo-300/80" }
+    { id: 1, tag: "Action", title: "Drag & Drop Tasks", description: "Move tasks effortlessly between workflow stages.", image: kb_features_1, tagColor: "text-purple-300/80" },
+    { id: 2, tag: "Theme", title: "Light & Dark Mode", description: "Switch between themes for a comfortable workspace.", image: kb_features_2, tagColor: "text-blue-300/80" },
+    { id: 3, tag: "Actions", title: "Drag to Delete", description: "Remove unwanted tasks with a simple drag.", image: kb_features_3, tagColor: "text-indigo-300/80" }
   ];
 
   // Refs for controlling the background videos & carousel
@@ -402,6 +402,11 @@ function Login() {
               <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${
                 isLightMode ? "text-gray-900" : "text-white"
               }`}>Drag & Drop Tasks</h3>
+              <p className={`text-base md:text-lg  mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
+                isLightMode ? "text-gray-600" : "text-white/70"
+              }`}>
+                Move tasks effortlessly between workflow stages.
+              </p>
             </div>
           </div>
 
@@ -438,6 +443,11 @@ function Login() {
               <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${
                 isLightMode ? "text-gray-900" : "text-white"
               }`}>Light & Dark Mode</h3>
+              <p className={`text-base md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
+                isLightMode ? "text-gray-600" : "text-white/70"
+              }`}>
+                Switch between themes for a comfortable workspace.
+              </p>
             </div>
           </div>
 
@@ -474,6 +484,11 @@ function Login() {
               <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${
                 isLightMode ? "text-gray-900" : "text-white"
               }`}>Drag to Delete</h3>
+              <p className={`text-base md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
+                isLightMode ? "text-gray-600" : "text-white/70"
+              }`}>
+                Remove unwanted tasks with a simple drag.
+              </p>
             </div>
           </div>
         </div>
@@ -531,6 +546,13 @@ function Login() {
                   }`}>
                     {card.title}
                   </h3>
+                  {card.description && (
+                    <p className={`text-base mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
+                      isLightMode ? "text-gray-600" : "text-white/70"
+                    }`}>
+                      {card.description}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
