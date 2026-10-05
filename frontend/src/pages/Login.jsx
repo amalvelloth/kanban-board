@@ -263,11 +263,21 @@ function Login() {
               </h2>
             </div>
           </div>
-          <img
-            src={Clipboard3D}
-            className="absolute top-28 left-0 md:top-20 md:left-14 select-none pointer-events-none w-[130px] sm:w-[170px] md:w-[220px] animate-float aspect-auto !z-[100] drop-shadow-[0_20px_40px_rgba(168,85,247,0.35)] -rotate-6 transition-all duration-300 [.light_&]:brightness-115 [.light_&]:contrast-90 [.light_&]:saturate-125 [.light_&]:opacity-90 [.light_&]:drop-shadow-[0_15px_30px_rgba(168,85,247,0.25)]"
-            alt="3D Clipboard"
-          />
+          {/* 3D Clipboard Floating Container */}
+          <div className="absolute top-28 left-0 md:top-20 md:left-14 select-none pointer-events-none w-[130px] sm:w-[170px] md:w-[220px] animate-float aspect-auto !z-[100] -rotate-6">
+            {/* Dark Mode Layer */}
+            <img
+              src={Clipboard3D}
+              className="w-full h-auto drop-shadow-[0_20px_40px_rgba(168,85,247,0.35)] opacity-100 transition-opacity duration-500 delay-300 [.light_&]:opacity-0 block"
+              alt="3D Clipboard Dark"
+            />
+            {/* Light Mode Layer */}
+            <img
+              src={Clipboard3D}
+              className="absolute inset-0 w-full h-auto brightness-115 contrast-90 saturate-125 drop-shadow-[0_15px_30px_rgba(168,85,247,0.25)] opacity-0 transition-opacity duration-500 delay-300 [.light_&]:opacity-90 block"
+              alt="3D Clipboard Light"
+            />
+          </div>
           <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square !z-[100] absolute right-0 [.light_&]:invert [.light_&]:grayscale transition-all duration-0 ease-linear delay-300" alt="Jogging" />
           <div className="wrapper pt-20 absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-2">
             <p className="flex select-none items-center justify-center gap-2 md:gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
