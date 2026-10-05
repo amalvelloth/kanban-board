@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Logo from '../assets/kanban-board-logo.png'
 import ToggleButton from '../../../frontend/src/components/ToggleButton'
@@ -7,12 +7,31 @@ import LogOut from './Logout'
 function Navbar({ className }) {
   const location = useLocation();
   const isHomePage = location.pathname === '/login';
+  const [showNavbar, setShowNavbar] = useState(true);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // 50% of the viewport height (50vh)
+      const threshold = window.innerHeight * 0.5;
+
+      if (window.scrollY > threshold) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav
-      className={`login-navbar mt-0 rounded-xl md:mt-4 [.light_&]:!bg-white [.light_&]:rounded-none h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 !fixed px-4 flex items-center justify-between z-50 ${className}`}
-      style={isHomePage ? { transition: 'all 0s linear 300ms' } : {}}
+      className={`login-navbar mt-0 rounded-xl md:mt-4 [.light_&]:!bg-white [.light_&]:rounded-none h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 !fixed px-4 flex items-center justify-between z-50 transition-[transform,opacity,background-color] duration-500 ease-out ${
+        showNavbar
+          ? "translate-y-0 opacity-100 scale-100"
+          : "-translate-y-6 opacity-0 scale-95 pointer-events-none"
+      } ${className}`}
     >
       {/* {<BurgerMenu />} */}
       <a href="/" class="flex items-center gap-3">
