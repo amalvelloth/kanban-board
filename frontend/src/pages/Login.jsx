@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { handleError, handleSuccess } from "../utils";
 import DotGrid from "../components/DotGrid";
-import Element1 from "../assets/element-1.svg";
 import Element2 from "../assets/element-2.svg";
 import darkModeHeroClip from "../assets/dark_hero_video.mp4";
 import lightModeHeroClip from "../assets/white_hero_video.mp4";
@@ -13,6 +12,7 @@ import closeIconLight from "../assets/icons/cross_icon_light.svg"
 import kb_features_1 from "../assets/kb_features_1.png"
 import kb_features_2 from "../assets/kb_features_2.png"
 import kb_features_3 from "../assets/kb_features_3.png"
+import Clipboard3D from "../assets/clipboard-3d.png";
 
 function Login() {
   const [showLoginPassword, setShowLoginPassword] = useState(false);
@@ -263,8 +263,12 @@ function Login() {
               </h2>
             </div>
           </div>
-          <img src={Element1} className="select-none pointer-events-none w-[150px] md:w-[250px] mt-16 md:mt-0 animate-float aspect-square grayscale !z-[100] [.light_&]:invert transition-all duration-0 ease-linear delay-300" alt="Jogging" />
-          <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square grayscale !z-[100] absolute right-0 [.light_&]:invert transition-all duration-0 ease-linear delay-300" alt="Jogging" />
+          <img
+            src={Clipboard3D}
+            className="select-none pointer-events-none w-[130px] sm:w-[170px] md:w-[220px] mt-12 md:mt-2 animate-float aspect-auto !z-[100] drop-shadow-[0_20px_40px_rgba(168,85,247,0.35)] -rotate-6 transition-all duration-300 [.light_&]:brightness-115 [.light_&]:contrast-90 [.light_&]:saturate-125 [.light_&]:opacity-90 [.light_&]:drop-shadow-[0_15px_30px_rgba(168,85,247,0.25)]"
+            alt="3D Clipboard"
+          />
+          <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square !z-[100] absolute right-0 [.light_&]:invert [.light_&]:grayscale transition-all duration-0 ease-linear delay-300" alt="Jogging" />
           <div className="wrapper pt-20 absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-2">
             <p className="flex select-none items-center justify-center gap-2 md:gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
               <span>PLAN</span>
