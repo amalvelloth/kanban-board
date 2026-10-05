@@ -30,6 +30,14 @@ export default function DotGrid() {
       active: false,
     };
 
+    const getParentSize = () => {
+      const parent = canvas.parentElement;
+      return {
+        width: parent ? parent.offsetWidth : window.innerWidth,
+        height: parent ? parent.offsetHeight : window.innerHeight,
+      };
+    };
+
     const buildDots = (width, height) => {
       const nextDots = [];
 
@@ -47,24 +55,29 @@ export default function DotGrid() {
       dots = nextDots;
     };
 
-    const resizeCanvas = () => {
-      const { innerWidth, innerHeight, devicePixelRatio = 1 } = window;
+    let currentWidth = window.innerWidth;
+    let currentHeight = window.innerHeight;
 
-      canvas.width = innerWidth * devicePixelRatio;
-      canvas.height = innerHeight * devicePixelRatio;
-      canvas.style.width = `${innerWidth}px`;
-      canvas.style.height = `${innerHeight}px`;
+    const resizeCanvas = () => {
+      const { width, height } = getParentSize();
+      const devicePixelRatio = window.devicePixelRatio || 1;
+
+      currentWidth = width;
+      currentHeight = height;
+
+      canvas.width = width * devicePixelRatio;
+      canvas.height = height * devicePixelRatio;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
 
       context.setTransform(1, 0, 0, 1, 0, 0);
       context.scale(devicePixelRatio, devicePixelRatio);
 
-      buildDots(innerWidth, innerHeight);
+      buildDots(width, height);
     };
 
     const updateDots = () => {
-      const { innerWidth, innerHeight } = window;
-
-      context.clearRect(0, 0, innerWidth, innerHeight);
+      context.clearRect(0, 0, currentWidth, currentHeight);
       context.fillStyle = "rgba(255, 255, 255, 0.38)";
 
       dots.forEach((dot) => {
@@ -95,8 +108,9 @@ export default function DotGrid() {
     };
 
     const handleMove = (event) => {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = event.clientX - rect.left;
+      mouse.y = event.clientY - rect.top;
       mouse.active = true;
     };
 
@@ -107,17 +121,26 @@ export default function DotGrid() {
     resizeCanvas();
     updateDots();
 
+    const resizeObserver = new ResizeObserver(() => {
+      resizeCanvas();
+    });
+
+    if (canvas.parentElement) {
+      resizeObserver.observe(canvas.parentElement);
+    }
+
     window.addEventListener("resize", resizeCanvas);
     window.addEventListener("mousemove", handleMove);
     window.addEventListener("mouseleave", handleLeave);
 
     return () => {
       window.cancelAnimationFrame(animationFrameId);
+      resizeObserver.disconnect();
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", handleMove);
       window.removeEventListener("mouseleave", handleLeave);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="pointer-events-none mix-blend-overlay absolute inset-0 z-[1]" />;
+  return <canvas ref={canvasRef} className="pointer-events-none mix-blend-overlay absolute inset-0 w-full h-full z-[1]" />;
 }

@@ -250,9 +250,9 @@ function Login() {
 
   return (
     <>
-      <section className="login-page flex w-full font-rmneue h-screen relative overflow-hidden bg-black">
+      <section className="login-page flex w-full font-rmneue min-h-[120vh] relative overflow-hidden bg-black">
         <DotGrid />
-        <div className="relative flex-col p-8 w-full h-screen max-md:p-2 z-[2]">
+        <div className="relative flex flex-col p-8 w-full min-h-[120vh] max-md:p-2 z-[2]">
           <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
             <div className="relative select-none opacity-80 text-6xl sm:text-7xl font-light">
               <h2 className="bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent transition-opacity duration-0 ease-linear delay-300 [.light_&]:opacity-0">
@@ -327,11 +327,11 @@ function Login() {
         </div>
 
         {/* Bottom Fade to Black */}
-        <div className="absolute bottom-0 left-0 right-0 w-full h-64 md:h-80 bg-gradient-to-b from-transparent via-black/60 to-black z-[3] pointer-events-none [.light_&]:from-transparent [.light_&]:via-[#f8f9fc]/60 [.light_&]:to-[#f8f9fc]" />
+        <div className="absolute bottom-0 left-0 right-0 w-full h-80 md:h-[320px] bg-gradient-to-b from-transparent via-black/50 to-black z-[3] pointer-events-none [.light_&]:from-transparent [.light_&]:via-[#f8f9fc]/70 [.light_&]:to-[#f8f9fc]" />
       </section>
 
       {/* Feature Showcase Section */}
-      <section className={`w-full min-h-screen p-8 md:p-16 flex flex-col justify-start items-start relative z-10 font-rmneue transition-colors duration-300 ${
+      <section className={`w-full min-h-screen px-8 md:px-16 py-8 flex flex-col justify-start items-start relative z-10 font-rmneue transition-colors duration-300 ${
         isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
       }`}>
         <h2 className={`text-4xl sm:text-5xl md:text-5xl font-normal text-left tracking-tight transition-colors duration-300 ${
