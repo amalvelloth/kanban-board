@@ -324,14 +324,15 @@ function Login() {
           >
             <source src={lightModeHeroClip} type="video/mp4" />
           </video>
-
-
         </div>
+
+        {/* Bottom Fade to Black */}
+        <div className="absolute bottom-0 left-0 right-0 w-full h-64 md:h-80 bg-gradient-to-b from-transparent via-black/60 to-black z-[3] pointer-events-none [.light_&]:from-transparent [.light_&]:via-[#f8f9fc]/60 [.light_&]:to-[#f8f9fc]" />
       </section>
 
       {/* Feature Showcase Section */}
-      <section className={`w-full min-h-screen p-8 md:p-16 flex flex-col justify-start items-start relative z-10 font-rmneue border-t transition-colors duration-300 ${
-        isLightMode ? "bg-[#f8f9fc] text-gray-900 border-black/10" : "bg-black text-white border-white/10"
+      <section className={`w-full min-h-screen p-8 md:p-16 flex flex-col justify-start items-start relative z-10 font-rmneue transition-colors duration-300 ${
+        isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
       }`}>
         <h2 className={`text-4xl sm:text-5xl md:text-5xl font-normal text-left tracking-tight transition-colors duration-300 ${
           isLightMode ? "text-gray-900" : "text-white"
