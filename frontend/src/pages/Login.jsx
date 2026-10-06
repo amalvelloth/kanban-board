@@ -35,9 +35,12 @@ function Login() {
 
   const scrollCarousel = (direction) => {
     if (carouselRef.current) {
-      const scrollAmount = carouselRef.current.offsetWidth;
-      carouselRef.current.scrollBy({
-        left: direction === "next" ? scrollAmount : -scrollAmount,
+      const container = carouselRef.current;
+      const firstCard = container.firstElementChild;
+      const scrollStep = firstCard ? firstCard.clientWidth + 16 : container.clientWidth;
+      
+      container.scrollBy({
+        left: direction === "next" ? scrollStep : -scrollStep,
         behavior: "smooth"
       });
     }
@@ -402,7 +405,7 @@ function Login() {
               <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${
                 isLightMode ? "text-gray-900" : "text-white"
               }`}>Drag & Drop Tasks</h3>
-              <p className={`text-base md:text-lg  mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
+              <p className={`text-base font-light md:text-lg  mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
                 isLightMode ? "text-gray-600" : "text-white/70"
               }`}>
                 Move tasks effortlessly between workflow stages.
@@ -443,7 +446,7 @@ function Login() {
               <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${
                 isLightMode ? "text-gray-900" : "text-white"
               }`}>Light & Dark Mode</h3>
-              <p className={`text-base md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
+              <p className={`text-base font-light md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
                 isLightMode ? "text-gray-600" : "text-white/70"
               }`}>
                 Switch between themes for a comfortable workspace.
@@ -484,7 +487,7 @@ function Login() {
               <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${
                 isLightMode ? "text-gray-900" : "text-white"
               }`}>Drag to Delete</h3>
-              <p className={`text-base md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
+              <p className={`text-base font-light md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
                 isLightMode ? "text-gray-600" : "text-white/70"
               }`}>
                 Remove unwanted tasks with a simple drag.
@@ -498,7 +501,7 @@ function Login() {
           {/* Scrollable Container with Snap points */}
           <div
             ref={carouselRef}
-            className="flex w-full overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            className="flex w-full overflow-x-auto snap-x snap-mandatory gap-4 pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
             {featureCards.map((card) => (
               <div

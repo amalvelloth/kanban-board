@@ -8,29 +8,36 @@ function Navbar({ className }) {
   const location = useLocation();
   const isHomePage = location.pathname === '/login';
   const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      // 50% of the viewport height (50vh)
-      const threshold = window.innerHeight * 0.5;
+      const currentScrollY = window.scrollY;
 
-      if (window.scrollY > threshold) {
+      // Always show at the top of the page
+      if (currentScrollY <= 20) {
+        setShowNavbar(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down -> hide navbar
         setShowNavbar(false);
-      } else {
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up -> show navbar
         setShowNavbar(true);
       }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <nav
-      className={`login-navbar mt-0 rounded-xl md:mt-4 [.light_&]:!bg-white [.light_&]:rounded-none h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 !fixed px-4 flex items-center justify-between z-50 transition-[transform,opacity,background-color] duration-500 ease-out ${
+      className={`login-navbar mt-0 rounded-xl md:mt-4 [.light_&]:!bg-white [.light_&]:rounded-none h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 !fixed px-4 flex items-center justify-between z-50 transition-all duration-300 ease-out ${
         showNavbar
           ? "translate-y-0 opacity-100 scale-100"
-          : "-translate-y-6 opacity-0 scale-95 pointer-events-none"
+          : "-translate-y-24 opacity-0 scale-95 pointer-events-none"
       } ${className}`}
     >
       {/* {<BurgerMenu />} */}

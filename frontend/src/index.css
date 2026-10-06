@@ -1,10 +1,43 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
+/* RmNeue Font Family */
+@font-face {
+  font-family: "RmNeue";
+  src: url("./assets/fonts/RMNeue-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+
 @font-face {
   font-family: "RmNeue";
   src: url("./assets/fonts/RMNeueTRIAL-Regular.otf") format("opentype");
   font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "RmNeue";
+  src: url("./assets/fonts/RMNeue-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "RmNeue";
+  src: url("./assets/fonts/RM Neue Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "RmNeue";
+  src: url("./assets/fonts/RM Neue Black.ttf") format("truetype");
+  font-weight: 900;
   font-style: normal;
   font-display: block;
 }
