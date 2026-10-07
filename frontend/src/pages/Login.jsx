@@ -373,7 +373,7 @@ function Login() {
           </h2>
 
           {/* Desktop 3-Grid View */}
-          <div className="hidden md:grid grid-cols-3 gap-6 lg:gap-8 w-full mt-10">
+          <div className="hidden md:grid grid-cols-3 gap-6 lg:gap-8 w-full mt-12">
           {/* Card 1 */}
           <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
             ? "bg-white border border-black/10"
