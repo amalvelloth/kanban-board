@@ -12,6 +12,7 @@ import closeIconLight from "../assets/icons/cross_icon_light.svg"
 import kb_features_1 from "../assets/kb_features_1.png"
 import kb_features_2 from "../assets/kb_features_2.png"
 import kb_features_3 from "../assets/kb_features_3.png"
+import lightBeam from "../assets/light-beam.png";
 import Clipboard3D from "../assets/clipboard-3d.png";
 
 function Login() {
@@ -38,7 +39,7 @@ function Login() {
       const container = carouselRef.current;
       const firstCard = container.firstElementChild;
       const scrollStep = firstCard ? firstCard.clientWidth + 16 : container.clientWidth;
-      
+
       container.scrollBy({
         left: direction === "next" ? scrollStep : -scrollStep,
         behavior: "smooth"
@@ -345,153 +346,157 @@ function Login() {
 
         {/* Bottom Fade - Crossfading Dark & Light mode layers */}
         <div
-          className={`absolute bottom-0 left-0 right-0 w-full h-80 md:h-[320px] bg-gradient-to-b from-transparent via-black/50 to-black z-[3] pointer-events-none transition-opacity duration-500 delay-300 ${
-            isLightMode ? "opacity-0" : "opacity-100"
-          }`}
+          className={`absolute bottom-0 left-0 right-0 w-full h-80 md:h-[320px] bg-gradient-to-b from-transparent via-black/50 to-black z-[3] pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+            }`}
         />
         <div
-          className={`absolute bottom-0 left-0 right-0 w-full h-80 md:h-[320px] bg-gradient-to-b from-transparent via-[#f8f9fc]/70 to-[#f8f9fc] z-[3] pointer-events-none transition-opacity duration-500 delay-300 ${
-            isLightMode ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute bottom-0 left-0 right-0 w-full h-80 md:h-[320px] bg-gradient-to-b from-transparent via-[#f8f9fc]/70 to-[#f8f9fc] z-[3] pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+            }`}
         />
       </section>
 
       {/* Feature Showcase Section */}
-      <section className={`w-full min-h-screen px-8 md:px-16 py-8 flex flex-col justify-start items-start relative z-10 font-rmneue transition-colors duration-500 delay-300 ${
-        isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
-      }`}>
-        <h2 className={`text-4xl sm:text-5xl md:text-5xl font-normal text-left tracking-tight transition-colors duration-500 delay-300 ${
-          isLightMode ? "text-gray-900" : "text-white"
+      <section className={`w-full min-h-screen px-8 md:px-16 py-8 flex flex-col justify-start items-start relative z-10 font-rmneue transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
         }`}>
+        <h2 className={`text-4xl sm:text-5xl md:text-5xl font-normal text-left tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
+          }`}>
           Get started with Kanban Board
         </h2>
 
         {/* Desktop 3-Grid View */}
         <div className="hidden md:grid grid-cols-3 gap-8 w-full mt-10">
           {/* Card 1 */}
-          <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${
-            isLightMode
-              ? "bg-white border border-black/10"
-              : "glass-effect-1 bg-white/5 border border-white/15"
-          }`}>
+          <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
+            ? "bg-white border border-black/10"
+            : "glass-effect-1 bg-white/5 border border-white/15"
+            }`}>
             {/* Full Card Blurred Background Image Layer */}
             <div
-              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${
-                isLightMode ? "opacity-0" : "opacity-70"
-              }`}
+              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
+                }`}
               style={{ backgroundImage: `url(${kb_features_1})` }}
             />
             {/* Vignette & Gradient for crisp text at bottom */}
             <div
-              className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${
-                isLightMode ? "opacity-0" : "opacity-100"
-              }`}
+              className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                }`}
             />
 
             {/* Floating Smaller Uncropped Image Preview */}
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${
-                isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
-              }`}>
+              <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                }`}>
                 <img src={kb_features_2} alt="Drag & Drop Tasks" className="w-full h-auto block" />
               </div>
             </div>
 
             {/* Bottom Text Content */}
             <div className="relative z-10 text-left mt-auto">
-              <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${
-                isLightMode ? "text-purple-600" : "text-purple-300/80"
-              }`}>Action</p>
-              <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${
-                isLightMode ? "text-gray-900" : "text-white"
-              }`}>Drag & Drop Tasks</h3>
-              <p className={`text-base font-light md:text-lg  mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
-                isLightMode ? "text-gray-600" : "text-white/70"
-              }`}>
+              <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-purple-600" : "text-purple-300/80"
+                }`}>Action</p>
+              <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
+                }`}>Drag & Drop Tasks</h3>
+              <p className={`text-base font-light md:text-lg  mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+                }`}>
                 Move tasks effortlessly between workflow stages.
               </p>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${
-            isLightMode
-              ? "bg-white border border-black/10"
-              : "glass-effect-1 bg-white/5 border border-white/15"
-          }`}>
+          <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
+            ? "bg-white border border-black/10"
+            : "glass-effect-1 bg-white/5 border border-white/15"
+            }`}>
             <div
-              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${
-                isLightMode ? "opacity-0" : "opacity-70"
-              }`}
+              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
+                }`}
               style={{ backgroundImage: `url(${kb_features_2})` }}
             />
             <div
-              className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${
-                isLightMode ? "opacity-0" : "opacity-100"
-              }`}
+              className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                }`}
             />
 
             <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${
-                isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
-              }`}>
+              <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                }`}>
                 <img src={kb_features_1} alt="Light & Dark Mode" className="w-full h-auto block" />
               </div>
             </div>
 
             <div className="relative z-10 text-left mt-auto">
-              <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${
-                isLightMode ? "text-blue-600" : "text-blue-300/80"
-              }`}>Theme</p>
-              <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${
-                isLightMode ? "text-gray-900" : "text-white"
-              }`}>Light & Dark Mode</h3>
-              <p className={`text-base font-light md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
-                isLightMode ? "text-gray-600" : "text-white/70"
-              }`}>
+              <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-blue-600" : "text-blue-300/80"
+                }`}>Theme</p>
+              <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
+                }`}>Light & Dark Mode</h3>
+              <p className={`text-base font-light md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+                }`}>
                 Switch between themes for a comfortable workspace.
               </p>
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${
-            isLightMode
+          <div className="relative">
+            {/* Top Border Light Beam Effect */}
+            <img
+              src={lightBeam}
+              alt="Light Beam"
+              className={`absolute -top-[128px] right-[20%] w-[75px] h-[130px] pointer-events-none mix-blend-screen z-30 select-none object-bottom object-contain transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                }`}
+            />
+
+            {/* Intense Contact Hotspot on Border Rim */}
+            <div
+              className={`absolute -top-[1px] right-[23.5%] w-14 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent blur-[0.5px] pointer-events-none z-30 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                }`}
+            />
+
+            {/* Extended Violet Rim Glow */}
+            <div
+              className={`absolute top-0 right-[12%] w-48 h-[1px] bg-gradient-to-r from-transparent via-purple-400/90 to-transparent pointer-events-none z-20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                }`}
+            />
+
+            {/* Soft Ambient Light Halo */}
+            <div
+              className={`absolute -top-3 right-[20%] w-20 h-10 bg-purple-500/35 blur-md rounded-full pointer-events-none z-10 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                }`}
+            />
+
+            <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
               ? "bg-white border border-black/10"
               : "glass-effect-1 bg-white/5 border border-white/15"
-          }`}>
-            <div
-              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${
-                isLightMode ? "opacity-0" : "opacity-70"
-              }`}
-              style={{ backgroundImage: `url(${kb_features_3})` }}
-            />
-            <div
-              className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${
-                isLightMode ? "opacity-0" : "opacity-100"
-              }`}
-            />
-
-            <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${
-                isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
               }`}>
-                <img src={kb_features_3} alt="Drag to Delete" className="w-full h-auto block" />
+
+              <div
+                className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
+                  }`}
+                style={{ backgroundImage: `url(${kb_features_3})` }}
+              />
+              <div
+                className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                  }`}
+              />
+
+              <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
+                <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                  }`}>
+                  <img src={kb_features_3} alt="Drag to Delete" className="w-full h-auto block" />
+                </div>
               </div>
-            </div>
 
-            <div className="relative z-10 text-left mt-auto">
-              <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${
-                isLightMode ? "text-indigo-600" : "text-indigo-300/80"
-              }`}>Actions</p>
-              <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${
-                isLightMode ? "text-gray-900" : "text-white"
-              }`}>Drag to Delete</h3>
-              <p className={`text-base font-light md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
-                isLightMode ? "text-gray-600" : "text-white/70"
-              }`}>
-                Remove unwanted tasks with a simple drag.
-              </p>
+              <div className="relative z-10 text-left mt-auto">
+                <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-indigo-600" : "text-indigo-300/80"
+                  }`}>Actions</p>
+                <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
+                  }`}>Drag to Delete</h3>
+                <p className={`text-base font-light md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+                  }`}>
+                  Remove unwanted tasks with a simple drag.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -506,28 +511,24 @@ function Login() {
             {featureCards.map((card) => (
               <div
                 key={card.id}
-                className={`snap-center shrink-0 w-full relative min-h-[380px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 backdrop-blur-xl transition-all duration-500 delay-300 ${
-                  isLightMode
-                    ? "bg-white border border-black/10"
-                    : "glass-effect-1 bg-white/5 border border-white/15"
-                }`}
+                className={`snap-center shrink-0 w-full relative min-h-[380px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
+                  ? "bg-white border border-black/10"
+                  : "glass-effect-1 bg-white/5 border border-white/15"
+                  }`}
               >
                 <div
-                  className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${
-                    isLightMode ? "opacity-0" : "opacity-70"
-                  }`}
+                  className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
+                    }`}
                   style={{ backgroundImage: `url(${card.image})` }}
                 />
                 <div
-                  className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${
-                    isLightMode ? "opacity-0" : "opacity-100"
-                  }`}
+                  className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                    }`}
                 />
 
                 <div className="relative z-10 w-full flex justify-center items-center pt-2 pb-4">
-                  <div className={`w-[95%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${
-                    isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
-                  }`}>
+                  <div className={`w-[95%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                    }`}>
                     <img
                       src={card.image}
                       alt={card.title}
@@ -537,22 +538,19 @@ function Login() {
                 </div>
 
                 <div className="relative z-10 text-left mt-auto">
-                  <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${
-                    isLightMode
-                      ? card.tag === "Action" ? "text-purple-600" : card.tag === "Theme" ? "text-blue-600" : "text-indigo-600"
-                      : card.tagColor
-                  }`}>
+                  <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode
+                    ? card.tag === "Action" ? "text-purple-600" : card.tag === "Theme" ? "text-blue-600" : "text-indigo-600"
+                    : card.tagColor
+                    }`}>
                     {card.tag}
                   </p>
-                  <h3 className={`text-xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${
-                    isLightMode ? "text-gray-900" : "text-white"
-                  }`}>
+                  <h3 className={`text-xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
+                    }`}>
                     {card.title}
                   </h3>
                   {card.description && (
-                    <p className={`text-base mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${
-                      isLightMode ? "text-gray-600" : "text-white/70"
-                    }`}>
+                    <p className={`text-base mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+                      }`}>
                       {card.description}
                     </p>
                   )}

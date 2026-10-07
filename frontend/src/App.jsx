@@ -12,6 +12,8 @@ import Settings from './pages/Settings';
 import SignOut from './pages/SignOut';
 import { ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SmoothScroll from './components/SmoothScroll';
+
 
 
 import ResetPassword from './pages/ResetPassword';
@@ -25,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+      <SmoothScroll />
       <ToastContainer
         stacked
         transition={Slide}
