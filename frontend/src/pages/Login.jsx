@@ -14,6 +14,7 @@ import kb_features_2 from "../assets/kb_features_2.png"
 import kb_features_3 from "../assets/kb_features_3.png"
 import lightBeam from "../assets/light-beam.png";
 import Clipboard3D from "../assets/clipboard-3d.png";
+import spotlight from "../assets/spotlight.png";
 
 function Login() {
   const [showLoginPassword, setShowLoginPassword] = useState(false);
@@ -283,7 +284,7 @@ function Login() {
             />
           </div>
           <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square !z-[100] absolute right-0 [.light_&]:invert [.light_&]:grayscale transition-all duration-0 ease-linear delay-300" alt="Jogging" />
-          <div className="wrapper pt-20 absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-8 md:px-2">
+          <div className="wrapper pt-20 absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-6 md:px-2">
             <p className="flex select-none items-center justify-center gap-2 md:gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
               <span>PLAN</span>
               <span className="h-[3px] md:h-1 w-[3px] md:w-1 rounded-full bg-[#bc90e3]" aria-hidden="true" />
@@ -356,15 +357,23 @@ function Login() {
       </section>
 
       {/* Feature Showcase Section */}
-      <section className={`w-full min-h-screen px-8 md:px-16 py-8 flex flex-col justify-start items-start relative z-10 font-rmneue transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
+      <section className={`w-full min-h-screen px-6 sm:px-8 md:px-12 py-16 flex flex-col justify-start items-center relative z-10 font-rmneue overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
         }`}>
-        <h2 className={`text-4xl sm:text-5xl md:text-5xl font-normal text-left tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
-          }`}>
-          Get started with Kanban Board
-        </h2>
+          <img src={spotlight} className={`absolute -top-10 -left-20 md:-left-28 w-[450px] md:w-[700px] lg:w-[850px] pointer-events-none mix-blend-screen select-none z-0 transition-opacity duration-500 delay-300 ${
+            isLightMode ? "opacity-0" : "opacity-75"
+          }`} alt="" />
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-start">
+          <p className={`text-xs uppercase tracking-widest font-semibold mb-2 transition-colors duration-500 delay-300 ${isLightMode ? "text-purple-600" : "text-purple-400"
+            }`}>
+            Features
+          </p>
+          <h2 className={`text-4xl sm:text-5xl md:text-5xl font-normal text-left tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
+            }`}>
+            Get started with Kanban Board
+          </h2>
 
-        {/* Desktop 3-Grid View */}
-        <div className="hidden md:grid grid-cols-3 gap-8 w-full mt-10">
+          {/* Desktop 3-Grid View */}
+          <div className="hidden md:grid grid-cols-3 gap-6 lg:gap-8 w-full mt-10">
           {/* Card 1 */}
           <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
             ? "bg-white border border-black/10"
@@ -578,7 +587,8 @@ function Login() {
             </button>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
 
       {/* Modal for Login */}
