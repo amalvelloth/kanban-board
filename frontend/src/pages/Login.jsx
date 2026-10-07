@@ -363,7 +363,7 @@ function Login() {
             isLightMode ? "opacity-0" : "opacity-75"
           }`} alt="" />
         <div className="w-full max-w-7xl mx-auto flex flex-col items-start">
-          <p className={`text-xs uppercase tracking-widest font-semibold mb-2 transition-colors duration-500 delay-300 ${isLightMode ? "text-purple-600" : "text-purple-400"
+          <p className={`text-xs uppercase tracking-widest font-semibold mb-4 transition-colors duration-500 delay-300 ${isLightMode ? "text-purple-600" : "text-purple-400"
             }`}>
             Features
           </p>
@@ -405,7 +405,7 @@ function Login() {
                 }`}>Action</p>
               <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
                 }`}>Drag & Drop Tasks</h3>
-              <p className={`text-base font-light md:text-lg  mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+              <p className={`text-base font-light md:text-lg  mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
                 }`}>
                 Move tasks effortlessly between workflow stages.
               </p>
@@ -439,7 +439,7 @@ function Login() {
                 }`}>Theme</p>
               <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
                 }`}>Light & Dark Mode</h3>
-              <p className={`text-base font-light md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+              <p className={`text-base font-light md:text-lg mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
                 }`}>
                 Switch between themes for a comfortable workspace.
               </p>
@@ -464,7 +464,7 @@ function Login() {
 
             {/* Extended Violet Rim Glow */}
             <div
-              className={`absolute top-0 right-[12%] w-48 h-[1px] bg-gradient-to-r from-transparent via-purple-400/90 to-transparent pointer-events-none z-20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+              className={`absolute top-0 right-[12%] w-48 h-[1px] bg-gradient-to-r from-transparent via-purple-400/95 to-transparent pointer-events-none z-20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
                 }`}
             />
 
