@@ -369,7 +369,7 @@ function Login() {
           </p>
           <h2 className={`text-4xl sm:text-5xl md:text-5xl font-normal text-left tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
             }`}>
-            Get started with Kanban Board
+            Stay Organized. Get Things Done
           </h2>
 
           {/* Desktop 3-Grid View */}
