@@ -26,9 +26,9 @@ import { CSS } from "@dnd-kit/utilities";
 
 export const TaskControl = () => {
   return (
-    <section className="taskcontrol-page relative h-full bg-neutral-900 [.light_&]:bg-white">
-      <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle,_#ffffff30_1px,_transparent_1px)] bg-[size:20px_20px] [.light_&]:bg-[radial-gradient(circle,_#00000020_1px,_transparent_1px)]"></div>
-      <div className="relative z-[2] min-h-screen w-full max-lg:pt-16 text-neutral-50 [.light_&]:text-neutral-950">
+    <section className="taskcontrol-page relative h-full bg-neutral-900 [.light_&]:bg-white transition-colors duration-300 ease-out">
+      <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle,_#ffffff30_1px,_transparent_1px)] bg-[size:20px_20px] [.light_&]:bg-[radial-gradient(circle,_#00000020_1px,_transparent_1px)] transition-all duration-300 ease-out"></div>
+      <div className="relative z-[2] min-h-screen w-full max-lg:pt-16 text-neutral-50 [.light_&]:text-neutral-950 transition-colors duration-300 ease-out">
         <Board />
       </div>
     </section>
