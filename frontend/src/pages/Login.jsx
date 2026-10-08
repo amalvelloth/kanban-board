@@ -9,10 +9,12 @@ import lightModeHeroClip from "../assets/white_hero_video.mp4";
 import { Eye, EyeOff, ChevronLeft, ChevronRight } from "lucide-react";
 import closeIcon from "../assets/icons/cross_icon.png"
 import closeIconLight from "../assets/icons/cross_icon_light.svg"
-import kb_features_1 from "../assets/kb_features_1.png"
-import kb_features_2 from "../assets/kb_features_2.png"
-import kb_features_3 from "../assets/kb_features_3.png"
-import kb_features_1_light from "../assets/kb_features_1_light.png"
+import drag_dark from "../assets/features/drag_dark.png";
+import drag_light from "../assets/features/drag_light.png";
+import toggle_dark from "../assets/features/toggle_dark.png";
+import toggle_light from "../assets/features/toggle_light.png";
+import trash_dark from "../assets/features/trash_dark.png";
+import trash_light from "../assets/features/trash_light.png";
 import lightBeam from "../assets/light-beam.png";
 import Clipboard3D from "../assets/clipboard-3d.png";
 import spotlight from "../assets/spotlight.png";
@@ -25,9 +27,9 @@ function Login() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
   const featureCards = [
-    { id: 1, tag: "Action", title: "Drag & Drop Tasks", description: "Move tasks effortlessly between workflow stages.", image: kb_features_2, tagColor: "text-purple-300/80" },
-    { id: 2, tag: "Theme", title: "Light & Dark Mode", description: "Switch between themes for a comfortable workspace.", image: kb_features_1, lightImage: kb_features_1_light, tagColor: "text-blue-300/80" },
-    { id: 3, tag: "Actions", title: "Drag to Delete", description: "Remove unwanted tasks with a simple drag.", image: kb_features_3, tagColor: "text-indigo-300/80" }
+    { id: 1, tag: "Action", title: "Drag & Drop Tasks", description: "Move tasks effortlessly between workflow stages.", image: drag_dark, lightImage: drag_light, tagColor: "text-purple-300/80" },
+    { id: 2, tag: "Theme", title: "Light & Dark Mode", description: "Switch between themes for a comfortable workspace.", image: toggle_dark, lightImage: toggle_light, tagColor: "text-blue-300/80" },
+    { id: 3, tag: "Actions", title: "Drag to Delete", description: "Remove unwanted tasks with a simple drag.", image: trash_dark, lightImage: trash_light, tagColor: "text-indigo-300/80" }
   ];
 
   // Refs for controlling the background videos & carousel
@@ -383,7 +385,7 @@ function Login() {
               <div
                 className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
                   }`}
-                style={{ backgroundImage: `url(${kb_features_2})` }}
+                style={{ backgroundImage: `url(${drag_dark})` }}
               />
               {/* Vignette & Gradient for crisp text at bottom */}
               <div
@@ -395,7 +397,18 @@ function Login() {
               <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
                 <div className={`relative w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
                   }`}>
-                  <img src={kb_features_2} alt="Drag & Drop Tasks" className="w-full h-auto block" />
+                  <img
+                    src={drag_dark}
+                    alt="Drag & Drop Tasks"
+                    className={`w-full h-auto block transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                      }`}
+                  />
+                  <img
+                    src={drag_light}
+                    alt="Drag & Drop Tasks Light"
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+                      }`}
+                  />
                 </div>
               </div>
 
@@ -420,7 +433,7 @@ function Login() {
               <div
                 className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
                   }`}
-                style={{ backgroundImage: `url(${kb_features_1})` }}
+                style={{ backgroundImage: `url(${toggle_dark})` }}
               />
               <div
                 className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
@@ -430,16 +443,14 @@ function Login() {
               <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
                 <div className={`relative w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
                   }`}>
-                  {/* Dark Mode Image */}
                   <img
-                    src={kb_features_1}
+                    src={toggle_dark}
                     alt="Dark Mode"
                     className={`w-full h-auto block transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
                       }`}
                   />
-                  {/* Light Mode Image */}
                   <img
-                    src={kb_features_1_light}
+                    src={toggle_light}
                     alt="Light Mode"
                     className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
                       }`}
@@ -459,9 +470,9 @@ function Login() {
               </div>
             </div>
 
-            {/* Card 3 */}
+            {/* Card 3: Drag to Delete */}
             <div className="relative">
-              {/* Unified Light Beam & Glows Container (Change 'right-[22%]' to move entire effect) */}
+              {/* Unified Light Beam & Glows Container */}
               <div
                 className={`absolute top-0 right-[22%] pointer-events-none select-none z-30 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
                   }`}
@@ -478,7 +489,7 @@ function Login() {
                 {/* Intense Contact Hotspot on Border Rim */}
                 <div className="absolute -top-[1px] -translate-x-1/2 w-24 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent blur-[0.5px]" />
 
-                {/* Light Beam Image (Use translate-y-[...px] or -translate-y-[...px] to nudge up/down) */}
+                {/* Light Beam Image */}
                 <img
                   src={lightBeam}
                   alt="Light Beam"
@@ -494,7 +505,7 @@ function Login() {
                 <div
                   className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
                     }`}
-                  style={{ backgroundImage: `url(${kb_features_3})` }}
+                  style={{ backgroundImage: `url(${trash_dark})` }}
                 />
                 <div
                   className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
@@ -502,9 +513,20 @@ function Login() {
                 />
 
                 <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-                  <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                  <div className={`relative w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
                     }`}>
-                    <img src={kb_features_3} alt="Drag to Delete" className="w-full h-auto block" />
+                    <img
+                      src={trash_dark}
+                      alt="Drag to Delete"
+                      className={`w-full h-auto block transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                        }`}
+                    />
+                    <img
+                      src={trash_light}
+                      alt="Drag to Delete Light"
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+                        }`}
+                    />
                   </div>
                 </div>
 

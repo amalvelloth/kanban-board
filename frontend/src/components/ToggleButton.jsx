@@ -29,7 +29,7 @@ const Switch = () => {
 
                 <img src={Moon} className='select-none pointer-events-none absolute text-white/30 top-0 bottom-0 m-auto right-1 w-[20px] h-[20px]' alt="" />
                 <img src={Sun} className='select-none pointer-events-none absolute top-0 bottom-0 m-auto left-1 w-[20px] h-[20px]' alt="" />
-                
+
             </div>
         </label>
     );
