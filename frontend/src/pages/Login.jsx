@@ -12,6 +12,7 @@ import closeIconLight from "../assets/icons/cross_icon_light.svg"
 import kb_features_1 from "../assets/kb_features_1.png"
 import kb_features_2 from "../assets/kb_features_2.png"
 import kb_features_3 from "../assets/kb_features_3.png"
+import kb_features_1_light from "../assets/kb_features_1_light.png"
 import lightBeam from "../assets/light-beam.png";
 import Clipboard3D from "../assets/clipboard-3d.png";
 import spotlight from "../assets/spotlight.png";
@@ -24,8 +25,8 @@ function Login() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
   const featureCards = [
-    { id: 1, tag: "Action", title: "Drag & Drop Tasks", description: "Move tasks effortlessly between workflow stages.", image: kb_features_1, tagColor: "text-purple-300/80" },
-    { id: 2, tag: "Theme", title: "Light & Dark Mode", description: "Switch between themes for a comfortable workspace.", image: kb_features_2, tagColor: "text-blue-300/80" },
+    { id: 1, tag: "Action", title: "Drag & Drop Tasks", description: "Move tasks effortlessly between workflow stages.", image: kb_features_2, tagColor: "text-purple-300/80" },
+    { id: 2, tag: "Theme", title: "Light & Dark Mode", description: "Switch between themes for a comfortable workspace.", image: kb_features_1, lightImage: kb_features_1_light, tagColor: "text-blue-300/80" },
     { id: 3, tag: "Actions", title: "Drag to Delete", description: "Remove unwanted tasks with a simple drag.", image: kb_features_3, tagColor: "text-indigo-300/80" }
   ];
 
@@ -373,7 +374,7 @@ function Login() {
 
           {/* Desktop 3-Grid View */}
           <div className="hidden md:grid grid-cols-3 gap-6 lg:gap-8 w-full mt-12">
-            {/* Card 1 */}
+            {/* Card 1: Drag & Drop Tasks */}
             <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
               ? "bg-white border border-black/10"
               : "glass-effect-1 bg-white/5 border border-white/15"
@@ -382,7 +383,7 @@ function Login() {
               <div
                 className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
                   }`}
-                style={{ backgroundImage: `url(${kb_features_1})` }}
+                style={{ backgroundImage: `url(${kb_features_2})` }}
               />
               {/* Vignette & Gradient for crisp text at bottom */}
               <div
@@ -392,7 +393,7 @@ function Login() {
 
               {/* Floating Smaller Uncropped Image Preview */}
               <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-                <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                <div className={`relative w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
                   }`}>
                   <img src={kb_features_2} alt="Drag & Drop Tasks" className="w-full h-auto block" />
                 </div>
@@ -404,14 +405,14 @@ function Login() {
                   }`}>Action</p>
                 <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
                   }`}>Drag & Drop Tasks</h3>
-                <p className={`text-base font-light md:text-lg  mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+                <p className={`text-base font-light md:text-lg mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
                   }`}>
                   Move tasks effortlessly between workflow stages.
                 </p>
               </div>
             </div>
 
-            {/* Card 2 */}
+            {/* Card 2: Light & Dark Mode */}
             <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
               ? "bg-white border border-black/10"
               : "glass-effect-1 bg-white/5 border border-white/15"
@@ -419,7 +420,7 @@ function Login() {
               <div
                 className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
                   }`}
-                style={{ backgroundImage: `url(${kb_features_2})` }}
+                style={{ backgroundImage: `url(${kb_features_1})` }}
               />
               <div
                 className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
@@ -427,9 +428,22 @@ function Login() {
               />
 
               <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-                <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                <div className={`relative w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
                   }`}>
-                  <img src={kb_features_1} alt="Light & Dark Mode" className="w-full h-auto block" />
+                  {/* Dark Mode Image */}
+                  <img
+                    src={kb_features_1}
+                    alt="Dark Mode"
+                    className={`w-full h-auto block transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                      }`}
+                  />
+                  {/* Light Mode Image */}
+                  <img
+                    src={kb_features_1_light}
+                    alt="Light Mode"
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+                      }`}
+                  />
                 </div>
               </div>
 
@@ -534,13 +548,22 @@ function Login() {
                   />
 
                   <div className="relative z-10 w-full flex justify-center items-center pt-2 pb-4">
-                    <div className={`w-[95%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                    <div className={`relative w-[95%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
                       }`}>
                       <img
                         src={card.image}
                         alt={card.title}
-                        className="w-full h-auto block"
+                        className={`w-full h-auto block transition-opacity duration-500 delay-300 ${card.lightImage && isLightMode ? "opacity-0" : "opacity-100"
+                          }`}
                       />
+                      {card.lightImage && (
+                        <img
+                          src={card.lightImage}
+                          alt={card.title}
+                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+                            }`}
+                        />
+                      )}
                     </div>
                   </div>
 

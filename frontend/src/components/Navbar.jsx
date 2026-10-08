@@ -34,7 +34,7 @@ function Navbar({ className }) {
 
   return (
     <nav
-      className={`login-navbar mt-0 rounded-xl md:mt-4 [.light_&]:!bg-white [.light_&]:rounded-none h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 !fixed px-4 flex items-center justify-between z-50 ${isLoginPage ? "transition-all duration-500 delay-300 ease-out" : "transition-all duration-300 ease-out"
+      className={`login-navbar mt-0 rounded-xl md:mt-4 [.light_&]:!bg-white [.light_&]:rounded-[2px] h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 !fixed px-4 flex items-center justify-between z-50 ${isLoginPage ? "transition-all duration-500 delay-300 ease-out" : "transition-all duration-300 ease-out"
         } ${showNavbar
           ? "translate-y-0 opacity-100 scale-100"
           : "-translate-y-24 opacity-0 scale-95 pointer-events-none"
