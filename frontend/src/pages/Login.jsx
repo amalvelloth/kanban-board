@@ -359,8 +359,7 @@ function Login() {
       {/* Feature Showcase Section */}
       <section className={`w-full min-h-screen px-6 sm:px-8 md:px-12 py-16 flex flex-col justify-start items-center relative z-10 font-rmneue overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
         }`}>
-          <img src={spotlight} className={`absolute -top-10 -left-20 md:-left-28 w-[450px] md:w-[700px] lg:w-[850px] pointer-events-none mix-blend-screen select-none z-0 transition-opacity duration-500 delay-300 ${
-            isLightMode ? "opacity-0" : "opacity-75"
+        <img src={spotlight} className={`absolute -top-10 -left-20 md:-left-28 w-[550px] md:w-[700px] lg:w-[850px] max-w-none pointer-events-none mix-blend-screen select-none z-0 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-75"
           }`} alt="" />
         <div className="w-full max-w-7xl mx-auto flex flex-col items-start">
           <p className={`text-xs uppercase tracking-widest font-semibold mb-4 transition-colors duration-500 delay-300 ${isLightMode ? "text-purple-600" : "text-purple-400"
@@ -374,115 +373,53 @@ function Login() {
 
           {/* Desktop 3-Grid View */}
           <div className="hidden md:grid grid-cols-3 gap-6 lg:gap-8 w-full mt-12">
-          {/* Card 1 */}
-          <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
-            ? "bg-white border border-black/10"
-            : "glass-effect-1 bg-white/5 border border-white/15"
-            }`}>
-            {/* Full Card Blurred Background Image Layer */}
-            <div
-              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
-                }`}
-              style={{ backgroundImage: `url(${kb_features_1})` }}
-            />
-            {/* Vignette & Gradient for crisp text at bottom */}
-            <div
-              className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                }`}
-            />
-
-            {/* Floating Smaller Uncropped Image Preview */}
-            <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
-                }`}>
-                <img src={kb_features_2} alt="Drag & Drop Tasks" className="w-full h-auto block" />
-              </div>
-            </div>
-
-            {/* Bottom Text Content */}
-            <div className="relative z-10 text-left mt-auto">
-              <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-purple-600" : "text-purple-300/80"
-                }`}>Action</p>
-              <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
-                }`}>Drag & Drop Tasks</h3>
-              <p className={`text-base font-light md:text-lg  mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
-                }`}>
-                Move tasks effortlessly between workflow stages.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
-            ? "bg-white border border-black/10"
-            : "glass-effect-1 bg-white/5 border border-white/15"
-            }`}>
-            <div
-              className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
-                }`}
-              style={{ backgroundImage: `url(${kb_features_2})` }}
-            />
-            <div
-              className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                }`}
-            />
-
-            <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-              <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
-                }`}>
-                <img src={kb_features_1} alt="Light & Dark Mode" className="w-full h-auto block" />
-              </div>
-            </div>
-
-            <div className="relative z-10 text-left mt-auto">
-              <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-blue-600" : "text-blue-300/80"
-                }`}>Theme</p>
-              <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
-                }`}>Light & Dark Mode</h3>
-              <p className={`text-base font-light md:text-lg mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
-                }`}>
-                Switch between themes for a comfortable workspace.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="relative">
-            {/* Top Border Light Beam Effect */}
-            <img
-              src={lightBeam}
-              alt="Light Beam"
-              className={`absolute -top-[128px] right-[20%] w-[75px] h-[130px] pointer-events-none mix-blend-screen z-30 select-none object-bottom object-contain transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                }`}
-            />
-
-            {/* Intense Contact Hotspot on Border Rim */}
-            <div
-              className={`absolute -top-[1px] right-[23.5%] w-14 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent blur-[0.5px] pointer-events-none z-30 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                }`}
-            />
-
-            {/* Extended Violet Rim Glow */}
-            <div
-              className={`absolute top-0 right-[12%] w-48 h-[1px] bg-gradient-to-r from-transparent via-purple-400/95 to-transparent pointer-events-none z-20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                }`}
-            />
-
-            {/* Soft Ambient Light Halo */}
-            <div
-              className={`absolute -top-3 right-[20%] w-20 h-10 bg-purple-500/35 blur-md rounded-full pointer-events-none z-10 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                }`}
-            />
-
+            {/* Card 1 */}
             <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
               ? "bg-white border border-black/10"
               : "glass-effect-1 bg-white/5 border border-white/15"
               }`}>
-
+              {/* Full Card Blurred Background Image Layer */}
               <div
                 className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
                   }`}
-                style={{ backgroundImage: `url(${kb_features_3})` }}
+                style={{ backgroundImage: `url(${kb_features_1})` }}
+              />
+              {/* Vignette & Gradient for crisp text at bottom */}
+              <div
+                className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                  }`}
+              />
+
+              {/* Floating Smaller Uncropped Image Preview */}
+              <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
+                <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                  }`}>
+                  <img src={kb_features_2} alt="Drag & Drop Tasks" className="w-full h-auto block" />
+                </div>
+              </div>
+
+              {/* Bottom Text Content */}
+              <div className="relative z-10 text-left mt-auto">
+                <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-purple-600" : "text-purple-300/80"
+                  }`}>Action</p>
+                <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
+                  }`}>Drag & Drop Tasks</h3>
+                <p className={`text-base font-light md:text-lg  mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+                  }`}>
+                  Move tasks effortlessly between workflow stages.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
+              ? "bg-white border border-black/10"
+              : "glass-effect-1 bg-white/5 border border-white/15"
+              }`}>
+              <div
+                className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
+                  }`}
+                style={{ backgroundImage: `url(${kb_features_2})` }}
               />
               <div
                 className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
@@ -492,103 +429,170 @@ function Login() {
               <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
                 <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
                   }`}>
-                  <img src={kb_features_3} alt="Drag to Delete" className="w-full h-auto block" />
+                  <img src={kb_features_1} alt="Light & Dark Mode" className="w-full h-auto block" />
                 </div>
               </div>
 
               <div className="relative z-10 text-left mt-auto">
-                <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-indigo-600" : "text-indigo-300/80"
-                  }`}>Actions</p>
+                <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-blue-600" : "text-blue-300/80"
+                  }`}>Theme</p>
                 <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
-                  }`}>Drag to Delete</h3>
-                <p className={`text-base font-light md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+                  }`}>Light & Dark Mode</h3>
+                <p className={`text-base font-light md:text-lg mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
                   }`}>
-                  Remove unwanted tasks with a simple drag.
+                  Switch between themes for a comfortable workspace.
                 </p>
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* Mobile Carousel View (Smooth sliding + Touch Swipe support) */}
-        <div className="flex md:hidden flex-col items-center w-full mt-8">
-          {/* Scrollable Container with Snap points */}
-          <div
-            ref={carouselRef}
-            className="flex w-full overflow-x-auto snap-x snap-mandatory gap-4 pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-          >
-            {featureCards.map((card) => (
+            {/* Card 3 */}
+            <div className="relative">
+              {/* Unified Light Beam & Glows Container (Change 'right-[22%]' to move entire effect) */}
               <div
-                key={card.id}
-                className={`snap-center shrink-0 w-full relative min-h-[380px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
-                  ? "bg-white border border-black/10"
-                  : "glass-effect-1 bg-white/5 border border-white/15"
+                className={`absolute top-0 right-[22%] pointer-events-none select-none z-30 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
                   }`}
               >
+                {/* Soft Wide Ambient Halo */}
+                <div className="absolute -top-14 -translate-x-1/2 w-[280px] h-36 bg-purple-600/25 blur-2xl rounded-full" />
+
+                {/* Core Diffused Glow */}
+                <div className="absolute -top-8 -translate-x-1/2 w-44 h-16 bg-indigo-500/35 blur-xl rounded-full" />
+
+                {/* Extended Violet Rim Glow */}
+                <div className="absolute top-0 -translate-x-1/2 w-[200px] h-[2px] bg-gradient-to-r from-transparent via-purple-400/95 to-transparent" />
+
+                {/* Intense Contact Hotspot on Border Rim */}
+                <div className="absolute -top-[1px] -translate-x-1/2 w-24 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent blur-[0.5px]" />
+
+                {/* Light Beam Image (Use translate-y-[...px] or -translate-y-[...px] to nudge up/down) */}
+                <img
+                  src={lightBeam}
+                  alt="Light Beam"
+                  className="absolute bottom-0 -translate-x-1/2 translate-y-1 w-[115px] h-[195px] max-w-none mix-blend-screen object-bottom object-contain"
+                />
+              </div>
+
+              <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
+                ? "bg-white border border-black/10"
+                : "glass-effect-1 bg-white/5 border border-white/15"
+                }`}>
+
                 <div
                   className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
                     }`}
-                  style={{ backgroundImage: `url(${card.image})` }}
+                  style={{ backgroundImage: `url(${kb_features_3})` }}
                 />
                 <div
                   className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
                     }`}
                 />
 
-                <div className="relative z-10 w-full flex justify-center items-center pt-2 pb-4">
-                  <div className={`w-[95%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
+                  <div className={`w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
                     }`}>
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="w-full h-auto block"
-                    />
+                    <img src={kb_features_3} alt="Drag to Delete" className="w-full h-auto block" />
                   </div>
                 </div>
 
                 <div className="relative z-10 text-left mt-auto">
-                  <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode
-                    ? card.tag === "Action" ? "text-purple-600" : card.tag === "Theme" ? "text-blue-600" : "text-indigo-600"
-                    : card.tagColor
+                  <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-indigo-600" : "text-indigo-300/80"
+                    }`}>Actions</p>
+                  <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
+                    }`}>Drag to Delete</h3>
+                  <p className={`text-base font-light md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
                     }`}>
-                    {card.tag}
+                    Remove unwanted tasks with a simple drag.
                   </p>
-                  <h3 className={`text-xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
-                    }`}>
-                    {card.title}
-                  </h3>
-                  {card.description && (
-                    <p className={`text-base mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
-                      }`}>
-                      {card.description}
-                    </p>
-                  )}
                 </div>
               </div>
-            ))}
+            </div>
           </div>
 
-          {/* Carousel Navigation Buttons */}
-          <div className="flex items-center gap-4 mt-6">
-            <button
-              onClick={() => scrollCarousel("prev")}
-              aria-label="Previous slide"
-              className="glass-effect-1 w-12 h-12 rounded-full flex items-center justify-center text-white active:scale-95 hover:scale-105 transition-all duration-300 select-none [.light_&]:bg-white/80 [.light_&]:border [.light_&]:border-black/10 [.light_&]:text-gray-800"
+          {/* Mobile Carousel View (Smooth sliding + Touch Swipe support) */}
+          <div className="flex md:hidden flex-col items-center w-full mt-8">
+            {/* Scrollable Container with Snap points */}
+            <div
+              ref={carouselRef}
+              className="flex w-full overflow-x-auto snap-x snap-mandatory gap-4 pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
-              <ChevronLeft className="w-6 h-6 relative z-20" />
-            </button>
+              {featureCards.map((card) => (
+                <div
+                  key={card.id}
+                  className={`snap-center shrink-0 w-full relative min-h-[380px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
+                    ? "bg-white border border-black/10"
+                    : "glass-effect-1 bg-white/5 border border-white/15"
+                    }`}
+                >
+                  <div
+                    className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
+                      }`}
+                    style={{ backgroundImage: `url(${card.image})` }}
+                  />
+                  <div
+                    className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                      }`}
+                  />
 
-            <button
-              onClick={() => scrollCarousel("next")}
-              aria-label="Next slide"
-              className="glass-effect-1 w-12 h-12 rounded-full flex items-center justify-center text-white active:scale-95 hover:scale-105 transition-all duration-300 select-none [.light_&]:bg-white/80 [.light_&]:border [.light_&]:border-black/10 [.light_&]:text-gray-800"
-            >
-              <ChevronRight className="w-6 h-6 relative z-20" />
-            </button>
+                  <div className="relative z-10 w-full flex justify-center items-center pt-2 pb-4">
+                    <div className={`w-[95%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                      }`}>
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full h-auto block"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="relative z-10 text-left mt-auto">
+                    <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode
+                      ? card.tag === "Action" ? "text-purple-600" : card.tag === "Theme" ? "text-blue-600" : "text-indigo-600"
+                      : card.tagColor
+                      }`}>
+                      {card.tag}
+                    </p>
+                    <h3 className={`text-xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
+                      }`}>
+                      {card.title}
+                    </h3>
+                    {card.description && (
+                      <p className={`text-base mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+                        }`}>
+                        {card.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Carousel Navigation Buttons */}
+            <div className="flex items-center gap-4 mt-6">
+              <button
+                onClick={() => scrollCarousel("prev")}
+                aria-label="Previous slide"
+                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none ${isLightMode
+                  ? "bg-white text-gray-800 border border-gray-200/80 shadow-md shadow-black/5 hover:bg-gray-50 hover:text-purple-600"
+                  : "glass-effect-1 text-white border border-white/10 hover:bg-white/10"
+                  }`}
+              >
+                <ChevronLeft className="w-6 h-6 relative z-20" />
+              </button>
+
+              <button
+                onClick={() => scrollCarousel("next")}
+                aria-label="Next slide"
+                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none ${isLightMode
+                  ? "bg-white text-gray-800 border border-gray-200/80 shadow-md shadow-black/5 hover:bg-gray-50 hover:text-purple-600"
+                  : "glass-effect-1 text-white border border-white/10 hover:bg-white/10"
+                  }`}
+              >
+                <ChevronRight className="w-6 h-6 relative z-20" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
 
       {/* Modal for Login */}
