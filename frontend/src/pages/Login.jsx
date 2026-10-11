@@ -264,12 +264,14 @@ function Login() {
       <section className="login-page flex w-full font-rmneue min-h-[120vh] relative overflow-hidden bg-black">
         <DotGrid />
         <div className="relative flex flex-col p-8 w-full min-h-[120vh] max-md:p-2 z-[2]">
-          <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap">
+          <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap pointer-events-none select-none z-[1]">
             <div className="relative select-none opacity-80 text-6xl sm:text-7xl font-bold">
-              <h2 className="bg-gradient-to-r from-black to-[#999999] bg-clip-text text-transparent transition-opacity duration-0 ease-linear delay-300 [.light_&]:opacity-0">
+              {/* Dark Mode: Luminous Aurora Lavender-Purple Gradient */}
+              <h2 className="bg-gradient-to-r from-purple-950/90 via-purple-700/70 to-purple-300/80 bg-clip-text text-transparent transition-opacity duration-500 delay-300 [.light_&]:opacity-0">
                 KANBAN BOARD
               </h2>
-              <h2 className="absolute top-0 left-0 w-full h-full [-webkit-text-stroke:1.5px_#bc90e3] text-purple-900/10 opacity-0 transition-opacity duration-0 ease-linear delay-300 [.light_&]:opacity-100">
+              {/* Light Mode: Subtle Lavender Stroke */}
+              <h2 className="absolute top-0 left-0 w-full h-full [-webkit-text-stroke:1.5px_#bc90e3] text-purple-900/10 opacity-0 transition-opacity duration-500 delay-300 [.light_&]:opacity-100">
                 KANBAN BOARD
               </h2>
             </div>
@@ -418,20 +420,11 @@ function Login() {
                     )}
 
                     <div
-                      className="relative min-h-[420px] h-full rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl"
+                      className={`relative min-h-[420px] h-full rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
+                        ? "bg-white border border-black/10 shadow-sm"
+                        : "glass-effect-1 bg-white/5 border border-white/15 shadow-2xl shadow-black/40"
+                        }`}
                     >
-                      {/* Dark Mode Glass Base Layer */}
-                      <div
-                        className={`absolute inset-0 glass-effect-1 bg-white/5 border border-white/15 shadow-2xl shadow-black/40 rounded-[32px] pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                          }`}
-                      />
-
-                      {/* Light Mode Clean White Base Layer */}
-                      <div
-                        className={`absolute inset-0 bg-white border border-black/10 shadow-sm rounded-[32px] pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
-                          }`}
-                      />
-
                       {/* Blurred Card Background Image Layer */}
                       <div
                         className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
