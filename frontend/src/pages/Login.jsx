@@ -363,11 +363,11 @@ function Login() {
       </section>
 
       {/* Feature Showcase Section */}
-      <section className={`w-full min-h-screen px-6 sm:px-8 md:px-12 py-16 flex flex-col justify-center items-center relative z-10 font-rmneue overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
+      <section className={`w-full min-h-screen px-6 sm:px-8 md:px-12 py-8 flex flex-col justify-center items-center relative z-10 font-rmneue overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
         }`}>
         <img src={spotlight} className={`absolute -top-10 -left-20 md:-left-28 w-[550px] md:w-[700px] lg:w-[850px] max-w-none pointer-events-none mix-blend-screen select-none z-0 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-75"
           }`} alt="" />
-        <div className="w-full max-w-7xl mx-auto flex flex-col items-start">
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-start relative z-40">
           <p className={`text-xs uppercase tracking-widest font-semibold mb-4 transition-colors duration-500 delay-300 ${isLightMode ? "text-purple-600" : "text-purple-400"
             }`}>
             Features
@@ -376,295 +376,129 @@ function Login() {
             }`}>
             Stay Organized. Get Things Done
           </h2>
+        </div>
 
-          {/* Desktop 4-Grid View */}
-          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 w-full mt-12">
-            {/* Card 1: Drag & Drop Tasks */}
-            <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
-              ? "bg-white border border-black/10"
-              : "glass-effect-1 bg-white/5 border border-white/15"
-              }`}>
-              {/* Full Card Blurred Background Image Layer */}
-              <div
-                className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
-                  }`}
-                style={{ backgroundImage: `url(${drag_dark})` }}
-              />
-              {/* Vignette & Gradient for crisp text at bottom */}
-              <div
-                className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                  }`}
-              />
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-start relative z-10">
 
-              {/* Floating Smaller Uncropped Image Preview */}
-              <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-                <div className={`relative w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
-                  }`}>
-                  <img
-                    src={drag_dark}
-                    alt="Drag & Drop Tasks"
-                    className={`w-full h-auto block transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                      }`}
-                  />
-                  <img
-                    src={drag_light}
-                    alt="Drag & Drop Tasks Light"
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
-                      }`}
-                  />
-                </div>
-              </div>
-
-              {/* Bottom Text Content */}
-              <div className="relative z-10 text-left mt-auto">
-                <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-purple-600" : "text-purple-300/80"
-                  }`}>Action</p>
-                <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
-                  }`}>Drag & Drop Tasks</h3>
-                <p className={`text-base font-light md:text-lg mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
-                  }`}>
-                  Move tasks effortlessly between workflow stages.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 2: Light & Dark Mode */}
-            <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
-              ? "bg-white border border-black/10"
-              : "glass-effect-1 bg-white/5 border border-white/15"
-              }`}>
-              <div
-                className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
-                  }`}
-                style={{ backgroundImage: `url(${toggle_dark})` }}
-              />
-              <div
-                className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                  }`}
-              />
-
-              <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-                <div className={`relative w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
-                  }`}>
-                  <img
-                    src={toggle_dark}
-                    alt="Dark Mode"
-                    className={`w-full h-auto block transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                      }`}
-                  />
-                  <img
-                    src={toggle_light}
-                    alt="Light Mode"
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
-                      }`}
-                  />
-                </div>
-              </div>
-
-              <div className="relative z-10 text-left mt-auto">
-                <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-blue-600" : "text-blue-300/80"
-                  }`}>Theme</p>
-                <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
-                  }`}>Light & Dark Mode</h3>
-                <p className={`text-base font-light md:text-lg mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
-                  }`}>
-                  Switch between themes for a comfortable workspace.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 3: Drag to Delete */}
-            <div className="relative">
-              {/* Unified Light Beam & Glows Container */}
-              <div
-                className={`absolute top-0 right-[22%] pointer-events-none select-none z-30 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                  }`}
-              >
-                {/* Soft Wide Ambient Halo */}
-                <div className="absolute -top-14 -translate-x-1/2 w-[280px] h-36 bg-purple-600/25 blur-2xl rounded-full" />
-
-                {/* Core Diffused Glow */}
-                <div className="absolute -top-8 -translate-x-1/2 w-44 h-16 bg-indigo-500/35 blur-xl rounded-full" />
-
-                {/* Extended Violet Rim Glow */}
-                <div className="absolute top-0 -translate-x-1/2 w-[200px] h-[2px] bg-gradient-to-r from-transparent via-purple-400/95 to-transparent" />
-
-                {/* Intense Contact Hotspot on Border Rim */}
-                <div className="absolute -top-[1px] -translate-x-1/2 w-24 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent blur-[0.5px]" />
-
-                {/* Light Beam Image */}
-                <img
-                  src={lightBeam}
-                  alt="Light Beam"
-                  className="absolute bottom-0 -translate-x-1/2 translate-y-1 w-[115px] h-[195px] max-w-none mix-blend-screen object-bottom object-contain"
-                />
-              </div>
-
-              <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
-                ? "bg-white border border-black/10"
-                : "glass-effect-1 bg-white/5 border border-white/15"
-                }`}>
-
-                <div
-                  className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
-                    }`}
-                  style={{ backgroundImage: `url(${trash_dark})` }}
-                />
-                <div
-                  className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                    }`}
-                />
-
-                <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-                  <div className={`relative w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
-                    }`}>
-                    <img
-                      src={trash_dark}
-                      alt="Drag to Delete"
-                      className={`w-full h-auto block transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                        }`}
-                    />
-                    <img
-                      src={trash_light}
-                      alt="Drag to Delete Light"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
-                        }`}
-                    />
-                  </div>
-                </div>
-
-                <div className="relative z-10 text-left mt-auto">
-                  <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-indigo-600" : "text-indigo-300/80"
-                    }`}>Actions</p>
-                  <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
-                    }`}>Drag to Delete</h3>
-                  <p className={`text-base font-light md:text-lg mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
-                    }`}>
-                    Remove unwanted tasks with a simple drag.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 4: Real-time Updates */}
-            <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
-              ? "bg-white border border-black/10"
-              : "glass-effect-1 bg-white/5 border border-white/15"
-              }`}>
-              <div
-                className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
-                  }`}
-                style={{ backgroundImage: `url(${move_dark})` }}
-              />
-              <div
-                className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                  }`}
-              />
-
-              <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
-                <div className={`relative w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
-                  }`}>
-                  <img
-                    src={move_dark}
-                    alt="Real-time Updates"
-                    className={`w-full h-auto block transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                      }`}
-                  />
-                  <img
-                    src={move_light}
-                    alt="Real-time Updates Light"
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
-                      }`}
-                  />
-                </div>
-              </div>
-
-              <div className="relative z-10 text-left mt-auto">
-                <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-emerald-600" : "text-emerald-300/80"
-                  }`}>Feedback</p>
-                <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
-                  }`}>Real-time Updates</h3>
-                <p className={`text-base font-light md:text-lg mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
-                  }`}>
-                  Instant notification popups when tasks move or change.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile Carousel View (Smooth sliding + Touch Swipe support) */}
-          <div className="flex md:hidden flex-col items-center w-full mt-8">
-            {/* Scrollable Container with Snap points */}
+          {/* Sliding Carousel View (Desktop & Mobile) */}
+          <div className="flex flex-col items-center w-full -mt-24 sm:-mt-28 md:-mt-28">
+            {/* Scrollable Slider Container with Snap points and enough top room for light beam */}
             <div
               ref={carouselRef}
-              className="flex w-full overflow-x-auto snap-x snap-mandatory gap-4 pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+              className="flex w-full overflow-x-auto overflow-y-visible snap-x snap-mandatory gap-6 pb-6 pt-40 sm:pt-42 px-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth"
             >
-              {featureCards.map((card) => (
-                <div
-                  key={card.id}
-                  className={`snap-center shrink-0 w-full relative min-h-[380px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
-                    ? "bg-white border border-black/10"
-                    : "glass-effect-1 bg-white/5 border border-white/15"
-                    }`}
-                >
+              {featureCards.map((card) => {
+                const isDeleteCard = card.id === 3;
+                return (
                   <div
-                    className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
-                      }`}
-                    style={{ backgroundImage: `url(${card.image})` }}
-                  />
-                  <div
-                    className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                      }`}
-                  />
+                    key={card.id}
+                    className="relative shrink-0 w-full sm:w-[340px] md:w-[380px] lg:w-[400px] snap-center"
+                  >
+                    {/* Unified Light Beam & Glows Container for Delete Card */}
+                    {isDeleteCard && (
+                      <div
+                        className={`absolute top-0 right-[20%] pointer-events-none select-none z-30 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                          }`}
+                      >
+                        {/* Soft Wide Ambient Halo */}
+                        <div className="absolute -top-14 -translate-x-1/2 w-[260px] h-32 bg-purple-600/25 blur-2xl rounded-full" />
+                        {/* Core Diffused Glow */}
+                        <div className="absolute -top-8 -translate-x-1/2 w-40 h-14 bg-indigo-500/35 blur-xl rounded-full" />
+                        {/* Extended Violet Rim Glow */}
+                        <div className="absolute top-0 -translate-x-1/2 w-[180px] h-[2px] bg-gradient-to-r from-transparent via-purple-400/95 to-transparent" />
+                        {/* Intense Contact Hotspot on Border Rim */}
+                        <div className="absolute -top-[1px] -translate-x-1/2 w-20 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent blur-[0.5px]" />
+                        {/* Light Beam Image */}
+                        <img
+                          src={lightBeam}
+                          alt="Light Beam"
+                          className="absolute bottom-0 -translate-x-1/2 translate-y-[3px] w-[115px] h-[180px] max-w-none mix-blend-screen object-bottom object-contain"
+                        />
+                      </div>
+                    )}
 
-                  <div className="relative z-10 w-full flex justify-center items-center pt-2 pb-4">
-                    <div className={`relative w-[95%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
-                      }`}>
-                      <img
-                        src={card.image}
-                        alt={card.title}
-                        className={`w-full h-auto block transition-opacity duration-500 delay-300 ${card.lightImage && isLightMode ? "opacity-0" : "opacity-100"
+                    <div
+                      className={`relative min-h-[420px] h-full rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
+                        ? "bg-white border border-black/10 shadow-sm"
+                        : "glass-effect-1 bg-white/5 border border-white/15"
+                        }`}
+                    >
+                      {/* Blurred Card Background Image Layer */}
+                      <div
+                        className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
+                          }`}
+                        style={{ backgroundImage: `url(${card.image})` }}
+                      />
+                      {/* Vignette & Gradient for text legibility */}
+                      <div
+                        className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
                           }`}
                       />
-                      {card.lightImage && (
-                        <img
-                          src={card.lightImage}
-                          alt={card.title}
-                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+
+                      {/* Floating Preview Image */}
+                      <div className="relative z-10 w-full flex justify-center items-center pt-2 pb-6">
+                        <div
+                          className={`relative w-[92%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
                             }`}
-                        />
-                      )}
+                        >
+                          <img
+                            src={card.image}
+                            alt={card.title}
+                            className={`w-full h-auto block transition-opacity duration-500 delay-300 ${card.lightImage && isLightMode ? "opacity-0" : "opacity-100"
+                              }`}
+                          />
+                          {card.lightImage && (
+                            <img
+                              src={card.lightImage}
+                              alt={card.title}
+                              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+                                }`}
+                            />
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Card Content & Text */}
+                      <div className="relative z-10 text-left mt-auto">
+                        <p
+                          className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode
+                            ? card.tag === "Action"
+                              ? "text-purple-600"
+                              : card.tag === "Theme"
+                                ? "text-blue-600"
+                                : card.tag === "Feedback"
+                                  ? "text-emerald-600"
+                                  : "text-indigo-600"
+                            : card.tagColor
+                            }`}
+                        >
+                          {card.tag}
+                        </p>
+                        <h3
+                          className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
+                            }`}
+                        >
+                          {card.title}
+                        </h3>
+                        <p
+                          className={`text-base font-light md:text-lg mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+                            }`}
+                        >
+                          {card.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
-
-                  <div className="relative z-10 text-left mt-auto">
-                    <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode
-                      ? card.tag === "Action" ? "text-purple-600" : card.tag === "Theme" ? "text-blue-600" : "text-indigo-600"
-                      : card.tagColor
-                      }`}>
-                      {card.tag}
-                    </p>
-                    <h3 className={`text-xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
-                      }`}>
-                      {card.title}
-                    </h3>
-                    {card.description && (
-                      <p className={`text-base mt-1.5 leading-relaxed transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
-                        }`}>
-                        {card.description}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Carousel Navigation Buttons */}
-            <div className="flex items-center gap-4 mt-6">
+            <div className="flex items-center gap-4">
               <button
                 onClick={() => scrollCarousel("prev")}
                 aria-label="Previous slide"
-                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none ${isLightMode
+                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none cursor-pointer ${isLightMode
                   ? "bg-white text-gray-800 border border-gray-200/80 shadow-md shadow-black/5 hover:bg-gray-50 hover:text-purple-600"
                   : "glass-effect-1 text-white border border-white/10 hover:bg-white/10"
                   }`}
@@ -675,7 +509,7 @@ function Login() {
               <button
                 onClick={() => scrollCarousel("next")}
                 aria-label="Next slide"
-                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none ${isLightMode
+                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none cursor-pointer ${isLightMode
                   ? "bg-white text-gray-800 border border-gray-200/80 shadow-md shadow-black/5 hover:bg-gray-50 hover:text-purple-600"
                   : "glass-effect-1 text-white border border-white/10 hover:bg-white/10"
                   }`}
