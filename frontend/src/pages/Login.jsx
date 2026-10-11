@@ -369,7 +369,7 @@ function Login() {
         }`}>
         <img src={spotlight} className={`absolute -top-10 -left-20 md:-left-28 w-[550px] md:w-[700px] lg:w-[850px] max-w-none pointer-events-none mix-blend-screen select-none z-0 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-75"
           }`} alt="" />
-        <div className="w-full max-w-7xl mx-auto flex flex-col items-start relative z-40">
+        <div className="w-full px-6 max-w-7xl mx-auto flex flex-col items-start relative z-40">
           <p className={`text-xs uppercase tracking-widest font-semibold mb-4 transition-colors duration-500 delay-300 ${isLightMode ? "text-purple-600" : "text-purple-400"
             }`}>
             Features
