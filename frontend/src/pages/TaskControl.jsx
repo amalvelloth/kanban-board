@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
@@ -23,6 +23,7 @@ import {
   useSortable,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { handleSuccess, handleError } from "../utils";
 
 export const TaskControl = () => {
   return (
@@ -39,6 +40,14 @@ const Board = () => {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeCard, setActiveCard] = useState(null);
+  const startColumnRef = useRef(null);
+
+  const coloumnNames = {
+    backlog: "Backlog",
+    todo: "To-Do",
+    doing: "In Progress",
+    done: "Complete",
+  };
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -135,6 +144,7 @@ const Board = () => {
     const { active } = event;
     const card = cards.find((c) => c.id === active.id);
     setActiveCard(card);
+    startColumnRef.current = card?.column;
   };
 
   const handleDragOver = (event) => {
@@ -196,15 +206,23 @@ const Board = () => {
 
       try {
         await deleteCardFromBackend(activeId);
+        handleSuccess("Task deleted")
       } catch (error) {
         console.error("Failed to delete card:", error);
         // We could theoretically revert the state here if the API call fails
+        handleError("Failed to delete Task")
       }
       return;
     }
 
     const card = cards.find((c) => String(c.id) === String(activeId));
     if (card) {
+      // If the card was moved to a different column
+      if (startColumnRef.current && startColumnRef.current !==card.column) {
+        const destName = coloumnNames[card.column] || card.column;
+        handleSuccess(`Task moved to ${destName}`);
+      }
+
       updateCardsOrderInBackend(card).catch((err) =>
         console.error("Failed to update card column:", err)
       );
@@ -507,8 +525,10 @@ const AddCard = ({ column, setCards }) => {
         setCards(normalizedCards);
         setText("");
         setAdding(false);
+        handleSuccess("Task created"); // PopUp Notification
       } else if (data.error) {
         console.error("Error adding card:", data.error);
+        handleError(data.error);
       }
     } catch (error) {
       console.error("Error adding card:", error);

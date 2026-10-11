@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import Logo from '../assets/kanban-board-logo.png'
 import ToggleButton from '../../../frontend/src/components/ToggleButton'
@@ -8,29 +8,47 @@ function Navbar({ className }) {
   const location = useLocation();
   const isLoginPage = location.pathname === '/' || location.pathname === '/login';
   const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollYRef = useRef(0);
+  const scrollTimeOutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
+      // clear any pending timer on every scroll event
+      if (scrollTimeOutRef.current) {
+        clearTimeout(scrollTimeOutRef.current);
+      }
+
       // Always show at the top of the page
       if (currentScrollY <= 20) {
         setShowNavbar(true);
-      } else if (currentScrollY > lastScrollY) {
+      } else if (currentScrollY > lastScrollYRef.current) {
         // Scrolling down -> hide navbar
         setShowNavbar(false);
-      } else if (currentScrollY < lastScrollY) {
+
+        // user stopped scrolling -> reveal navbar after delay (eg. 1000ms)
+        scrollTimeOutRef.current = setTimeout(() => {
+          setShowNavbar(true);
+        }, 1000);
+
+      } else if (currentScrollY < lastScrollYRef.current) {
         // Scrolling up -> show navbar
         setShowNavbar(true);
       }
 
-      setLastScrollY(currentScrollY);
+      lastScrollYRef.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeOutRef.current) {
+        clearTimeout(scrollTimeOutRef.current);
+      }
+    }
+  }, []);
 
   return (
     <nav
