@@ -431,7 +431,7 @@ function Login() {
                       />
                       {/* Vignette & Gradient for text legibility */}
                       <div
-                        className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                        className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/40 to-black/0 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
                           }`}
                       />
 
