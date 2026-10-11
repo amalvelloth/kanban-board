@@ -206,11 +206,11 @@ const Board = () => {
 
       try {
         await deleteCardFromBackend(activeId);
-        handleSuccess("Task deleted")
+        handleThemeToast("Task deleted");
       } catch (error) {
         console.error("Failed to delete card:", error);
         // We could theoretically revert the state here if the API call fails
-        handleError("Failed to delete Task")
+        handleError("Failed to delete Task");
       }
       return;
     }
