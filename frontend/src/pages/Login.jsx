@@ -15,6 +15,8 @@ import toggle_dark from "../assets/features/toggle_dark.png";
 import toggle_light from "../assets/features/toggle_light.png";
 import trash_dark from "../assets/features/trash_dark.png";
 import trash_light from "../assets/features/trash_light.png";
+import move_dark from "../assets/features/move_dark.png";
+import move_light from "../assets/features/move_light.png";
 import lightBeam from "../assets/light-beam.png";
 import Clipboard3D from "../assets/clipboard-3d.png";
 import spotlight from "../assets/spotlight.png";
@@ -29,7 +31,8 @@ function Login() {
   const featureCards = [
     { id: 1, tag: "Action", title: "Drag & Drop Tasks", description: "Move tasks effortlessly between workflow stages.", image: drag_dark, lightImage: drag_light, tagColor: "text-purple-300/80" },
     { id: 2, tag: "Theme", title: "Light & Dark Mode", description: "Switch between themes for a comfortable workspace.", image: toggle_dark, lightImage: toggle_light, tagColor: "text-blue-300/80" },
-    { id: 3, tag: "Actions", title: "Drag to Delete", description: "Remove unwanted tasks with a simple drag.", image: trash_dark, lightImage: trash_light, tagColor: "text-indigo-300/80" }
+    { id: 3, tag: "Actions", title: "Drag to Delete", description: "Remove unwanted tasks with a simple drag.", image: trash_dark, lightImage: trash_light, tagColor: "text-indigo-300/80" },
+    { id: 4, tag: "Feedback", title: "Real-time Updates", description: "Instant notification popups when tasks move or change.", image: move_dark, lightImage: move_light, tagColor: "text-emerald-300/80" }
   ];
 
   // Refs for controlling the background videos & carousel
@@ -374,8 +377,8 @@ function Login() {
             Stay Organized. Get Things Done
           </h2>
 
-          {/* Desktop 3-Grid View */}
-          <div className="hidden md:grid grid-cols-3 gap-6 lg:gap-8 w-full mt-12">
+          {/* Desktop 4-Grid View */}
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 w-full mt-12">
             {/* Card 1: Drag & Drop Tasks */}
             <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
               ? "bg-white border border-black/10"
@@ -540,6 +543,51 @@ function Login() {
                     Remove unwanted tasks with a simple drag.
                   </p>
                 </div>
+              </div>
+            </div>
+
+            {/* Card 4: Real-time Updates */}
+            <div className={`relative min-h-[420px] rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
+              ? "bg-white border border-black/10"
+              : "glass-effect-1 bg-white/5 border border-white/15"
+              }`}>
+              <div
+                className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
+                  }`}
+                style={{ backgroundImage: `url(${move_dark})` }}
+              />
+              <div
+                className={`absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/30 to-black/20 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                  }`}
+              />
+
+              <div className="relative z-10 w-full flex justify-center items-center pt-4 pb-6">
+                <div className={`relative w-[90%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                  }`}>
+                  <img
+                    src={move_dark}
+                    alt="Real-time Updates"
+                    className={`w-full h-auto block transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                      }`}
+                  />
+                  <img
+                    src={move_light}
+                    alt="Real-time Updates Light"
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+                      }`}
+                  />
+                </div>
+              </div>
+
+              <div className="relative z-10 text-left mt-auto">
+                <p className={`text-xs uppercase tracking-wider font-semibold mb-1 transition-colors duration-500 delay-300 ${isLightMode ? "text-emerald-600" : "text-emerald-300/80"
+                  }`}>Feedback</p>
+                <h3 className={`text-2xl font-semibold tracking-tight transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-900" : "text-white"
+                  }`}>Real-time Updates</h3>
+                <p className={`text-base font-light md:text-lg mt-1.5 leading-7 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-600" : "text-white/70"
+                  }`}>
+                  Instant notification popups when tasks move or change.
+                </p>
               </div>
             </div>
           </div>
