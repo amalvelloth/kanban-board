@@ -365,7 +365,7 @@ function Login() {
       </section>
 
       {/* Feature Showcase Section */}
-      <section className={`w-full min-h-screen px-6 sm:px-8 md:px-12 py-8 flex flex-col justify-center items-center relative z-10 font-rmneue overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
+      <section className={`w-full min-h-screen sm:px-8 md:px-12 py-8 flex flex-col justify-center items-center relative z-10 font-rmneue overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
         }`}>
         <img src={spotlight} className={`absolute -top-10 -left-20 md:-left-28 w-[550px] md:w-[700px] lg:w-[850px] max-w-none pointer-events-none mix-blend-screen select-none z-0 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-75"
           }`} alt="" />
@@ -387,7 +387,7 @@ function Login() {
             {/* Scrollable Slider Container with Snap points and enough top room for light beam */}
             <div
               ref={carouselRef}
-              className="flex w-full overflow-x-auto overflow-y-visible snap-x snap-mandatory gap-6 pb-6 pt-40 sm:pt-42 px-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth"
+              className="flex w-full overflow-x-auto overflow-y-visible snap-x snap-mandatory gap-6 pb-6 pt-40 sm:pt-42 px-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth"
             >
               {featureCards.map((card) => {
                 const isDeleteCard = card.id === 3;
