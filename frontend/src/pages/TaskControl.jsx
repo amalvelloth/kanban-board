@@ -23,7 +23,7 @@ import {
   useSortable,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { handleSuccess, handleError } from "../utils";
+import { handleSuccess, handleError, handleThemeToast } from "../utils";
 
 export const TaskControl = () => {
   return (
@@ -220,7 +220,7 @@ const Board = () => {
       // If the card was moved to a different column
       if (startColumnRef.current && startColumnRef.current !==card.column) {
         const destName = coloumnNames[card.column] || card.column;
-        handleSuccess(`Task moved to ${destName}`);
+        handleThemeToast(`Task moved to ${destName}`);
       }
 
       updateCardsOrderInBackend(card).catch((err) =>
