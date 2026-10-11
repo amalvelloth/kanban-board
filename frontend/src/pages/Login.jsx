@@ -445,22 +445,24 @@ function Login() {
                       />
 
                       {/* Floating Preview Image */}
-                      <div className="relative z-10 w-full flex justify-center items-center pt-2 pb-6">
+                      <div className="relative z-10 w-full flex justify-center items-center pt-2 pb-6 select-none">
                         <div
-                          className={`relative w-[92%] rounded-2xl overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
+                          className={`relative w-[92%] rounded-2xl overflow-hidden select-none transition-colors duration-500 delay-300 ${isLightMode ? "border border-black/10 bg-[#f4f4f6]" : "border border-white/20 bg-black/30"
                             }`}
                         >
                           <img
                             src={card.image}
                             alt={card.title}
-                            className={`w-full h-auto block transition-opacity duration-500 delay-300 ${card.lightImage && isLightMode ? "opacity-0" : "opacity-100"
+                            draggable="false"
+                            className={`w-full h-auto block select-none pointer-events-none transition-opacity duration-500 delay-300 ${card.lightImage && isLightMode ? "opacity-0" : "opacity-100"
                               }`}
                           />
                           {card.lightImage && (
                             <img
                               src={card.lightImage}
                               alt={card.title}
-                              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+                              draggable="false"
+                              className={`absolute inset-0 w-full h-full object-cover select-none pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
                                 }`}
                             />
                           )}
@@ -507,23 +509,43 @@ function Login() {
               <button
                 onClick={() => scrollCarousel("prev")}
                 aria-label="Previous slide"
-                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none cursor-pointer ${isLightMode
-                  ? "bg-white text-gray-800 border border-gray-200/80 shadow-md shadow-black/5 hover:bg-gray-50 hover:text-purple-600"
-                  : "glass-effect-1 text-white border border-white/10 hover:bg-white/10"
-                  }`}
+                className="relative w-12 h-12 rounded-full overflow-hidden flex items-center justify-center active:scale-95 hover:scale-105 transition-transform duration-300 select-none cursor-pointer"
               >
-                <ChevronLeft className="w-6 h-6 relative z-20" />
+                {/* Dark Glass Layer */}
+                <div
+                  className={`absolute inset-0 glass-effect-1 border border-white/10 hover:bg-white/10 rounded-full pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                    }`}
+                />
+                {/* Light White Layer */}
+                <div
+                  className={`absolute inset-0 bg-white border border-gray-200/80 shadow-md shadow-black/5 hover:bg-gray-50 rounded-full pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+                    }`}
+                />
+                <ChevronLeft
+                  className={`w-6 h-6 relative z-20 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-800 hover:text-purple-600" : "text-white"
+                    }`}
+                />
               </button>
 
               <button
                 onClick={() => scrollCarousel("next")}
                 aria-label="Next slide"
-                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none cursor-pointer ${isLightMode
-                  ? "bg-white text-gray-800 border border-gray-200/80 shadow-md shadow-black/5 hover:bg-gray-50 hover:text-purple-600"
-                  : "glass-effect-1 text-white border border-white/10 hover:bg-white/10"
-                  }`}
+                className="relative w-12 h-12 rounded-full overflow-hidden flex items-center justify-center active:scale-95 hover:scale-105 transition-transform duration-300 select-none cursor-pointer"
               >
-                <ChevronRight className="w-6 h-6 relative z-20" />
+                {/* Dark Glass Layer */}
+                <div
+                  className={`absolute inset-0 glass-effect-1 border border-white/10 hover:bg-white/10 rounded-full pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                    }`}
+                />
+                {/* Light White Layer */}
+                <div
+                  className={`absolute inset-0 bg-white border border-gray-200/80 shadow-md shadow-black/5 hover:bg-gray-50 rounded-full pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+                    }`}
+                />
+                <ChevronRight
+                  className={`w-6 h-6 relative z-20 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-800 hover:text-purple-600" : "text-white"
+                    }`}
+                />
               </button>
             </div>
           </div>

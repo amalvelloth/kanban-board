@@ -59,9 +59,9 @@ function Navbar({ className }) {
         } ${className}`}
     >
       {/* {<BurgerMenu />} */}
-      <a href="/" class="flex items-center gap-3">
-        <img src={Logo} className='h-6 w-6 md:w-8 md:h-8 z-50' alt="" />
-        <h1 className='text-xs font-carving text-[#b3bdf9] font-semibold md:text-lg z-50'>KANBAN</h1>
+      <a href="/" className="flex items-center gap-3 select-none">
+        <img src={Logo} draggable="false" className='h-6 w-6 md:w-8 md:h-8 z-50 select-none pointer-events-none' alt="" />
+        <h1 className='text-xs font-carving text-[#b3bdf9] font-semibold md:text-lg z-50 select-none'>KANBAN</h1>
       </a>
       {/* <a href="" className="bg-black! border border-white/50 ml-auto px-4 py-2 rounded-xl bg-white text-sm font-medium text-red-400 hover:text-red-700 transition-colors duration-300">
         Logout
