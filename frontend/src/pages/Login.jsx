@@ -418,11 +418,20 @@ function Login() {
                     )}
 
                     <div
-                      className={`relative min-h-[420px] h-full rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
-                        ? "bg-white border border-black/10 shadow-sm"
-                        : "glass-effect-1 bg-white/5 border border-white/15"
-                        }`}
+                      className="relative min-h-[420px] h-full rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl"
                     >
+                      {/* Dark Mode Glass Base Layer */}
+                      <div
+                        className={`absolute inset-0 glass-effect-1 bg-white/5 border border-white/15 shadow-2xl shadow-black/40 rounded-[32px] pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                          }`}
+                      />
+
+                      {/* Light Mode Clean White Base Layer */}
+                      <div
+                        className={`absolute inset-0 bg-white border border-black/10 shadow-sm rounded-[32px] pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
+                          }`}
+                      />
+
                       {/* Blurred Card Background Image Layer */}
                       <div
                         className={`absolute inset-0 bg-cover bg-center blur-2xl scale-125 pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-70"
