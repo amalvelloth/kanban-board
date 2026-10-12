@@ -264,10 +264,10 @@ function Login() {
       <section className="login-page flex w-full font-rmneue min-h-[120vh] relative overflow-hidden bg-black">
         <DotGrid />
         <div className="relative flex flex-col p-8 w-full min-h-[120vh] max-md:p-2 z-[2]">
-          <div className="absolute right-1.5 top-20 -rotate-90 origin-bottom-right whitespace-nowrap pointer-events-none select-none z-[1]">
+          <div className="absolute right-1.5 top-32 sm:top-20 -rotate-90 origin-bottom-right whitespace-nowrap pointer-events-none select-none z-[1]">
             <div className="relative select-none opacity-80 text-6xl sm:text-7xl font-bold">
               {/* Dark Mode: Luminous Aurora Lavender-Purple Gradient */}
-              <h2 className="bg-gradient-to-r from-purple-950/90 via-purple-700/70 to-purple-300/80 bg-clip-text text-transparent transition-opacity duration-500 delay-300 [.light_&]:opacity-0">
+              <h2 className="bg-gradient-to-r from-[#1e0038] to-purple-300/80 bg-clip-text text-transparent transition-opacity duration-500 delay-300 [.light_&]:opacity-0">
                 KANBAN BOARD
               </h2>
               {/* Light Mode: Subtle Lavender Stroke */}
