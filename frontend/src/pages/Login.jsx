@@ -502,43 +502,23 @@ function Login() {
               <button
                 onClick={() => scrollCarousel("prev")}
                 aria-label="Previous slide"
-                className="relative w-12 h-12 rounded-full overflow-hidden flex items-center justify-center active:scale-95 hover:scale-105 transition-transform duration-300 select-none cursor-pointer"
+                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none cursor-pointer ${isLightMode
+                  ? "bg-white/80 hover:bg-white text-gray-800 hover:text-purple-600 border border-black/10 shadow-md backdrop-blur-md"
+                  : "glass-effect-1 bg-white/5 hover:bg-white/10 text-white border border-white/20 hover:border-white/40 shadow-lg shadow-black/40 backdrop-blur-xl"
+                  }`}
               >
-                {/* Dark Glass Layer */}
-                <div
-                  className={`absolute inset-0 glass-effect-1 border border-white/10 hover:bg-white/10 rounded-full pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                    }`}
-                />
-                {/* Light White Layer */}
-                <div
-                  className={`absolute inset-0 bg-white border border-gray-200/80 shadow-md shadow-black/5 hover:bg-gray-50 rounded-full pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
-                    }`}
-                />
-                <ChevronLeft
-                  className={`w-6 h-6 relative z-20 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-800 hover:text-purple-600" : "text-white"
-                    }`}
-                />
+                <ChevronLeft className="w-6 h-6 transition-transform group-hover:-translate-x-0.5" />
               </button>
 
               <button
                 onClick={() => scrollCarousel("next")}
                 aria-label="Next slide"
-                className="relative w-12 h-12 rounded-full overflow-hidden flex items-center justify-center active:scale-95 hover:scale-105 transition-transform duration-300 select-none cursor-pointer"
+                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none cursor-pointer ${isLightMode
+                  ? "bg-white/80 hover:bg-white text-gray-800 hover:text-purple-600 border border-black/10 shadow-md backdrop-blur-md"
+                  : "glass-effect-1 bg-white/5 hover:bg-white/10 text-white border border-white/20 hover:border-white/40 shadow-lg shadow-black/40 backdrop-blur-xl"
+                  }`}
               >
-                {/* Dark Glass Layer */}
-                <div
-                  className={`absolute inset-0 glass-effect-1 border border-white/10 hover:bg-white/10 rounded-full pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
-                    }`}
-                />
-                {/* Light White Layer */}
-                <div
-                  className={`absolute inset-0 bg-white border border-gray-200/80 shadow-md shadow-black/5 hover:bg-gray-50 rounded-full pointer-events-none transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-100" : "opacity-0"
-                    }`}
-                />
-                <ChevronRight
-                  className={`w-6 h-6 relative z-20 transition-colors duration-500 delay-300 ${isLightMode ? "text-gray-800 hover:text-purple-600" : "text-white"
-                    }`}
-                />
+                <ChevronRight className="w-6 h-6 transition-transform group-hover:translate-x-0.5" />
               </button>
             </div>
           </div>
