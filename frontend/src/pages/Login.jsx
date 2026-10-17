@@ -264,7 +264,7 @@ function Login() {
       <section className="login-page flex w-full font-rmneue min-h-[120vh] relative overflow-hidden bg-black">
         <DotGrid />
         <div className="relative flex flex-col p-8 w-full min-h-[120vh] max-md:p-2 z-[2]">
-          <div className="absolute right-1.5 top-32 sm:top-20 -rotate-90 origin-bottom-right whitespace-nowrap pointer-events-none select-none z-[1]">
+          <div className="absolute right-1.5 top-48 sm:top-20 -rotate-90 origin-bottom-right whitespace-nowrap pointer-events-none select-none z-[1]">
             <div className="relative select-none opacity-80 text-6xl sm:text-7xl font-bold">
               {/* Dark Mode: Luminous Aurora Lavender-Purple Gradient */}
               <h2 className="bg-gradient-to-r from-[#1e0038] to-purple-300/80 bg-clip-text text-transparent transition-opacity duration-500 delay-300 [.light_&]:opacity-0">
@@ -277,7 +277,7 @@ function Login() {
             </div>
           </div>
           {/* 3D Clipboard Floating Container */}
-          <div className="absolute top-28 left-0 md:top-20 md:left-14 select-none pointer-events-none w-[130px] sm:w-[170px] md:w-[220px] animate-float aspect-auto !z-[100] -rotate-6">
+          <div className="absolute top-28 left-0 md:top-20 md:left-14 lg:top-36 xl:top-40 select-none pointer-events-none w-[130px] sm:w-[170px] md:w-[220px] animate-float aspect-auto !z-[100] -rotate-6">
             {/* Dark Mode Layer */}
             <img
               src={Clipboard3D}
@@ -291,7 +291,7 @@ function Login() {
               alt="3D Clipboard Light"
             />
           </div>
-          <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-16 max-sm:-me-[20px] md:mt-0 animate-wiggle aspect-square !z-[100] absolute right-0 [.light_&]:invert [.light_&]:grayscale transition-all duration-0 ease-linear delay-300" alt="Jogging" />
+          <img src={Element2} className="select-none pointer-events-none w-[130px] md:w-[190px] mt-64 md:mt-0 lg:mt-36 xl:mt-44 animate-wiggle aspect-square !z-[100] absolute -right-10 md:right-0 lg:right-10 xl:right-14 [.light_&]:invert [.light_&]:grayscale transition-all duration-0 ease-linear delay-300" alt="Jogging" />
           <div className="wrapper pt-20 absolute inset-0 m-auto flex h-fit w-full max-w-5xl flex-col items-start md:items-center justify-center px-6 md:px-2">
             <p className="flex select-none items-center justify-center gap-2 md:gap-3 text-[10px] md:text-[14px] mb-4 md:mb-12 font-medium text-[#bc90e3]">
               <span>PLAN</span>
@@ -312,13 +312,13 @@ function Login() {
             <div className="buttons flex gap-2 sm:gap-4 justify-center">
               <button
                 onClick={openLoginModal}
-                className="select-none rounded-3xl my-5 py-2 sm:px-10 max-sm:px-4 font-normal transition-all duration-0 ease-linear delay-300 text-white glass-effect-1 [.light_&]:bg-[#7B6CD0]"
+                className="select-none cursor-pointer rounded-3xl my-5 py-2 sm:px-10 max-sm:px-4 font-normal active:scale-95 hover:scale-105 transition-all duration-300 text-white glass-effect-1 [.light_&]:bg-[#7B6CD0]"
               >
                 Login
               </button>
               <button
                 onClick={openRegisterModal}
-                className="select-none rounded-3xl my-5 py-2 sm:px-10 max-sm:px-4 font-normal transition-all duration-0 ease-linear delay-300 text-white glass-effect-1 [.light_&]:bg-white [.light_&]:text-[#7B6CD0]"
+                className="select-none cursor-pointer rounded-3xl my-5 py-2 sm:px-10 max-sm:px-4 font-normal active:scale-95 hover:scale-105 transition-all duration-300 text-white glass-effect-1 [.light_&]:bg-white [.light_&]:text-[#7B6CD0]"
               >
                 Sign Up
               </button>
@@ -365,7 +365,7 @@ function Login() {
       </section>
 
       {/* Feature Showcase Section */}
-      <section className={`w-full min-h-screen sm:px-8 md:px-12 py-8 flex flex-col justify-center items-center relative z-10 font-rmneue overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
+      <section className={`login-page w-full min-h-screen sm:px-8 md:px-12 py-8 flex flex-col justify-center items-center relative z-10 font-rmneue overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
         }`}>
         <img src={spotlight} className={`absolute -top-10 -left-20 md:-left-28 w-[550px] md:w-[700px] lg:w-[850px] max-w-none pointer-events-none mix-blend-screen select-none z-0 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-75"
           }`} alt="" />
@@ -399,7 +399,7 @@ function Login() {
                     {/* Unified Light Beam & Glows Container for Delete Card */}
                     {isDeleteCard && (
                       <div
-                        className={`absolute top-0 right-[20%] pointer-events-none select-none z-30 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
+                        className={`absolute top-0 right-[30%] pointer-events-none select-none z-30 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-100"
                           }`}
                       >
                         {/* Soft Wide Ambient Halo */}
@@ -420,10 +420,7 @@ function Login() {
                     )}
 
                     <div
-                      className={`relative min-h-[420px] h-full rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 delay-300 ${isLightMode
-                        ? "bg-white border border-black/10 shadow-sm"
-                        : "glass-effect-1 bg-white/5 border border-white/15 shadow-2xl shadow-black/40"
-                        }`}
+                      className="relative min-h-[420px] h-full rounded-[32px] overflow-hidden flex flex-col justify-between p-6 sm:p-8 backdrop-blur-xl glass-effect-1 bg-white/5 border border-white/15 shadow-none [.light_&]:bg-white [.light_&]:border-black/10 [.light_&]:shadow-sm transition-all duration-500 delay-300"
                     >
                       {/* Blurred Card Background Image Layer */}
                       <div
@@ -502,7 +499,7 @@ function Login() {
               <button
                 onClick={() => scrollCarousel("prev")}
                 aria-label="Previous slide"
-                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none cursor-pointer ${isLightMode
+                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all delay-300 duration-1000 select-none cursor-pointer ${isLightMode
                   ? "bg-white/80 hover:bg-white text-gray-800 hover:text-purple-600 border border-black/10 shadow-md backdrop-blur-md"
                   : "glass-effect-1 bg-white/5 hover:bg-white/10 text-white border border-white/20 hover:border-white/40 shadow-lg shadow-black/40 backdrop-blur-xl"
                   }`}
@@ -513,7 +510,7 @@ function Login() {
               <button
                 onClick={() => scrollCarousel("next")}
                 aria-label="Next slide"
-                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all duration-300 select-none cursor-pointer ${isLightMode
+                className={`w-12 h-12 rounded-full flex items-center justify-center active:scale-95 hover:scale-105 transition-all delay-300 duration-1000 select-none cursor-pointer ${isLightMode
                   ? "bg-white/80 hover:bg-white text-gray-800 hover:text-purple-600 border border-black/10 shadow-md backdrop-blur-md"
                   : "glass-effect-1 bg-white/5 hover:bg-white/10 text-white border border-white/20 hover:border-white/40 shadow-lg shadow-black/40 backdrop-blur-xl"
                   }`}

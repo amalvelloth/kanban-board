@@ -68,11 +68,12 @@ function ConditionalNavbar() {
   const { pathname } = useLocation();
 
   const navbarClasses = {
-    '/login': 'md:bg-white/20 glass-effect-1',
-    '/taskcontrol': 'glass-effect-1 taskcontrol-navbar md:bg-white/10 ![.light_&]:bg-white [.light_&]:border [.light_&]:border-neutral-300',
+    '/login': 'glass-effect-1 border border-white/10 bg-white/[0.07] [.light_&]:!bg-white [.light_&]:border-neutral-300 duration-500 delay-300',
+    '/': 'glass-effect-1 border border-white/10 bg-white/[0.07] [.light_&]:!bg-white [.light_&]:border-neutral-300 duration-500 delay-300',
+    '/taskcontrol': 'glass-effect-1 taskcontrol-navbar border border-white/10 bg-white/[0.05] [.light_&]:!bg-white [.light_&]:border-neutral-300',
   };
 
-  const navbarClass = navbarClasses[pathname] ?? 'bg-white/10  ';
+  const navbarClass = navbarClasses[pathname] ?? 'glass-effect-1 border border-white/10 bg-white/[0.07] [.light_&]:!bg-white [.light_&]:border-neutral-300 duration-500 delay-300';
 
   return <Navbar className={navbarClass} />;
 }
