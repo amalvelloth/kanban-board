@@ -9,29 +9,28 @@ function Navbar({ className }) {
   const isLoginPage = location.pathname === '/' || location.pathname === '/login';
   const [showNavbar, setShowNavbar] = useState(true);
   const lastScrollYRef = useRef(0);
-  const scrollTimeOutRef = useRef(null);
+  const scrollTimeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // clear any pending timer on every scroll event
-      if (scrollTimeOutRef.current) {
-        clearTimeout(scrollTimeOutRef.current);
+      // Clear any existing timer on every scroll event
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
       }
 
       // Always show at the top of the page
       if (currentScrollY <= 20) {
         setShowNavbar(true);
       } else if (currentScrollY > lastScrollYRef.current) {
-        // Scrolling down -> hide navbar
+        // Scrolling down -> hide navbar (animate up)
         setShowNavbar(false);
 
-        // user stopped scrolling -> reveal navbar after delay (eg. 1000ms)
-        scrollTimeOutRef.current = setTimeout(() => {
+        // When scrolling stops, bring the navbar back down
+        scrollTimeoutRef.current = setTimeout(() => {
           setShowNavbar(true);
-        }, 1000);
-
+        }, 800);
       } else if (currentScrollY < lastScrollYRef.current) {
         // Scrolling up -> show navbar
         setShowNavbar(true);
@@ -44,19 +43,18 @@ function Navbar({ className }) {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (scrollTimeOutRef.current) {
-        clearTimeout(scrollTimeOutRef.current);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
       }
-    }
+    };
   }, []);
 
   return (
     <nav
-      className={`${isLoginPage ? 'login-navbar' : ''} mt-0 rounded-xl md:mt-4 [.light_&]:!bg-white [.light_&]:rounded-[2px] h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 !fixed px-4 flex items-center justify-between z-50 transition-all duration-300 ease-out ${
-        showNavbar
-          ? "translate-y-0 opacity-100 scale-100"
-          : "-translate-y-24 opacity-0 scale-95 pointer-events-none"
-      } ${className}`}
+      className={`${isLoginPage ? 'login-navbar' : ''} mt-0 rounded-xl md:mt-4 [.light_&]:!bg-white [.light_&]:rounded-[2px] h-16 w-full md:w-3xl md:mx-auto md:left-0 md:right-0 !fixed px-4 flex items-center justify-between z-50 will-change-transform !transition-all !duration-300 !ease-out ${showNavbar
+        ? "translate-y-0 opacity-100"
+        : "-translate-y-28 opacity-0 pointer-events-none"
+        } ${className}`}
     >
       {/* {<BurgerMenu />} */}
       <a href="/" className="flex items-center gap-3 select-none">
