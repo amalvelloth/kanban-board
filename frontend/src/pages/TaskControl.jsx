@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FiPlus, FiTrash } from "react-icons/fi";
+import { FiPlus, FiTrash, FiRotateCcw, FiRotateCw } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
 import doubleTap from "../assets/icons/double_tap.svg"
@@ -40,7 +40,10 @@ const Board = () => {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeCard, setActiveCard] = useState(null);
+  const [history, setHistory] = useState([]);
+  const [future, setFuture] = useState([]);
   const startColumnRef = useRef(null);
+  const isUndoRedoAction = useRef(false);
 
   const coloumnNames = {
     backlog: "Backlog",
@@ -48,6 +51,69 @@ const Board = () => {
     doing: "In Progress",
     done: "Complete",
   };
+
+  const saveSnapshot = () => {
+    setHistory((prev) => [...prev.slice(-15), JSON.parse(JSON.stringify(cards))]);
+    setFuture([]);
+  };
+
+  const syncStateWithBackend = async (targetCards) => {
+    try {
+      const token = localStorage.getItem("token");
+      // Sync any modified columns with backend
+      for (const card of targetCards) {
+        const currentCard = cards.find((c) => String(c.id) === String(card.id));
+        if (!currentCard || currentCard.column !== card.column || currentCard.title !== card.title) {
+          await updateCardsOrderInBackend(card);
+        }
+      }
+    } catch (err) {
+      console.error("Error syncing undo/redo state with backend:", err);
+    }
+  };
+
+  const handleUndo = () => {
+    if (history.length === 0) return;
+    const previous = history[history.length - 1];
+    setHistory((prev) => prev.slice(0, prev.length - 1));
+    setFuture((prev) => [JSON.parse(JSON.stringify(cards)), ...prev]);
+    isUndoRedoAction.current = true;
+    setCards(previous);
+    syncStateWithBackend(previous);
+    handleThemeToast("Undo performed");
+  };
+
+  const handleRedo = () => {
+    if (future.length === 0) return;
+    const next = future[0];
+    setFuture((prev) => prev.slice(1));
+    setHistory((prev) => [...prev, JSON.parse(JSON.stringify(cards))]);
+    isUndoRedoAction.current = true;
+    setCards(next);
+    syncStateWithBackend(next);
+    handleThemeToast("Redo performed");
+  };
+
+  // Keyboard shortcut listener for Ctrl+Z and Ctrl+Y / Ctrl+Shift+Z
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
+
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z" && !e.shiftKey) {
+        e.preventDefault();
+        handleUndo();
+      } else if (
+        (e.ctrlKey || e.metaKey) &&
+        (e.key.toLowerCase() === "y" || (e.key.toLowerCase() === "z" && e.shiftKey))
+      ) {
+        e.preventDefault();
+        handleRedo();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [history, future, cards]);
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -141,6 +207,7 @@ const Board = () => {
   );
 
   const handleDragStart = (event) => {
+    saveSnapshot();
     const { active } = event;
     const card = cards.find((c) => c.id === active.id);
     setActiveCard(card);
@@ -245,7 +312,49 @@ const Board = () => {
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
     >
-      <div className="relative flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full gap-12 pt-16 pb-1 sm:pt-40">
+      <div className="w-full flex items-center justify-end px-6 sm:px-16 pt-8 pb-0 gap-3 z-[40] max-sm:fixed max-sm:bottom-6 max-sm:right-4 max-sm:w-auto max-sm:p-0">
+        <div className="flex items-center gap-1.5 p-1 rounded-xl glass-effect-1 border border-white/10 [.light_&]:border-black/10 [.light_&]:bg-neutral-100 shadow-2xl backdrop-blur-xl">
+          <button
+            type="button"
+            onClick={handleUndo}
+            disabled={history.length === 0}
+            title="Undo (Ctrl + Z)"
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-200 ${
+              history.length > 0
+                ? "text-neutral-200 [.light_&]:text-neutral-800 hover:bg-white/10 [.light_&]:hover:bg-black/5 cursor-pointer"
+                : "text-neutral-500 [.light_&]:text-neutral-400 opacity-40 cursor-not-allowed"
+            }`}
+          >
+            <FiRotateCcw size={14} />
+            <span>Undo</span>
+            <kbd className="hidden sm:inline-block px-1 py-0.5 text-[10px] rounded bg-white/10 [.light_&]:bg-black/5 font-mono">
+              Ctrl+Z
+            </kbd>
+          </button>
+
+          <div className="w-[1px] h-4 bg-white/10 [.light_&]:bg-black/10" />
+
+          <button
+            type="button"
+            onClick={handleRedo}
+            disabled={future.length === 0}
+            title="Redo (Ctrl + Y)"
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-200 ${
+              future.length > 0
+                ? "text-neutral-200 [.light_&]:text-neutral-800 hover:bg-white/10 [.light_&]:hover:bg-black/5 cursor-pointer"
+                : "text-neutral-500 [.light_&]:text-neutral-400 opacity-40 cursor-not-allowed"
+            }`}
+          >
+            <FiRotateCw size={14} />
+            <span>Redo</span>
+            <kbd className="hidden sm:inline-block px-1 py-0.5 text-[10px] rounded bg-white/10 [.light_&]:bg-black/5 font-mono">
+              Ctrl+Y
+            </kbd>
+          </button>
+        </div>
+      </div>
+
+      <div className="relative flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full gap-12 pt-6 pb-1 sm:pt-16">
         <Column
           title={
             <div className="flex items-center gap-2">
@@ -258,6 +367,7 @@ const Board = () => {
           cards={cards}
           setCards={setCards}
           handleTitleEdit={handleTitleEdit}
+          saveSnapshot={saveSnapshot}
         />
         <Column
           title={
@@ -271,6 +381,7 @@ const Board = () => {
           cards={cards}
           setCards={setCards}
           handleTitleEdit={handleTitleEdit}
+          saveSnapshot={saveSnapshot}
         />
         <Column
           title={
@@ -284,6 +395,7 @@ const Board = () => {
           cards={cards}
           setCards={setCards}
           handleTitleEdit={handleTitleEdit}
+          saveSnapshot={saveSnapshot}
         />
         <Column
           title={
@@ -297,6 +409,7 @@ const Board = () => {
           cards={cards}
           setCards={setCards}
           handleTitleEdit={handleTitleEdit}
+          saveSnapshot={saveSnapshot}
         />
         <BurnBarrel />
       </div>
@@ -307,7 +420,7 @@ const Board = () => {
   );
 };
 
-const Column = ({ title, headingColor, cards, column, setCards, handleTitleEdit }) => {
+const Column = ({ title, headingColor, cards, column, setCards, handleTitleEdit, saveSnapshot }) => {
   const filteredCards = Array.isArray(cards)
     ? cards.filter((c) => c.column === column)
     : [];
@@ -337,7 +450,7 @@ const Column = ({ title, headingColor, cards, column, setCards, handleTitleEdit 
             <SortableCard key={card.id} card={card} handleTitleEdit={handleTitleEdit} />
           ))}
         </SortableContext>
-        <AddCard column={column} setCards={setCards} />
+        <AddCard column={column} setCards={setCards} saveSnapshot={saveSnapshot} />
       </div>
     </div>
   );
@@ -487,7 +600,7 @@ const BurnBarrel = () => {
   );
 };
 
-const AddCard = ({ column, setCards }) => {
+const AddCard = ({ column, setCards, saveSnapshot }) => {
   const [adding, setAdding] = useState(false);
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -495,6 +608,10 @@ const AddCard = ({ column, setCards }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!text.trim().length || loading) return;
+
+    if (saveSnapshot) {
+      saveSnapshot();
+    }
 
     setLoading(true);
 
