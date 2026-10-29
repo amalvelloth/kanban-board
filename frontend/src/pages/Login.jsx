@@ -121,7 +121,10 @@ function Login() {
     }
     try {
       setForgotLoading(true);
-      const url = "https://fitplus-api.vercel.app/auth/forgot-password";
+      const backendUrl = window.location.hostname === "localhost"
+        ? "http://localhost:5001"
+        : "https://fitplus-api.vercel.app";
+      const url = `${backendUrl}/auth/forgot-password`;
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

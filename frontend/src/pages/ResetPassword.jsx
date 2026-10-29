@@ -14,8 +14,13 @@ function ResetPassword() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const isInvalidLink = !token || !email;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isInvalidLink) {
+      return handleError("Invalid or expired reset link. Please request a new one.");
+    }
     if (!newPassword || !confirmPassword) {
       return handleError("All fields are required");
     }
@@ -28,7 +33,10 @@ function ResetPassword() {
 
     try {
       setLoading(true);
-      const response = await fetch("https://fitplus-api.vercel.app/auth/reset-password", {
+      const backendUrl = window.location.hostname === "localhost"
+        ? "http://localhost:5001"
+        : "https://fitplus-api.vercel.app";
+      const response = await fetch(`${backendUrl}/auth/reset-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, token, newPassword }),
@@ -54,9 +62,23 @@ function ResetPassword() {
     <div className="min-h-screen flex items-center justify-center p-4 bg-[#0a0d14] text-white">
       <div className="w-full max-w-md p-8 glass-effect-1 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-2xl">
         <h2 className="text-2xl font-bold text-center mb-2">Reset Password</h2>
-        <p className="text-sm text-center text-neutral-400 mb-6">
-          Enter a new password for <span className="text-blue-400">{email}</span>
-        </p>
+        {isInvalidLink ? (
+          <div className="text-center py-4">
+            <p className="text-sm text-red-400 mb-4">
+              This password reset link is invalid or incomplete.
+            </p>
+            <button
+              onClick={() => navigate("/login")}
+              className="text-sm text-blue-400 underline hover:text-blue-300"
+            >
+              Back to Login
+            </button>
+          </div>
+        ) : (
+          <>
+            <p className="text-sm text-center text-neutral-400 mb-6">
+              Enter a new password for <span className="text-blue-400">{email}</span>
+            </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="relative flex items-center">
@@ -88,18 +110,20 @@ function ResetPassword() {
             />
           </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full py-2.5 mt-2 font-semibold text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition duration-200 flex items-center justify-center"
-          >
-            {loading ? (
-              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-            ) : (
-              "Reset Password"
-            )}
-          </button>
-        </form>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-2.5 mt-2 font-semibold text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition duration-200 flex items-center justify-center"
+            >
+              {loading ? (
+                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              ) : (
+                "Reset Password"
+              )}
+            </button>
+          </form>
+          </>
+        )}
       </div>
     </div>
   );
