@@ -312,7 +312,7 @@ const Board = () => {
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
     >
-      <div className="w-full flex items-center justify-end px-6 sm:px-16 pt-8 pb-0 gap-3 z-[40] max-sm:fixed max-sm:bottom-6 max-sm:right-4 max-sm:w-auto max-sm:p-0">
+      <div className="fixed bottom-6 right-6 max-sm:bottom-4 max-sm:right-4 z-50">
         <div className="flex items-center gap-1.5 p-1 rounded-xl glass-effect-1 border border-white/10 [.light_&]:border-black/10 [.light_&]:bg-neutral-100 shadow-2xl backdrop-blur-xl">
           <button
             type="button"
@@ -354,7 +354,7 @@ const Board = () => {
         </div>
       </div>
 
-      <div className="relative flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full gap-12 pt-6 pb-1 sm:pt-16">
+      <div className="relative flex flex-wrap text-2xl max-sm:text-xl justify-center h-full w-full gap-12 pt-24 sm:pt-28 pb-24">
         <Column
           title={
             <div className="flex items-center gap-2">
