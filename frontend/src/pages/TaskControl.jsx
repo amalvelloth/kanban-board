@@ -312,8 +312,9 @@ const Board = () => {
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
     >
-      <div className="fixed bottom-6 right-6 max-sm:bottom-4 max-sm:right-4 z-50">
-        <div className="flex items-center gap-2 p-1 rounded-xl glass-effect-1 border border-white/10 [.light_&]:border-black/10 [.light_&]:bg-neutral-100 shadow-2xl backdrop-blur-xl">
+      <div className="fixed bottom-6 left-0 right-0 z-50 pointer-events-none px-6 max-sm:bottom-4 max-sm:px-4">
+        <div className="max-w-[1312px] mx-auto flex justify-end">
+          <div className="pointer-events-auto flex items-center gap-2 p-1 rounded-xl glass-effect-1 border border-white/10 [.light_&]:border-black/10 [.light_&]:bg-neutral-100 shadow-2xl backdrop-blur-xl">
           <button
             type="button"
             onClick={handleUndo}
@@ -343,6 +344,7 @@ const Board = () => {
           >
             <FiRotateCw size={14} />
           </button>
+        </div>
         </div>
       </div>
 
