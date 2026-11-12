@@ -326,10 +326,6 @@ const Board = () => {
             }`}
           >
             <FiRotateCcw size={14} />
-            <span>Undo</span>
-            <kbd className="hidden sm:inline-block px-1 py-0.5 text-[10px] rounded bg-white/10 [.light_&]:bg-black/5 font-mono">
-              Ctrl+Z
-            </kbd>
           </button>
 
           <div className="w-[1px] h-4 bg-white/10 [.light_&]:bg-black/10" />
@@ -346,10 +342,6 @@ const Board = () => {
             }`}
           >
             <FiRotateCw size={14} />
-            <span>Redo</span>
-            <kbd className="hidden sm:inline-block px-1 py-0.5 text-[10px] rounded bg-white/10 [.light_&]:bg-black/5 font-mono">
-              Ctrl+Y
-            </kbd>
           </button>
         </div>
       </div>
