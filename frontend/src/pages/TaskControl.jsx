@@ -313,7 +313,7 @@ const Board = () => {
       onDragEnd={handleDragEnd}
     >
       <div className="fixed bottom-6 right-6 max-sm:bottom-4 max-sm:right-4 z-50">
-        <div className="flex items-center gap-1.5 p-1 rounded-xl glass-effect-1 border border-white/10 [.light_&]:border-black/10 [.light_&]:bg-neutral-100 shadow-2xl backdrop-blur-xl">
+        <div className="flex items-center gap-2 p-1 rounded-xl glass-effect-1 border border-white/10 [.light_&]:border-black/10 [.light_&]:bg-neutral-100 shadow-2xl backdrop-blur-xl">
           <button
             type="button"
             onClick={handleUndo}
