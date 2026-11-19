@@ -17,6 +17,8 @@ import trash_dark from "../assets/features/trash_dark.png";
 import trash_light from "../assets/features/trash_light.png";
 import move_dark from "../assets/features/move_dark.png";
 import move_light from "../assets/features/move_light.png";
+import undo_dark from "../assets/features/undo_dark.png";
+import undo_light from "../assets/features/undo_light.png";
 import lightBeam from "../assets/light-beam.png";
 import Clipboard3D from "../assets/clipboard-3d.png";
 import spotlight from "../assets/spotlight.png";
@@ -32,7 +34,8 @@ function Login() {
     { id: 1, tag: "Action", title: "Drag & Drop Tasks", description: "Move tasks effortlessly between workflow stages.", image: drag_dark, lightImage: drag_light, tagColor: "text-purple-300/80" },
     { id: 2, tag: "Theme", title: "Light & Dark Mode", description: "Switch between themes for a comfortable workspace.", image: toggle_dark, lightImage: toggle_light, tagColor: "text-blue-300/80" },
     { id: 3, tag: "Actions", title: "Drag to Delete", description: "Remove unwanted tasks with a simple drag.", image: trash_dark, lightImage: trash_light, tagColor: "text-indigo-300/80" },
-    { id: 4, tag: "Feedback", title: "Real-time Updates", description: "Instant notification popups when tasks move or change.", image: move_dark, lightImage: move_light, tagColor: "text-emerald-300/80" }
+    { id: 4, tag: "Feedback", title: "Real-time Updates", description: "Instant notification popups when tasks move or change.", image: move_dark, lightImage: move_light, tagColor: "text-emerald-300/80" },
+    { id: 5, tag: "History", title: "Undo & Redo", description: "Restore previous board states or revert mistakes with a single click.", image: undo_dark, lightImage: undo_light, tagColor: "text-amber-300/80" }
   ];
 
   // Refs for controlling the background videos & carousel
