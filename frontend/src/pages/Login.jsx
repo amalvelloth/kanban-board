@@ -371,7 +371,7 @@ function Login() {
       </section>
 
       {/* Feature Showcase Section */}
-      <section className={`login-page w-full min-h-screen sm:px-8 md:px-12 py-8 flex flex-col justify-center items-center relative z-10 font-rmneue overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
+      <section className={`login-page select-none w-full min-h-screen sm:px-8 md:px-12 py-8 flex flex-col justify-center items-center relative z-10 font-rmneue overflow-hidden transition-colors duration-500 delay-300 ${isLightMode ? "bg-[#f8f9fc] text-gray-900" : "bg-black text-white"
         }`}>
         <img src={spotlight} className={`absolute -top-10 -left-20 md:-left-28 w-[550px] md:w-[700px] lg:w-[850px] max-w-none pointer-events-none mix-blend-screen select-none z-0 transition-opacity duration-500 delay-300 ${isLightMode ? "opacity-0" : "opacity-75"
           }`} alt="" />
@@ -597,7 +597,7 @@ function Login() {
         <button
           type="button"
           onClick={openForgotModal}
-          className="text-[#C4B5FD] text-sm block mx-auto mt-4 hover:text-white transition duration-300"
+          className="text-[#C4B5FD] cursor-pointer text-sm block mx-auto mt-4 hover:text-white transition duration-300"
         >
           Forgot Password
         </button>
